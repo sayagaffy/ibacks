@@ -1,0 +1,168 @@
+$ next dev
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 519ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+
+○ Compiling / ...
+⨯ ./src/components/ui/Accordion.tsx:1:17
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[31m[1m>[0m [90m1 |[0m [36mimport[0m [33mReact[0m, { useState } [36mfrom[0m [32m'react'[0m;
+  [90m  |[0m                 [31m[1m^^^^^^^^[0m
+  [90m2 |[0m
+  [90m3 |[0m [36mexport[0m [36minterface[0m [33mAccordionProps[0m {
+  [90m4 |[0m   title: string;
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/components/ui/Accordion.tsx
+    ./src/app/page.tsx
+
+
+ GET / 500 in 6.2s (next.js: 5.9s, application-code: 295ms)
+[browser] Uncaught Error: ./src/components/ui/Accordion.tsx:1:17
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import React, { useState } from 'react';
+    |                 ^^^^^^^^
+  2 |
+  3 | export interface AccordionProps {
+  4 |   title: string;
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/components/ui/Accordion.tsx
+    ./src/app/page.tsx
+
+
+    at <unknown> (Error: ./src/components/ui/Accordion.tsx:1:17)
+    at <unknown> (Error: (./src/components/ui/Accordion.tsx:1:17)
+[browser] ./src/components/ui/Accordion.tsx:1:17
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import React, { useState } from 'react';
+    |                 ^^^^^^^^
+  2 |
+  3 | export interface AccordionProps {
+  4 |   title: string;
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/components/ui/Accordion.tsx
+    ./src/app/page.tsx
+[browser] ./src/components/ui/Accordion.tsx:1:17
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import React, { useState } from 'react';
+    |                 ^^^^^^^^
+  2 |
+  3 | export interface AccordionProps {
+  4 |   title: string;
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/components/ui/Accordion.tsx
+    ./src/app/page.tsx
+[browser] ./src/components/ui/Accordion.tsx:1:17
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import React, { useState } from 'react';
+    |                 ^^^^^^^^
+  2 |
+  3 | export interface AccordionProps {
+  4 |   title: string;
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/components/ui/Accordion.tsx
+    ./src/app/page.tsx
+[browser] ./src/components/ui/Accordion.tsx:1:17
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import React, { useState } from 'react';
+    |                 ^^^^^^^^
+  2 |
+  3 | export interface AccordionProps {
+  4 |   title: string;
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/components/ui/Accordion.tsx
+    ./src/app/page.tsx
+✓ Compiled in 119ms
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button className=... onClick={function onAddToCart} disabled=... children=...>
+                                ^^^^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '2993460234'
+}
+ GET / 500 in 1206ms (next.js: 312ms, application-code: 894ms)
+[browser] Uncaught Error: Event handlers cannot be passed to Client Component props.
+  <button className=... onClick={function onAddToCart} disabled=... children=...>
+                                ^^^^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at Home (src/app/page.tsx:47:7)
+  45 |       </main>
+  46 |
+> 47 |       <AddToCartButton
+     |       ^
+  48 |         price="Rp 299.000"
+  49 |         onAddToCart={() => console.log('Added')}
+  50 |       />
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button className=... onClick={function onAddToCart} disabled=... children=...>
+                                ^^^^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '2993460234'
+}
+ GET / 500 in 643ms (next.js: 10ms, application-code: 632ms)
+[browser] Uncaught Error: Event handlers cannot be passed to Client Component props.
+  <button className=... onClick={function onAddToCart} disabled=... children=...>
+                                ^^^^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at Home (src/app/page.tsx:47:7)
+  45 |       </main>
+  46 |
+> 47 |       <AddToCartButton
+     |       ^
+  48 |         price="Rp 299.000"
+  49 |         onAddToCart={() => console.log('Added')}
+  50 |       />
+✓ Compiled in 103ms
+ GET / 200 in 295ms (next.js: 134ms, application-code: 162ms)
+ GET / 200 in 121ms (next.js: 6ms, application-code: 115ms)
+ GET / 200 in 55ms (next.js: 3ms, application-code: 51ms)
