@@ -16,7 +16,7 @@ export const Accordion: React.FC<AccordionProps> = ({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-b border-surface-variant/50 w-full">
+    <div className="surface-border border-b w-full">
       <button
         type="button"
         className="w-full py-4 flex justify-between items-center text-left focus:outline-none"
