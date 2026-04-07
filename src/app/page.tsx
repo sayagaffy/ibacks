@@ -12,7 +12,7 @@ export default async function Home() {
   // Parallel fetching from CMS & WMS
   const [heroBanners, productsResponse] = await Promise.all([
     getHeroBanners().catch(() => []),
-    jubelio.get<any>('/inventory/items', { limit: '8' }).catch(() => ({ data: [] }))
+    jubelio.get<any>('/inventory/items/').catch(() => ({ data: [], totalCount: 0 }))
   ]);
 
   // Fallback if CMS fails/empty
@@ -24,7 +24,7 @@ export default async function Home() {
     ctaLink: "#products"
   };
 
-  const products = productsResponse?.data || [];
+  const products = (productsResponse?.data || []).slice(0, 8);
 
   return (
     <div className="min-h-screen bg-background pb-32 flex flex-col">
@@ -79,20 +79,23 @@ export default async function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {products.length > 0 ? (
-              products.map((p: any) => (
-                <Link key={p.item_id} href={`/products/${p.item_id}`}>
-                  <ProductCard
-                    name={p.item_name}
-                    price={`Rp ${p.price?.toLocaleString('id-ID') || "299.000"}`}
-                    imageSrc={p.image_url || "https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800"}
-                    category={p.item_group_name || 'Accessories'}
-                  />
-                </Link>
-              ))
+              products.map((p: any) => {
+                const price = parseFloat(p.sell_price) || p.variants?.[0]?.sell_price || 0;
+                const image = p.thumbnail || p.variants?.find((v: any) => v.thumbnail)?.thumbnail || 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800';
+                return (
+                  <Link key={p.item_group_id} href={`/products/${p.item_group_id}`}>
+                    <ProductCard
+                      name={p.item_name}
+                      price={price > 0 ? `Rp ${price.toLocaleString('id-ID')}` : 'Hubungi Kami'}
+                      imageSrc={image}
+                      category={p.item_group_name || 'Aksesoris'}
+                    />
+                  </Link>
+                );
+              })
             ) : (
-              // Fake skeleton/placeholders for now if Jubelio WMS config is empty
               Array.from({length: 4}).map((_, i) => (
-                <Link key={i} href={`/products/mock-id-${i}`}>
+                <Link key={i} href={`/search`}>
                   <ProductCard
                     name={`iBacks High-End Case Series ${i+1}`}
                     price="Rp 299.000"

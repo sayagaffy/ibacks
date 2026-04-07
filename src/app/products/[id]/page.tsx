@@ -1,90 +1,92 @@
+import { getProducts } from '@/lib/product-cache';
 import { Header } from '@/components/ui/Header';
 import { Accordion } from '@/components/ui/Accordion';
-import { AddToCartButton } from '@/components/ui/AddToCartButton';
-import { jubelio } from '@/lib/jubelio-adapter/client';
+import { ProductDetailClient } from '@/components/ui/ProductDetailClient';
 
-export const revalidate = 3600; // 1 hour caching per detail item
+export const revalidate = 3600;
 
-export default async function ProductDetailPage({ params }: { params: { id: string } }) {
-  let product: any = null;
-  
-  try {
-    // Fetch product detail from Jubelio using adapter
-    const response = await jubelio.get<any>(`/inventory/items/${params.id}`);
-    product = response?.data;
-  } catch (err) {
-    console.error("Failed to fetch product from Jubelio", err);
-  }
+const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=1200&auto=format&fit=crop';
 
-  // Backup mock for demonstration if API isn't live yet
-  const item = product || {
-    item_id: params.id,
-    item_name: "iBacks Precision Glass Elite 3D",
-    item_group_name: "Essential Screen Protector",
-    price: 350000,
-    description: "Pelindung layar ultra tipis generasi terbaru dengan transmisi optik 99%. Memberikan sensasi sentuh halus seakan tidak memakai pelindung.",
-    image_url: "https://images.unsplash.com/photo-1558562805-4bf628073aef?q=80&w=1200",
-  };
+const CATEGORY_NAME_MAP: Record<number, string> = {
+  12642: 'Screen Protector',
+  5524: 'Casing',
+  12644: 'Aksesoris',
+  7423: 'Kabel & Charger',
+  5521: 'Audio',
+  7426: 'Powerbank',
+  7413: 'Earphone',
+  18940: 'Teknologi',
+  7410: 'Gaming',
+  12649: 'Lainnya',
+};
+
+export default async function ProductDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const cache = await getProducts();
+  const product = cache.products.find((p) => String(p.id) === String(id));
+
+  const displayItem = product
+    ? {
+        id: product.id,
+        name: product.name,
+        category: product.categoryId
+          ? CATEGORY_NAME_MAP[product.categoryId] || 'Aksesoris'
+          : 'Aksesoris',
+        price: product.price,
+        image: product.thumbnail || PLACEHOLDER_IMAGE,
+        description: `Produk ${product.name} dari iBacks. Tersedia dalam ${product.variants?.length || 1} varian.`,
+        variants: (product.variants || []).map((v, i) => ({
+          id: v.id,
+          // Generate a readable display label from SKU suffix or index
+          name: `Varian ${i + 1}`,
+          sku: v.sku,
+          price: v.price || product.price,
+          thumbnail: v.thumbnail || null,
+        })),
+      }
+    : {
+        id: 0,
+        name: 'iBacks Precision Glass Elite 3D',
+        category: 'Screen Protector',
+        price: 350000,
+        image: PLACEHOLDER_IMAGE,
+        description: 'Pelindung layar ultra tipis generasi terbaru dengan transmisi optik 99%.',
+        variants: [],
+      };
 
   return (
     <div className="min-h-screen bg-background pb-36 flex flex-col">
       <Header title="Detail Produk" />
 
       <main className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-8 lg:gap-16 p-4 mt-4">
-        
-        {/* Left Side: Product Image Showcase */}
-        <div className="w-full md:w-1/2 flex flex-col gap-4">
-          <div className="bg-surface-container-low rounded-4xl aspect-4/5 md:aspect-square flex justify-center items-center overflow-hidden ambient-shadow">
-            <img 
-              src={item.image_url} 
-              alt={item.item_name} 
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]" 
-            />
-          </div>
-        </div>
-
-        {/* Right Side: Product Details & Context */}
-        <div className="w-full md:w-1/2 flex flex-col pt-4 md:pt-8 gap-6">
-          <div className="flex flex-col gap-2 border-b surface-border pb-6">
-            <span className="text-sm font-bold tracking-[0.2em] text-primary uppercase">
-              {item.item_group_name}
-            </span>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-on-surface leading-tight">
-              {item.item_name}
-            </h1>
-            <p className="text-on-surface-variant text-base leading-relaxed mt-2">
-              {item.description}
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-0 mt-4">
-            <Accordion title="Komposisi & Material" defaultOpen>
-              <p className="leading-relaxed">Pemrosesan Asimetris 5-Lapis, Kaca Safir Sintetis ringan, Tahan Benturan dan Goresan (Skala 9H+).</p>
-            </Accordion>
-            <Accordion title="Cara Instalasi">
-              <ol className="list-decimal pl-4 flex flex-col gap-2">
-                <li>Bersihkan layar dari debu menggunakan tisu basah yang disediakan.</li>
-                <li>Gunakan stiker debu untuk kotoran mikro.</li>
-                <li>Selaraskan dari ujung atas, biarkan silikon otomatis menyebar.</li>
-              </ol>
-            </Accordion>
-            <Accordion title="Garansi">
-              <p>Pengembalian 30 Hari & Klaim Kecacatan Produksi 1 Tahun.</p>
-            </Accordion>
-          </div>
-        </div>
+        {/* Client component handles interactivity: image switcher, variant picker, add to cart */}
+        <ProductDetailClient item={displayItem} placeholderImage={PLACEHOLDER_IMAGE} />
       </main>
 
-      {/* Persistent Bottom Bar Action */}
-      <AddToCartButton 
-        price={`Rp ${item.price.toLocaleString('id-ID')}`}
-        item={{
-          id: item.item_id,
-          name: item.item_name,
-          rawPrice: item.price,
-          image: item.image_url
-        }}
-      />
+      {/* Static accordions stay as Server Component */}
+      <div className="w-full max-w-5xl mx-auto px-4 pb-4">
+        <Accordion title="Komposisi & Material" defaultOpen>
+          <p className="leading-relaxed text-on-surface-variant">
+            Pemrosesan Asimetris 5-Lapis, Kaca Safir Sintetis ringan, Tahan Benturan dan Goresan (Skala 9H+).
+          </p>
+        </Accordion>
+        <Accordion title="Cara Instalasi">
+          <ol className="list-decimal pl-4 flex flex-col gap-2 text-on-surface-variant">
+            <li>Bersihkan layar dari debu menggunakan tisu basah yang disediakan.</li>
+            <li>Gunakan stiker debu untuk kotoran mikro.</li>
+            <li>Selaraskan dari ujung atas, biarkan silikon otomatis menyebar.</li>
+          </ol>
+        </Accordion>
+        <Accordion title="Garansi">
+          <p className="text-on-surface-variant">
+            Pengembalian 30 Hari &amp; Klaim Kecacatan Produksi 1 Tahun.
+          </p>
+        </Accordion>
+      </div>
     </div>
   );
 }
