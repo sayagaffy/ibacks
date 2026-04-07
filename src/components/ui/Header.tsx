@@ -25,7 +25,10 @@ export const Header: React.FC<HeaderProps> = ({
   const user = useAuthStore((state) => state.user);
   
   useEffect(() => {
-    setMounted(true);
+    // Avoid synchronous set state warning by wrapping in setTimeout or queueMicrotask
+    queueMicrotask(() => {
+      setMounted(true);
+    });
   }, []);
 
   const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
@@ -46,9 +49,17 @@ export const Header: React.FC<HeaderProps> = ({
               </svg>
             </button>
           )}
-          <h1 className="text-xl font-bold tracking-tight bg-linear-to-r from-white to-neutral-400 bg-clip-text text-transparent line-clamp-1 max-w-[200px] md:max-w-none">
-            {title}
-          </h1>
+          {title === 'ibacks' ? (
+             <Link href="/">
+               {/* Using CSS filter invert to make the black logo white in dark mode */}
+               {/* eslint-disable-next-line @next/next/no-img-element */}
+               <img src="/logo.png" alt="iBacks Logo" className="h-5 md:h-6 object-contain invert brightness-0 dark:invert" />
+             </Link>
+          ) : (
+            <h1 className="text-xl font-bold tracking-tight bg-linear-to-r from-white to-neutral-400 bg-clip-text text-transparent line-clamp-1 max-w-[200px] md:max-w-none">
+              {title}
+            </h1>
+          )}
         </div>
 
         {/* Desktop Navigation */}
