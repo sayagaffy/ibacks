@@ -66,32 +66,75 @@ export async function syncProductsFromJubelio(): Promise<ProductCache> {
   console.log('[ProductCache] Fetching all products from Jubelio API...');
   const startTime = Date.now();
 
-  const response = await jubelio.get<{ data: any[]; totalCount: number }>('/inventory/items/');
-  const rawProducts = response?.data || [];
+  const [itemsResponse, promosResponse] = await Promise.all([
+    jubelio.get<{ data: Record<string, unknown>[]; totalCount: number }>('/inventory/items/').catch(() => ({ data: [], totalCount: 0 })),
+    jubelio.get<{ data: Record<string, unknown>[] }>('/inventory/promotions/?page=1&pageSize=50').catch(() => ({ data: [] }))
+  ]);
+
+  const rawProducts = itemsResponse?.data || [];
+  const rawPromos = promosResponse?.data || [];
+
+  const now = new Date();
+
+  // Create a map of active promotion variant IDs to their promo prices
+  const activePromosMap = new Map<number, number>();
+
+  rawPromos.forEach((promo: Record<string, unknown>) => {
+    // Check if promo is active based on dates
+    const startDate = new Date(promo.start_date as string);
+    const endDate = new Date(promo.end_date as string);
+
+    if (now >= startDate && now <= endDate && Array.isArray(promo.details)) {
+      promo.details.forEach((detail: Record<string, unknown>) => {
+        if (typeof detail.item_id === 'number' && detail.promotion_price) {
+          activePromosMap.set(detail.item_id, parseFloat(detail.promotion_price as string));
+        }
+      });
+    }
+  });
 
   // Note: we'll fetch full descriptions lazily when PDP is accessed, OR we could fetch them here
   // but fetching 1200+ descriptions one-by-one would be too slow. We'll leave `description` undefined
   // in the bulk cache and fetch it on-demand in a separate function.
 
-  const products: CachedProduct[] = rawProducts.map((p: any) => {
-    const basePrice = parseFloat(p.sell_price) || 0;
-    const variants = (p.variants || []).map((v: any) => ({
-      id: v.item_id,
-      name: v.item_name,
-      price: v.sell_price || basePrice,
-      sku: v.item_code || '',
-      thumbnail: v.thumbnail || null,
-    }));
+  const products: CachedProduct[] = rawProducts.map((p: Record<string, unknown>) => {
+    const basePrice = parseFloat(p.sell_price as string) || 0;
+    let isPromo = false;
+    let promoPrice = 0;
 
-    const price = basePrice || variants[0]?.price || 0;
-    const thumbnail = p.thumbnail || variants.find((v: any) => v.thumbnail)?.thumbnail || null;
+    const variants = ((p.variants as Record<string, unknown>[]) || []).map((v: Record<string, unknown>) => {
+      let vPrice = parseFloat(v.sell_price as string) || basePrice;
+
+      // Check if this variant is on promotion
+      if (typeof v.item_id === 'number' && activePromosMap.has(v.item_id)) {
+        isPromo = true;
+        vPrice = activePromosMap.get(v.item_id)!;
+        // Keep the lowest promo price for the base product if there are multiple variants on promo
+        if (promoPrice === 0 || vPrice < promoPrice) {
+          promoPrice = vPrice;
+        }
+      }
+
+      return {
+        id: v.item_id as number,
+        name: v.item_name as string,
+        price: vPrice,
+        sku: (v.item_code as string) || '',
+        thumbnail: (v.thumbnail as string) || null,
+      };
+    });
+
+    const regularPrice = basePrice || variants[0]?.price || 0;
+    const price = isPromo ? promoPrice : regularPrice;
+    const thumbnail = (p.thumbnail as string) || variants.find((v: Record<string, unknown>) => v.thumbnail)?.thumbnail || null;
 
     return {
-      id: p.item_group_id,
-      name: p.item_name,
+      id: p.item_group_id as number,
+      name: p.item_name as string,
       price,
-      thumbnail,
-      categoryId: p.item_category_id || null,
+      ...(isPromo ? { isPromo: true, originalPrice: regularPrice } : {}),
+      thumbnail: thumbnail as string | null,
+      categoryId: (p.item_category_id as number) || null,
       variants,
     };
   });
@@ -135,7 +178,7 @@ export async function getProducts(): Promise<ProductCache> {
 export async function getProductDetailWithDescription(itemId: number): Promise<CachedProduct | null> {
   // We don't cache this on disk yet, it's fetched per PDP load (handled by Next.js Data Cache)
   try {
-    const itemData = await jubelio.get<any>(`/inventory/items/${itemId}`);
+    const itemData = await jubelio.get<Record<string, unknown>>(`/inventory/items/${itemId}`);
 
     // We try to find the base product from cache
     const cache = await getProducts();
@@ -152,7 +195,7 @@ export async function getProductDetailWithDescription(itemId: number): Promise<C
     // Create a new object to avoid mutating the cache
     return {
       ...baseProduct,
-      description: itemData.description || null,
+      description: (itemData.description as string) || null,
     };
   } catch (error) {
     console.error(`[ProductCache] Error fetching detail for ${itemId}:`, error);

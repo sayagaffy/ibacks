@@ -3,7 +3,7 @@ import { HeroBanner } from '@/components/ui/HeroBanner';
 import { PromoSlider, PromoProduct } from '@/components/ui/PromoSlider';
 import { ProductCard } from '@/components/ui/ProductCard';
 import { getHeroBanners } from '@/lib/sanity-client';
-import { jubelio } from '@/lib/jubelio-adapter/client';
+import { getProducts } from '@/lib/product-cache';
 import Link from 'next/link';
 
 // Opt out of caching if you want highly dynamic data, but for e-commerce catalog, ISR is better.
@@ -11,9 +11,9 @@ export const revalidate = 3600; // 1 hour
 
 export default async function Home() {
   // Parallel fetching from CMS & WMS
-  const [heroBanners, productsResponse] = await Promise.all([
+  const [heroBanners, productsCache] = await Promise.all([
     getHeroBanners().catch(() => []),
-    jubelio.get<any>('/inventory/items/').catch(() => ({ data: [], totalCount: 0 }))
+    getProducts().catch(() => ({ products: [], totalCount: 0, syncedAt: '' }))
   ]);
 
   // Fallback if CMS fails/empty
@@ -25,23 +25,20 @@ export default async function Home() {
     ctaLink: "#products"
   };
 
-  const rawProducts = productsResponse?.data || [];
-  const products = rawProducts.slice(0, 8);
+  const allProducts = productsCache?.products || [];
+  const products = allProducts.slice(0, 8);
 
-  // Create mock promo products (in reality, this would come from a CMS flag or WMS promo endpoint)
-  const promoProducts: PromoProduct[] = rawProducts.slice(8, 12).map((p: any) => {
-    const originalPrice = parseFloat(p.sell_price) || 0;
-    const price = originalPrice * 0.8;
-    const image = p.thumbnail || p.variants?.find((v: any) => v.thumbnail)?.thumbnail || 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800';
-    return {
-      id: p.item_group_id,
-      name: p.item_name,
-      category: p.item_group_name || 'Aksesoris',
-      price: price,
-      originalPrice: originalPrice,
-      image: image,
-    };
-  });
+  const promoProducts: PromoProduct[] = allProducts
+    .filter((p) => p.isPromo)
+    .slice(0, 10)
+    .map((p) => ({
+      id: p.id,
+      name: p.name,
+      category: p.categoryId === 12642 ? 'Screen Protector' : 'Aksesoris', // Basic mapping fallback
+      price: p.price,
+      originalPrice: p.originalPrice || p.price,
+      image: p.thumbnail || 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800',
+    }));
 
   return (
     <div className="min-h-screen bg-background pb-32 flex flex-col">
@@ -108,20 +105,16 @@ export default async function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {products.length > 0 ? (
-              products.map((p: any) => {
-                const price = parseFloat(p.sell_price) || p.variants?.[0]?.sell_price || 0;
-                const image = p.thumbnail || p.variants?.find((v: any) => v.thumbnail)?.thumbnail || 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800';
-                return (
-                  <Link key={p.item_group_id} href={`/products/${p.item_group_id}`}>
+              products.map((p) => (
+                  <Link key={p.id} href={`/products/${p.id}`}>
                     <ProductCard
-                      name={p.item_name}
-                      price={price > 0 ? `Rp ${price.toLocaleString('id-ID')}` : 'Hubungi Kami'}
-                      imageSrc={image}
-                      category={p.item_group_name || 'Aksesoris'}
+                      name={p.name}
+                      price={p.price > 0 ? `Rp ${p.price.toLocaleString('id-ID')}` : 'Hubungi Kami'}
+                      imageSrc={p.thumbnail || 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800'}
+                      category={p.categoryId === 12642 ? 'Screen Protector' : 'Aksesoris'}
                     />
                   </Link>
-                );
-              })
+                ))
             ) : (
               Array.from({length: 4}).map((_, i) => (
                 <Link key={i} href={`/search`}>
