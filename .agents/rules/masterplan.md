@@ -49,3 +49,19 @@ Menyelesaikan alur keranjang belanja interaktif dan serah terima informasi pemba
 ## Tahap 6: Pengguna & Autentikasi Pelanggan (My Account)
 Pengelolaan sesi pelanggan Ibacks.
 - **Tugas:** Antarmuka masuk dan daftar di `src/app/account/page.tsx`. Semua *authentication flow* dan referensi order pelanggan bermuara ke *dataset* `customer` Sanity CMS yang sudah dirakit pada tahap 2.
+
+## Tahap 7: Modul Ekosistem & Artikel Blog (Minor Ekstra)
+- **Tugas:** Halaman placeholder statis untuk profil perusahaan, dukungan, dan navigasi (sudah selesai). Skema Sanity tambahan untuk mengakomodasi penulisan katalog Artikel Blog.
+
+---
+
+# STATUS CHECKPOINT TERAKHIR (Sync: 7 April 2026)
+Di sesi sebelumnya, kita telah membangun fondasi Frontend UI secara lengkap dan interaktif:
+1. **[SELESAI]** Desain UI, Integrasi Navbar (Produk, Ekosistem, dll) dan *Atomic Components*.
+2. **[SELESAI]** Konektor Jubelio (Metode GET) & *State* Troli Belanja Zustand persisten.
+3. **[SELESAI]** Pembuatan form statis Login, Registrasi, dan Dasbor Profil Pelanggan.
+
+**YANG HARUS DILANJUTKAN PADA SESI BERIKUTNYA:**
+> Mulailah dari sisa **Tahap 5 & Tahap 6** khusus bagian *Back-End Logics*!
+1. **Logika Halaman Checkout Berhasil (Tahap 5):** Buat rute halaman yang menyambut pengguna setelah membayar Xendit, dan sinkronkan dengan menembak data Sales Order ke WMS Jubelio agar stok terpotong.
+2. **Jalur API Otentikasi Sanity (Tahap 6):** Rakit `/api/auth/register` dan `/api/auth/login` menggunakan Klien Mutasi Sanity agar pengguna bisa menyimpan kredensial ke Sanity dan menyelaraskan nomor WhatsApp/pelanggan mereka ke Kontak Jubelio.
