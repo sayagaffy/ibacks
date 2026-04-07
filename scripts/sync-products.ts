@@ -1,6 +1,6 @@
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
 
 // Load .env manually
 const envFile = path.join(process.cwd(), '.env');
@@ -23,7 +23,7 @@ async function run() {
   console.log('Logging in as:', email);
   const loginData = JSON.stringify({ email, password });
 
-  const loginResp = await new Promise((resolve, reject) => {
+  const loginResp = await new Promise<{token: string}>((resolve, reject) => {
     const req = https.request({
       hostname: 'api2.jubelio.com',
       path: '/login',
@@ -45,7 +45,7 @@ async function run() {
   console.log('Fetching all products from Jubelio...');
   const t0 = Date.now();
 
-  const resp = await new Promise((resolve, reject) => {
+  const resp = await new Promise<{data: Record<string, unknown>[]}>((resolve, reject) => {
     const req = https.request({
       hostname: 'api2.jubelio.com',
       path: '/inventory/items/',
@@ -63,17 +63,17 @@ async function run() {
   const rawProducts = resp.data || [];
   console.log('Fetched', rawProducts.length, 'products in', ((Date.now() - t0) / 1000).toFixed(1) + 's');
 
-  const products = rawProducts.map(p => {
-    const basePrice = parseFloat(p.sell_price) || 0;
-    const variants = (p.variants || []).map(v => ({
+  const products = rawProducts.map((p: Record<string, unknown>) => {
+    const basePrice = parseFloat(p.sell_price as string) || 0;
+    const variants = (p.variants as Record<string, unknown>[] || []).map((v: Record<string, unknown>) => ({
       id: v.item_id,
       name: v.item_name,
-      price: v.sell_price || basePrice,
+      price: v.sell_price as number || basePrice,
       sku: v.item_code || '',
       thumbnail: v.thumbnail || null
     }));
     const price = basePrice || (variants[0] ? variants[0].price : 0);
-    const thumbnail = p.thumbnail || (variants.find(v => v.thumbnail) || {}).thumbnail || null;
+    const thumbnail = p.thumbnail || (variants.find((v: Record<string, unknown>) => v.thumbnail) || {}).thumbnail || null;
     return {
       id: p.item_group_id,
       name: p.item_name,

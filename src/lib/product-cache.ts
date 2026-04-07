@@ -66,49 +66,117 @@ export async function syncProductsFromJubelio(): Promise<ProductCache> {
   console.log('[ProductCache] Fetching all products from Jubelio API...');
   const startTime = Date.now();
 
-  const response = await jubelio.get<{ data: any[]; totalCount: number }>('/inventory/items/');
-  const rawProducts = response?.data || [];
+  // Keep the old cache just in case Jubelio is down
+  const staleCache = readProductsFromDisk();
 
-  // Note: we'll fetch full descriptions lazily when PDP is accessed, OR we could fetch them here
-  // but fetching 1200+ descriptions one-by-one would be too slow. We'll leave `description` undefined
-  // in the bulk cache and fetch it on-demand in a separate function.
+  try {
+    const [itemsResponse, promosResponse] = await Promise.all([
+      jubelio.get<{ data: Record<string, unknown>[]; totalCount: number }>('/inventory/items/'),
+      jubelio.get<{ data: Record<string, unknown>[] }>('/inventory/promotions/?page=1&pageSize=50').catch((e) => {
+        // Promotions might fail independently, we can still show products
+        console.warn('[ProductCache] Failed to fetch promotions, continuing without promos.', e.message);
+        return { data: [] };
+      })
+    ]);
 
-  const products: CachedProduct[] = rawProducts.map((p: any) => {
-    const basePrice = parseFloat(p.sell_price) || 0;
-    const variants = (p.variants || []).map((v: any) => ({
-      id: v.item_id,
-      name: v.item_name,
-      price: v.sell_price || basePrice,
-      sku: v.item_code || '',
-      thumbnail: v.thumbnail || null,
-    }));
+    const rawProducts = itemsResponse?.data || [];
+    const rawPromos = promosResponse?.data || [];
 
-    const price = basePrice || variants[0]?.price || 0;
-    const thumbnail = p.thumbnail || variants.find((v: any) => v.thumbnail)?.thumbnail || null;
+    if (rawProducts.length === 0) {
+      console.warn('[ProductCache] Jubelio returned 0 products. Aborting sync.');
+      if (staleCache) {
+        console.log('[ProductCache] Falling back to stale cache.');
+        return staleCache;
+      }
+    }
 
-    return {
-      id: p.item_group_id,
-      name: p.item_name,
-      price,
-      thumbnail,
-      categoryId: p.item_category_id || null,
-      variants,
+    const now = new Date();
+
+    // Create a map of active promotion variant IDs to their promo prices
+    const activePromosMap = new Map<number, number>();
+
+    rawPromos.forEach((promo: Record<string, unknown>) => {
+      // Check if promo is active based on dates
+      const startDate = new Date(promo.start_date as string);
+      const endDate = new Date(promo.end_date as string);
+
+      if (now >= startDate && now <= endDate && Array.isArray(promo.details)) {
+        promo.details.forEach((detail: Record<string, unknown>) => {
+          if (typeof detail.item_id === 'number' && detail.promotion_price) {
+            activePromosMap.set(detail.item_id, parseFloat(detail.promotion_price as string));
+          }
+        });
+      }
+    });
+
+    // Note: we'll fetch full descriptions lazily when PDP is accessed, OR we could fetch them here
+    // but fetching 1200+ descriptions one-by-one would be too slow. We'll leave `description` undefined
+    // in the bulk cache and fetch it on-demand in a separate function.
+
+    const products: CachedProduct[] = rawProducts.map((p: Record<string, unknown>) => {
+      const basePrice = parseFloat(p.sell_price as string) || 0;
+      let isPromo = false;
+      let promoPrice = 0;
+
+      const variants = ((p.variants as Record<string, unknown>[]) || []).map((v: Record<string, unknown>) => {
+        let vPrice = parseFloat(v.sell_price as string) || basePrice;
+
+        // Check if this variant is on promotion
+        if (typeof v.item_id === 'number' && activePromosMap.has(v.item_id)) {
+          isPromo = true;
+          vPrice = activePromosMap.get(v.item_id)!;
+          // Keep the lowest promo price for the base product if there are multiple variants on promo
+          if (promoPrice === 0 || vPrice < promoPrice) {
+            promoPrice = vPrice;
+          }
+        }
+
+        return {
+          id: v.item_id as number,
+          name: v.item_name as string,
+          price: vPrice,
+          sku: (v.item_code as string) || '',
+          thumbnail: (v.thumbnail as string) || null,
+        };
+      });
+
+      const regularPrice = basePrice || variants[0]?.price || 0;
+      const price = isPromo ? promoPrice : regularPrice;
+      const thumbnail = (p.thumbnail as string) || variants.find((v: Record<string, unknown>) => v.thumbnail)?.thumbnail || null;
+
+      return {
+        id: p.item_group_id as number,
+        name: p.item_name as string,
+        price,
+        ...(isPromo ? { isPromo: true, originalPrice: regularPrice } : {}),
+        thumbnail: thumbnail as string | null,
+        categoryId: (p.item_category_id as number) || null,
+        variants,
+      };
+    });
+
+    const cache: ProductCache = {
+      products,
+      totalCount: products.length,
+      syncedAt: new Date().toISOString(),
     };
-  });
 
-  const cache: ProductCache = {
-    products,
-    totalCount: products.length,
-    syncedAt: new Date().toISOString(),
-  };
+    ensureCacheDir();
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), 'utf-8');
 
-  ensureCacheDir();
-  fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), 'utf-8');
+    const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+    console.log(`[ProductCache] Synced ${products.length} products in ${elapsed}s → written to disk`);
 
-  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
-  console.log(`[ProductCache] Synced ${products.length} products in ${elapsed}s → written to disk`);
-
-  return cache;
+    return cache;
+  } catch (error) {
+    console.error('[ProductCache] Failed to sync products from Jubelio:', error instanceof Error ? error.message : String(error));
+    if (staleCache) {
+      console.log('[ProductCache] Falling back to stale cache due to sync failure.');
+      return staleCache;
+    }
+    // If we have no cache and sync failed, return empty to prevent hard crashing
+    return { products: [], totalCount: 0, syncedAt: new Date().toISOString() };
+  }
 }
 
 /**
@@ -144,7 +212,7 @@ export async function getProductDetailWithDescription(itemId: number): Promise<C
 
     // If we can't find it by variant ID, it might be the group ID
     if (!baseProduct) {
-        baseProduct = cache.products.find(p => p.id === itemId);
+      baseProduct = cache.products.find(p => p.id === itemId);
     }
 
     if (!baseProduct) return null;
