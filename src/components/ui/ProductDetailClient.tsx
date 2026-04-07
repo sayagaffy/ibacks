@@ -120,9 +120,11 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
           <h1 className="text-3xl md:text-4xl font-extrabold text-on-surface leading-tight">
             {item.name}
           </h1>
-          <p className="text-on-surface-variant text-base leading-relaxed mt-2">
-            {item.description}
-          </p>
+          {/* Render description as HTML because Jubelio returns rich text */}
+          <div
+            className="text-on-surface-variant text-base leading-relaxed mt-2 prose prose-invert"
+            dangerouslySetInnerHTML={{ __html: item.description }}
+          />
           <p className="text-2xl font-bold text-primary mt-3">
             {displayPrice > 0
               ? `Rp ${displayPrice.toLocaleString('id-ID')}`

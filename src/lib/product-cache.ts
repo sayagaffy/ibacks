@@ -14,14 +14,19 @@ export interface CachedProduct {
   id: number;
   name: string;
   price: number;
+  originalPrice?: number; // Used if product is on promo
+  isPromo?: boolean;
   thumbnail: string | null;
   categoryId: number | null;
+  description?: string | null; // Storing description here to avoid extra API call on PDP
   variants: Array<{
     id: number;
     name: string;
     price: number;
+    originalPrice?: number;
     sku: string;
     thumbnail: string | null;
+    description?: string | null;
   }>;
 }
 
@@ -62,26 +67,70 @@ export async function syncProductsFromJubelio(): Promise<ProductCache> {
   console.log('[ProductCache] Fetching all products from Jubelio API...');
   const startTime = Date.now();
 
-  const response = await jubelio.get<{ data: any[]; totalCount: number }>('/inventory/items/');
-  const rawProducts = response?.data || [];
+  // 1. Fetch Promos and Base Inventory in parallel
+  const [itemsRes, promosRes] = await Promise.all([
+    jubelio.get<{ data: any[]; totalCount: number }>('/inventory/items/').catch(() => ({ data: [], totalCount: 0 })),
+    jubelio.get<{ data: any[] }>('/inventory/promotions/?page=1&pageSize=50').catch(() => ({ data: [] }))
+  ]);
 
+  const rawProducts = itemsRes.data || [];
+  const rawPromos = promosRes.data || [];
+
+  // 2. Build a mapping of item_id -> promotion_price for ACTIVE promotions
+  const activePromoPrices = new Map<number, number>();
+  const now = new Date();
+
+  for (const promo of rawPromos) {
+    const startDate = new Date(promo.start_date);
+    const endDate = new Date(promo.end_date);
+
+    // Check if current date falls within the promo window
+    if (now >= startDate && now <= endDate && Array.isArray(promo.details)) {
+      for (const detail of promo.details) {
+        if (detail.item_id && detail.promotion_price) {
+          activePromoPrices.set(detail.item_id, parseFloat(detail.promotion_price));
+        }
+      }
+    }
+  }
+
+  // 3. Map products and apply promo logic if an item_id matches
   const products: CachedProduct[] = rawProducts.map((p: any) => {
-    const basePrice = parseFloat(p.sell_price) || 0;
-    const variants = (p.variants || []).map((v: any) => ({
-      id: v.item_id,
-      name: v.item_name,
-      price: v.sell_price || basePrice,
-      sku: v.item_code || '',
-      thumbnail: v.thumbnail || null,
-    }));
+    let hasPromo = false;
 
-    const price = basePrice || variants[0]?.price || 0;
+    const variants = (p.variants || []).map((v: any) => {
+      const basePrice = parseFloat(v.sell_price) || parseFloat(p.sell_price) || 0;
+      let price = basePrice;
+      let originalPrice: number | undefined = undefined;
+
+      const promoPrice = activePromoPrices.get(v.item_id);
+      if (promoPrice !== undefined && promoPrice < basePrice) {
+        price = promoPrice;
+        originalPrice = basePrice;
+        hasPromo = true;
+      }
+
+      return {
+        id: v.item_id,
+        name: v.item_name,
+        price,
+        originalPrice,
+        sku: v.item_code || '',
+        thumbnail: v.thumbnail || null,
+      };
+    });
+
+    const defaultVariant = variants[0];
+    const price = defaultVariant?.price || parseFloat(p.sell_price) || 0;
+    const originalPrice = defaultVariant?.originalPrice;
     const thumbnail = p.thumbnail || variants.find((v: any) => v.thumbnail)?.thumbnail || null;
 
     return {
       id: p.item_group_id,
       name: p.item_name,
       price,
+      originalPrice,
+      isPromo: hasPromo,
       thumbnail,
       categoryId: p.item_category_id || null,
       variants,
@@ -116,4 +165,38 @@ export async function getProducts(): Promise<ProductCache> {
 
   // Cache is stale or missing — sync from Jubelio
   return syncProductsFromJubelio();
+}
+
+/**
+ * Fetches product detail from Jubelio and returns a merged CachedProduct
+ * with the full description populated. It first tries to find it in the cache,
+ * then fetches the specific `/inventory/items/{id}` endpoint.
+ * Note: `id` should be the variant `item_id` (e.g., 6074) for best description results.
+ */
+export async function getProductDetailWithDescription(itemId: number): Promise<CachedProduct | null> {
+  // We don't cache this on disk yet, it's fetched per PDP load (handled by Next.js Data Cache)
+  try {
+    const itemData = await jubelio.get<any>(`/inventory/items/${itemId}`);
+
+    // We try to find the base product from cache
+    const cache = await getProducts();
+    // Since itemId here is likely the variant id (item_id), we search through variants
+    let baseProduct = cache.products.find(p => p.variants.some(v => v.id === itemId));
+
+    // If we can't find it by variant ID, it might be the group ID
+    if (!baseProduct) {
+        baseProduct = cache.products.find(p => p.id === itemId);
+    }
+
+    if (!baseProduct) return null;
+
+    // Create a new object to avoid mutating the cache
+    return {
+      ...baseProduct,
+      description: itemData.description || null,
+    };
+  } catch (error) {
+    console.error(`[ProductCache] Error fetching detail for ${itemId}:`, error);
+    return null;
+  }
 }
