@@ -1,4 +1,4 @@
-import { getProducts } from '@/lib/product-cache';
+import { getProductDetailWithDescription } from '@/lib/product-cache';
 import { Header } from '@/components/ui/Header';
 import { Accordion } from '@/components/ui/Accordion';
 import { ProductDetailClient } from '@/components/ui/ProductDetailClient';
@@ -26,8 +26,14 @@ export default async function ProductDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const cache = await getProducts();
-  const product = cache.products.find((p) => String(p.id) === String(id));
+
+  // Notice we use the variant id as the identifier on PDP because that's where rich descriptions are.
+  // Actually, wait, `id` in URL might be the item_group_id.
+  // `getProductDetailWithDescription` handles searching by both.
+  // We'll pass the first variant's id if available to get the full description, else group id.
+
+  // Let's first just get the full product details
+  const product = await getProductDetailWithDescription(Number(id));
 
   const displayItem = product
     ? {
@@ -38,10 +44,9 @@ export default async function ProductDetailPage({
           : 'Aksesoris',
         price: product.price,
         image: product.thumbnail || PLACEHOLDER_IMAGE,
-        description: `Produk ${product.name} dari iBacks. Tersedia dalam ${product.variants?.length || 1} varian.`,
+        description: product.description || `Produk ${product.name} dari iBacks.`, // DYNAMIC DESCRIPTION HERE
         variants: (product.variants || []).map((v, i) => ({
           id: v.id,
-          // Generate a readable display label from SKU suffix or index
           name: `Varian ${i + 1}`,
           sku: v.sku,
           price: v.price || product.price,
@@ -50,11 +55,11 @@ export default async function ProductDetailPage({
       }
     : {
         id: 0,
-        name: 'iBacks Precision Glass Elite 3D',
-        category: 'Screen Protector',
-        price: 350000,
+        name: 'Produk Tidak Ditemukan',
+        category: 'Aksesoris',
+        price: 0,
         image: PLACEHOLDER_IMAGE,
-        description: 'Pelindung layar ultra tipis generasi terbaru dengan transmisi optik 99%.',
+        description: 'Produk ini tidak tersedia.',
         variants: [],
       };
 
@@ -71,15 +76,8 @@ export default async function ProductDetailPage({
       <div className="w-full max-w-5xl mx-auto px-4 pb-4">
         <Accordion title="Komposisi & Material" defaultOpen>
           <p className="leading-relaxed text-on-surface-variant">
-            Pemrosesan Asimetris 5-Lapis, Kaca Safir Sintetis ringan, Tahan Benturan dan Goresan (Skala 9H+).
+            Detail spesifik mengenai komposisi material dan manufaktur dapat ditambahkan melalui CMS.
           </p>
-        </Accordion>
-        <Accordion title="Cara Instalasi">
-          <ol className="list-decimal pl-4 flex flex-col gap-2 text-on-surface-variant">
-            <li>Bersihkan layar dari debu menggunakan tisu basah yang disediakan.</li>
-            <li>Gunakan stiker debu untuk kotoran mikro.</li>
-            <li>Selaraskan dari ujung atas, biarkan silikon otomatis menyebar.</li>
-          </ol>
         </Accordion>
         <Accordion title="Garansi">
           <p className="text-on-surface-variant">
