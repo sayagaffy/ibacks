@@ -17,7 +17,7 @@ export async function POST(req: Request) {
       description: `Invoice for ${items.length} items from iBacks E-commerce`,
       invoice_duration: 86400, // 24 hours
       currency: "IDR",
-      items: items.map((i: any) => ({
+      items: items.map((i: unknown) => ({
         name: i.name,
         quantity: i.quantity,
         price: i.price,
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
 
     // data.invoice_url is the target to redirect the user to checkout UI from Xendit
     return NextResponse.json({ invoiceUrl: data.invoice_url, id: data.id });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Checkout Handler Error:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
