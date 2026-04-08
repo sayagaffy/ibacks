@@ -71,22 +71,23 @@ export const Header: React.FC<HeaderProps> = ({
 
 
   return (
-    <header className="sticky top-0 z-50 w-full glass-elevated surface-border border-b">
+    <header className="sticky top-0 z-50 w-full bg-surface surface-border border-b">
       <div className="flex flex-col md:flex-row md:items-center gap-4 px-4 md:px-6 py-3 max-w-7xl mx-auto">
         <div className="flex items-center gap-3 md:gap-4 shrink-0">
-          {title === 'ibacks' ? (
-            <Link href="/" className="flex items-center gap-2">
-              {/* Using CSS filter invert to make the black logo white in dark mode */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt="iBacks Logo" className="h-5 md:h-6 object-contain invert brightness-0 dark:invert" />
-              <span className="hidden sm:inline text-xs tracking-[0.4em] text-on-surface-variant uppercase">
-                creation
-              </span>
-            </Link>
-          ) : (
-            <h1 className="text-lg md:text-xl font-bold tracking-tight bg-linear-to-r from-white to-neutral-400 bg-clip-text text-transparent line-clamp-1 max-w-[200px] md:max-w-none">
+          <Link href="/" className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="iBacks Logo" className="h-5 md:h-6 object-contain theme-light-only" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="iBacks Logo" className="h-5 md:h-6 object-contain theme-dark-only logo-invert" />
+            <span className="hidden sm:inline text-xs tracking-[0.4em] text-on-surface-variant uppercase">
+              creation
+            </span>
+          </Link>
+
+          {title !== 'ibacks' && (
+            <span className="text-sm md:text-base font-semibold text-on-surface-variant line-clamp-1 max-w-[140px] md:max-w-none">
               {title}
-            </h1>
+            </span>
           )}
         </div>
 

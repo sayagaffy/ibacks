@@ -10,7 +10,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t surface-border bg-background/80">
+    <footer className="mt-auto border-t surface-border bg-surface">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div className="flex flex-col gap-2">
           <span className="text-sm tracking-[0.4em] uppercase text-on-surface-variant">creation</span>

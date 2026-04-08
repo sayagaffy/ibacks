@@ -1,10 +1,11 @@
 import { Header } from '@/components/ui/Header';
-import { HeroBanner } from '@/components/ui/HeroBanner';
 import { PromoSlider, PromoProduct } from '@/components/ui/PromoSlider';
 import { ProductCard } from '@/components/ui/ProductCard';
-import { getHeroBanners } from '@/lib/sanity-client';
+import { PromoHeroSection, PromoHeroProduct } from '@/components/ui/PromoHeroSection';
+import { getPromoHero } from '@/lib/sanity-client';
 import { getProducts, isProductInStock } from '@/lib/product-cache';
 import { CATEGORY_NAME_MAP, PLACEHOLDER_IMAGE } from '@/lib/constants';
+import { buildPromoHeroSlides } from '@/lib/promo-hero';
 import Link from 'next/link';
 
 // ISR: revalidate every hour (matches cache TTL)
@@ -12,21 +13,24 @@ export const revalidate = 3600;
 
 export default async function Home() {
   // Parallel fetching from CMS & cache (both are fast)
-  const [heroBanners, productCache] = await Promise.all([
-    getHeroBanners().catch(() => []),
+  const [promoHero, productCache] = await Promise.all([
+    getPromoHero().catch(() => null),
     getProducts(),
   ]);
 
-  // Fallback if CMS fails/empty
-  const activeBanner = heroBanners?.[0] || {
-    title: "The Ultimate Future",
-    subtitle: "Kejernihan presisi layar sentuh yang belum pernah ada sebelumnya. Memperkenalkan pelindung kaca asimetris iBacks.",
-    imageUrl: "https://images.unsplash.com/photo-1621330396167-a414f61f7db1?q=80&w=2000&auto=format&fit=crop",
-    ctaText: "Eksplorasi Sekarang",
-    ctaLink: "#products"
-  };
-
   const allProducts = productCache.products.filter(isProductInStock);
+  const promoSlides = buildPromoHeroSlides(promoHero, allProducts);
+
+  const productsById = allProducts.reduce<Record<number, PromoHeroProduct>>((acc, product) => {
+    acc[product.id] = {
+      id: product.id,
+      name: product.name,
+      priceLabel: product.price > 0 ? `Rp ${product.price.toLocaleString('id-ID')}` : 'Hubungi Kami',
+      image: product.thumbnail || PLACEHOLDER_IMAGE,
+      categoryLabel: product.categoryId ? CATEGORY_NAME_MAP[product.categoryId] || 'Aksesoris' : 'Aksesoris',
+    };
+    return acc;
+  }, {});
 
   // Featured: first 8 from cache (already has correct price + promo data)
   const featuredProducts = allProducts.slice(0, 8);
@@ -49,15 +53,9 @@ export default async function Home() {
       <Header title="ibacks" />
 
       <main className="flex-1 w-full flex flex-col items-center">
-        {/* Banner Section (CMS Driven) */}
+        {/* Promo Hero Section (CMS Driven) */}
         <section className="w-full max-w-7xl mx-auto px-4 mt-6">
-          <HeroBanner 
-            title={activeBanner.title}
-            subtitle={activeBanner.subtitle}
-            imageUrl={activeBanner.desktopImage?.asset?.url || activeBanner.imageUrl}
-            ctaText={activeBanner.ctaText}
-            ctaLink={activeBanner.ctaLink}
-          />
+          <PromoHeroSection slides={promoSlides} productsById={productsById} />
         </section>
 
         {/* Promo Slider Section — only shown when there are real promos */}
