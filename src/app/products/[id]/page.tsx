@@ -1,24 +1,16 @@
-import { getProductDetailWithDescription } from '@/lib/product-cache';
+import { notFound } from 'next/navigation';
+import { getProductDetailWithDescription, getProducts, isProductInStock } from '@/lib/product-cache';
+import type { GalleryImage } from '@/lib/product-cache';
+import { CATEGORY_NAME_MAP, PLACEHOLDER_IMAGE } from '@/lib/constants';
 import { Header } from '@/components/ui/Header';
 import { Accordion } from '@/components/ui/Accordion';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { ProductDetailClient } from '@/components/ui/ProductDetailClient';
+import { ProductCard } from '@/components/ui/ProductCard';
+import Link from 'next/link';
+import { BackLink } from './BackLink';
 
 export const revalidate = 3600;
-
-const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=1200&auto=format&fit=crop';
-
-const CATEGORY_NAME_MAP: Record<number, string> = {
-  12642: 'Screen Protector',
-  5524: 'Casing',
-  12644: 'Aksesoris',
-  7423: 'Kabel & Charger',
-  5521: 'Audio',
-  7426: 'Powerbank',
-  7413: 'Earphone',
-  18940: 'Teknologi',
-  7410: 'Gaming',
-  12649: 'Lainnya',
-};
 
 export default async function ProductDetailPage({
   params,
@@ -26,46 +18,89 @@ export default async function ProductDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const itemId = Number(id);
 
-  // Notice we use the variant id as the identifier on PDP because that's where rich descriptions are.
-  // Actually, wait, `id` in URL might be the item_group_id.
-  // `getProductDetailWithDescription` handles searching by both.
-  // We'll pass the first variant's id if available to get the full description, else group id.
+  // Guard against non-numeric IDs
+  if (isNaN(itemId) || itemId <= 0) {
+    notFound();
+  }
 
-  // Let's first just get the full product details
-  const product = await getProductDetailWithDescription(Number(id));
+  const [product, productCache] = await Promise.all([
+    getProductDetailWithDescription(itemId),
+    getProducts(),
+  ]);
 
-  const displayItem = product
-    ? {
-        id: product.id,
-        name: product.name,
-        category: product.categoryId
-          ? CATEGORY_NAME_MAP[product.categoryId] || 'Aksesoris'
-          : 'Aksesoris',
-        price: product.price,
-        image: product.thumbnail || PLACEHOLDER_IMAGE,
-        description: product.description || `Produk ${product.name} dari iBacks.`, // DYNAMIC DESCRIPTION HERE
-        variants: (product.variants || []).map((v, i) => ({
-          id: v.id,
-          name: `Varian ${i + 1}`,
-          sku: v.sku,
-          price: v.price || product.price,
-          thumbnail: v.thumbnail || null,
-        })),
-      }
-    : {
-        id: 0,
-        name: 'Produk Tidak Ditemukan',
-        category: 'Aksesoris',
-        price: 0,
-        image: PLACEHOLDER_IMAGE,
-        description: 'Produk ini tidak tersedia.',
-        variants: [],
-      };
+  // Product not found in cache → proper 404
+  if (!product) {
+    notFound();
+  }
+
+  const categoryName = product.categoryId
+    ? CATEGORY_NAME_MAP[product.categoryId] || 'Aksesoris'
+    : 'Aksesoris';
+
+  const fallbackGallery: GalleryImage[] = [];
+  const seen = new Set<string>();
+  const pushImage = (url: string | null) => {
+    if (!url || seen.has(url)) return;
+    seen.add(url);
+    fallbackGallery.push({ full: url, thumb: url });
+  };
+
+  pushImage(product.thumbnail || PLACEHOLDER_IMAGE);
+  product.variants.forEach((v) => pushImage(v.thumbnail || null));
+  if (fallbackGallery.length === 0) {
+    pushImage(PLACEHOLDER_IMAGE);
+  }
+
+  const galleryImages = product.galleryImages && product.galleryImages.length > 0
+    ? product.galleryImages
+    : fallbackGallery;
+
+  const similarProducts = productCache.products
+    .filter((p) => p.id !== product.id && p.categoryId === product.categoryId)
+    .filter(isProductInStock)
+    .slice(0, 4);
+
+  const displayItem = {
+    id: product.id,
+    name: product.name,
+    category: categoryName,
+    price: product.price,
+    originalPrice: product.originalPrice,
+    isPromo: product.isPromo,
+    image: galleryImages[0]?.full || product.thumbnail || PLACEHOLDER_IMAGE,
+    images: galleryImages,
+    description: product.description || `Produk ${product.name} dari iBacks.`,
+    totalStock: product.totalStock ?? null,
+    variants: (product.variants || []).map((v, i) => ({
+      id: v.id,
+      name: v.name || `Varian ${i + 1}`,
+      sku: v.sku,
+      price: v.price || product.price,
+      thumbnail: v.thumbnail || null,
+      stock: v.stock ?? null,
+      images: v.images || [],
+    })),
+  };
 
   return (
     <div className="min-h-screen bg-background pb-36 flex flex-col">
-      <Header title="Detail Produk" />
+      <Header />
+
+      <div className="w-full max-w-5xl mx-auto px-4 mt-4 flex flex-col gap-2">
+        <BackLink />
+        <Breadcrumbs
+          items={[
+            { label: 'Beranda', href: '/' },
+            {
+              label: categoryName,
+              href: product.categoryId ? `/search?category=${product.categoryId}` : '/search',
+            },
+            { label: product.name },
+          ]}
+        />
+      </div>
 
       <main className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-8 lg:gap-16 p-4 mt-4">
         {/* Client component handles interactivity: image switcher, variant picker, add to cart */}
@@ -74,10 +109,11 @@ export default async function ProductDetailPage({
 
       {/* Static accordions stay as Server Component */}
       <div className="w-full max-w-5xl mx-auto px-4 pb-4">
-        <Accordion title="Komposisi & Material" defaultOpen>
-          <p className="leading-relaxed text-on-surface-variant">
-            Detail spesifik mengenai komposisi material dan manufaktur dapat ditambahkan melalui CMS.
-          </p>
+        <Accordion title="Detail Product" defaultOpen>
+          <div
+            className="text-on-surface-variant text-base leading-relaxed prose prose-invert"
+            dangerouslySetInnerHTML={{ __html: displayItem.description }}
+          />
         </Accordion>
         <Accordion title="Garansi">
           <p className="text-on-surface-variant">
@@ -85,6 +121,28 @@ export default async function ProductDetailPage({
           </p>
         </Accordion>
       </div>
+
+      {similarProducts.length > 0 && (
+        <section className="w-full max-w-5xl mx-auto px-4 mt-8 pb-16">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-lg md:text-xl font-bold text-on-surface">
+              Mungkin Anda Suka
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {similarProducts.map((p) => (
+              <Link key={p.id} href={`/products/${p.id}`}>
+                <ProductCard
+                  name={p.name}
+                  price={p.price > 0 ? `Rp ${p.price.toLocaleString('id-ID')}` : 'Hubungi Kami'}
+                  imageSrc={p.thumbnail || PLACEHOLDER_IMAGE}
+                  category={p.categoryId ? CATEGORY_NAME_MAP[p.categoryId] || 'Aksesoris' : 'Aksesoris'}
+                />
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

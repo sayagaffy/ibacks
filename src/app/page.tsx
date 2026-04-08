@@ -3,17 +3,18 @@ import { HeroBanner } from '@/components/ui/HeroBanner';
 import { PromoSlider, PromoProduct } from '@/components/ui/PromoSlider';
 import { ProductCard } from '@/components/ui/ProductCard';
 import { getHeroBanners } from '@/lib/sanity-client';
-import { jubelio } from '@/lib/jubelio-adapter/client';
+import { getProducts, isProductInStock } from '@/lib/product-cache';
+import { CATEGORY_NAME_MAP, PLACEHOLDER_IMAGE } from '@/lib/constants';
 import Link from 'next/link';
 
-// Opt out of caching if you want highly dynamic data, but for e-commerce catalog, ISR is better.
-export const revalidate = 3600; // 1 hour
+// ISR: revalidate every hour (matches cache TTL)
+export const revalidate = 3600;
 
 export default async function Home() {
-  // Parallel fetching from CMS & WMS
-  const [heroBanners, productsResponse] = await Promise.all([
+  // Parallel fetching from CMS & cache (both are fast)
+  const [heroBanners, productCache] = await Promise.all([
     getHeroBanners().catch(() => []),
-    jubelio.get<any>('/inventory/items/').catch(() => ({ data: [], totalCount: 0 }))
+    getProducts(),
   ]);
 
   // Fallback if CMS fails/empty
@@ -25,23 +26,23 @@ export default async function Home() {
     ctaLink: "#products"
   };
 
-  const rawProducts = productsResponse?.data || [];
-  const products = rawProducts.slice(0, 8);
+  const allProducts = productCache.products.filter(isProductInStock);
 
-  // Create mock promo products (in reality, this would come from a CMS flag or WMS promo endpoint)
-  const promoProducts: PromoProduct[] = rawProducts.slice(8, 12).map((p: any) => {
-    const originalPrice = parseFloat(p.sell_price) || 0;
-    const price = originalPrice * 0.8;
-    const image = p.thumbnail || p.variants?.find((v: any) => v.thumbnail)?.thumbnail || 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800';
-    return {
-      id: p.item_group_id,
-      name: p.item_name,
-      category: p.item_group_name || 'Aksesoris',
-      price: price,
-      originalPrice: originalPrice,
-      image: image,
-    };
-  });
+  // Featured: first 8 from cache (already has correct price + promo data)
+  const featuredProducts = allProducts.slice(0, 8);
+
+  // Promo slider: any products flagged as isPromo (real data from Jubelio promotions)
+  const promoProducts: PromoProduct[] = allProducts
+    .filter(p => p.isPromo && p.originalPrice)
+    .slice(0, 8)
+    .map(p => ({
+      id: p.id,
+      name: p.name,
+      category: p.categoryId ? CATEGORY_NAME_MAP[p.categoryId] || 'Aksesoris' : 'Aksesoris',
+      price: p.price,
+      originalPrice: p.originalPrice!,
+      image: p.thumbnail || PLACEHOLDER_IMAGE,
+    }));
 
   return (
     <div className="min-h-screen bg-background pb-32 flex flex-col">
@@ -59,14 +60,14 @@ export default async function Home() {
           />
         </section>
 
-        {/* Promo Slider Section */}
+        {/* Promo Slider Section — only shown when there are real promos */}
         {promoProducts.length > 0 && (
           <section className="w-full max-w-7xl mx-auto mt-12 md:mt-16">
             <PromoSlider products={promoProducts} />
           </section>
         )}
 
-        {/* Jelajahi Ekosistem Section Expanded based on Mockup */}
+        {/* Jelajahi Ekosistem Section */}
         <section className="w-full max-w-7xl mx-auto px-4 mt-16 md:mt-24">
           <div className="flex items-center justify-between mb-8 border-b surface-border pb-4">
             <h2 className="text-xl md:text-2xl font-bold text-on-surface tracking-tight">
@@ -97,7 +98,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Product Listing Section */}
+        {/* Featured Products Section */}
         <section id="products" className="w-full max-w-7xl mx-auto px-4 mt-20 flex flex-col gap-10">
           <div className="flex items-end justify-between border-b surface-border pb-4">
             <h2 className="text-3xl font-bold tracking-tight text-white glow-primary/20">Semua Produk</h2>
@@ -107,28 +108,25 @@ export default async function Home() {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {products.length > 0 ? (
-              products.map((p: any) => {
-                const price = parseFloat(p.sell_price) || p.variants?.[0]?.sell_price || 0;
-                const image = p.thumbnail || p.variants?.find((v: any) => v.thumbnail)?.thumbnail || 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800';
-                return (
-                  <Link key={p.item_group_id} href={`/products/${p.item_group_id}`}>
-                    <ProductCard
-                      name={p.item_name}
-                      price={price > 0 ? `Rp ${price.toLocaleString('id-ID')}` : 'Hubungi Kami'}
-                      imageSrc={image}
-                      category={p.item_group_name || 'Aksesoris'}
-                    />
-                  </Link>
-                );
-              })
+            {featuredProducts.length > 0 ? (
+              featuredProducts.map(p => (
+                <Link key={p.id} href={`/products/${p.id}`}>
+                  <ProductCard
+                    name={p.name}
+                    price={p.price > 0 ? `Rp ${p.price.toLocaleString('id-ID')}` : 'Hubungi Kami'}
+                    imageSrc={p.thumbnail || PLACEHOLDER_IMAGE}
+                    category={p.categoryId ? CATEGORY_NAME_MAP[p.categoryId] || 'Aksesoris' : 'Aksesoris'}
+                  />
+                </Link>
+              ))
             ) : (
+              // Skeleton placeholders while cache is warming up
               Array.from({length: 4}).map((_, i) => (
                 <Link key={i} href={`/search`}>
                   <ProductCard
                     name={`iBacks High-End Case Series ${i+1}`}
                     price="Rp 299.000"
-                    imageSrc={`https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800&auto=format&fit=crop&sig=${i}`}
+                    imageSrc={`${PLACEHOLDER_IMAGE}&sig=${i}`}
                     category="Essential"
                   />
                 </Link>

@@ -42,3 +42,5 @@ next-env.d.ts
 
 # Jubelio product cache (generated)
 /data/products.json
+# Jubelio category cache (generated)
+/data/categories.json

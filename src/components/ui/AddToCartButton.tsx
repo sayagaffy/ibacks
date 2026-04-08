@@ -1,10 +1,8 @@
 "use client";
-
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from './Button';
 import { useCartStore } from '@/store/cartStore';
-
 export interface CartVariant {
   id: number;
   name: string;   // label display: "Varian 1", "Hitam", etc.
@@ -23,6 +21,8 @@ export interface AddToCartButtonProps {
   };
   selectedVariant?: CartVariant | null;
   hasVariants?: boolean;
+  quantity?: number;
+  isSoldOut?: boolean;
 }
 
 export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
@@ -30,13 +30,17 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
   item,
   selectedVariant,
   hasVariants = false,
+  quantity = 1,
+  isSoldOut = false,
 }) => {
   const router = useRouter();
   const [isAdding, setIsAdding] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
 
-  const canAdd = !hasVariants || selectedVariant != null;
+  const needsVariant = hasVariants && !selectedVariant;
+  const canAdd = !needsVariant && !isSoldOut;
+  const safeQty = Math.max(1, quantity);
 
   const handleAddToCart = () => {
     if (!canAdd) return;
@@ -50,7 +54,7 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
       id: selectedVariant ? `${item.id}-${selectedVariant.id}` : item.id,
       name: variantLabel ? `${item.name} (${variantLabel})` : item.name,
       price: effectivePrice,
-      quantity: 1,
+      quantity: safeQty,
       image: effectiveImage,
     });
 
@@ -72,9 +76,17 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
     router.push('/cart');
   };
 
-  const displayPrice = selectedVariant
-    ? `Rp ${selectedVariant.price.toLocaleString('id-ID')}`
+  const unitPrice = selectedVariant ? selectedVariant.price : item.rawPrice;
+  const displayPrice = unitPrice > 0
+    ? `Rp ${(unitPrice * safeQty).toLocaleString('id-ID')}`
     : price;
+  const buttonLabel = isSoldOut
+    ? 'Stok Habis'
+    : isAdding
+    ? 'Memproses...'
+    : needsVariant
+    ? 'Pilih Varian'
+    : 'Masukkan Keranjang';
 
   return (
     <>
@@ -87,10 +99,11 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
             <span className="text-xl font-bold text-on-surface">
               {displayPrice}
             </span>
+            <span className="text-xs text-on-surface-variant mt-0.5">Jumlah {safeQty}</span>
             {selectedVariant && (
               <span className="text-xs text-primary mt-0.5">{selectedVariant.name}</span>
             )}
-            {hasVariants && !selectedVariant && (
+            {needsVariant && (
               <span className="text-xs text-on-surface-variant mt-0.5">Pilih varian dulu</span>
             )}
           </div>
@@ -100,7 +113,7 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
             disabled={isAdding || !canAdd}
             className="flex-1 max-w-[200px]"
           >
-            {isAdding ? 'Memproses...' : canAdd ? 'Masukkan Keranjang' : 'Pilih Varian'}
+            {buttonLabel}
           </Button>
         </div>
       </div>

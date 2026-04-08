@@ -1,25 +1,13 @@
 import { NextResponse } from 'next/server';
-import { getProducts, CachedProduct } from '@/lib/product-cache';
+import { getProducts, isProductInStock } from '@/lib/product-cache';
+import { CATEGORY_NAME_MAP } from '@/lib/constants';
 
 export const dynamic = 'force-dynamic';
-
-const CATEGORY_NAME_MAP: Record<number, string> = {
-  12642: 'Screen Protector',
-  5524: 'Casing',
-  12644: 'Aksesoris',
-  7423: 'Kabel & Charger',
-  5521: 'Audio',
-  7426: 'Powerbank',
-  7413: 'Earphone',
-  18940: 'Teknologi',
-  7410: 'Gaming',
-  12649: 'Lainnya',
-};
 
 export async function GET() {
   try {
     const cache = await getProducts();
-    const products = cache.products;
+    const products = cache.products.filter(isProductInStock);
 
     // Count items per category
     const catCounts: Record<string, number> = {};

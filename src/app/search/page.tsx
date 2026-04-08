@@ -8,14 +8,16 @@ export const metadata = {
 
 export default function SearchRoute() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4 text-on-surface-variant">
-          <div className="w-10 h-10 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-          <p className="text-sm">Memuat katalog...</p>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-background flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4 text-on-surface-variant">
+            <div className="w-10 h-10 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+            <p className="text-sm">Memuat katalog...</p>
+          </div>
         </div>
-      </div>
-    }>
+      }
+    >
       <CatalogPage />
     </Suspense>
   );

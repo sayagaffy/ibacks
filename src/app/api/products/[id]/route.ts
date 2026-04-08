@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getProducts, CachedProduct } from '@/lib/product-cache';
+import { getProducts } from '@/lib/product-cache';
 
 export const dynamic = 'force-dynamic';
 

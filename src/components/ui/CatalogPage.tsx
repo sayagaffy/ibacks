@@ -144,7 +144,6 @@ export function CatalogPage() {
   const category = searchParams.get('category') || 'all';
   const page = parseInt(searchParams.get('page') || '1', 10);
 
-  const [inputValue, setInputValue] = useState(query);
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [total, setTotal] = useState(0);
@@ -191,15 +190,8 @@ export function CatalogPage() {
       .finally(() => setLoading(false));
   }, [query, category, page]);
 
-  useEffect(() => { setInputValue(query); }, [query]);
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    updateURL({ q: inputValue.trim(), page: 1 });
-  };
-
   const handleCategoryChange = (catId: string) => {
-    updateURL({ category: catId, page: 1 });
+    updateURL({ q: '', category: catId, page: 1 });
   };
 
   const handlePageChange = (p: number) => {
@@ -209,41 +201,10 @@ export function CatalogPage() {
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      <Header title="Katalog Produk" />
+      <Header />
 
       <main className="w-full max-w-7xl mx-auto px-4 py-8 flex flex-col gap-6">
         
-        {/* Search Form */}
-        <form onSubmit={handleSearch} className="w-full flex gap-3">
-          <div className="flex-1 relative">
-            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-on-surface-variant pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input
-              type="text"
-              name="q"
-              id="search-input"
-              value={inputValue}
-              onChange={e => setInputValue(e.target.value)}
-              placeholder="Cari produk iBacks..."
-              className="w-full bg-surface-container text-on-surface border border-surface-variant/30 rounded-2xl pl-12 pr-12 py-4 outline-none focus:border-primary transition-colors text-base"
-            />
-            {inputValue && (
-              <button 
-                type="button" 
-                onClick={() => { setInputValue(''); updateURL({ q: '', page: 1 }); }} 
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors"
-                aria-label="Hapus pencarian"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-              </button>
-            )}
-          </div>
-          <button id="search-submit" type="submit" className="px-8 py-4 rounded-2xl bg-primary text-on-primary font-semibold hover:bg-primary/90 transition-colors shrink-0">
-            Cari
-          </button>
-        </form>
-
         {/* Category Filter Tabs */}
         <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4" style={{ scrollbarWidth: 'none' }}>
           <button
