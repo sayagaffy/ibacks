@@ -1,4 +1,6 @@
-import type { CategoryNode } from '@/lib/types';
+"use client";
+
+import type { CategoryNode } from "@/lib/types";
 
 interface CategoryMegaMenuProps {
   open: boolean;
@@ -18,17 +20,25 @@ export function CategoryMegaMenu({
   onCategorySelect,
 }: CategoryMegaMenuProps) {
   if (!open) return null;
-  const isAllCategory = (name: string) => /semua kategori|all categories/i.test(name);
-  const visibleCategories = categories.filter((root) => !isAllCategory(root.name));
+  const isAllCategory = (name: string) =>
+    /semua kategori|all categories/i.test(name);
+  const visibleCategories = categories.filter(
+    (root) => !isAllCategory(root.name),
+  );
   const activeRoot =
-    visibleCategories.find((root) => root.id === activeRootId) || visibleCategories[0];
+    visibleCategories.find((root) => root.id === activeRootId) ||
+    visibleCategories[0];
 
   return (
     <div className="absolute z-50 mt-3 w-[720px] max-w-[90vw] rounded-3xl border surface-border bg-surface-container shadow-2xl overflow-hidden">
       {loading ? (
-        <div className="px-5 py-4 text-sm text-on-surface-variant">Memuat kategori...</div>
+        <div className="px-5 py-4 text-sm text-on-surface-variant">
+          Memuat kategori...
+        </div>
       ) : visibleCategories.length === 0 ? (
-        <div className="px-5 py-4 text-sm text-on-surface-variant">Kategori belum tersedia.</div>
+        <div className="px-5 py-4 text-sm text-on-surface-variant">
+          Kategori belum tersedia.
+        </div>
       ) : (
         <div className="flex">
           <div className="w-60 border-r surface-border p-4 bg-surface-container-low">
@@ -39,31 +49,38 @@ export function CategoryMegaMenu({
               const isActive = activeRoot && root.id === activeRoot.id;
               const hasChildren = root.children.length > 0;
               return (
-              <button
-                key={root.id}
-                type="button"
-                onMouseEnter={() => onActiveRootChange(root.id)}
-                onFocus={() => onActiveRootChange(root.id)}
-                onClick={() => onCategorySelect(String(root.filterId ?? root.id))}
-                className={`w-full px-3 py-2.5 rounded-xl text-left text-sm font-semibold transition-colors flex items-center justify-between ${
-                  isActive
-                    ? 'bg-primary/10 text-primary ring-1 ring-primary/20'
-                    : 'text-on-surface hover:bg-surface-container-high'
-                }`}
-                aria-selected={isActive}
-              >
-                <span>{root.name}</span>
-                {hasChildren && (
-                  <svg
-                    className={`w-4 h-4 ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                )}
-              </button>
+                <button
+                  key={root.id}
+                  type="button"
+                  onMouseEnter={() => onActiveRootChange(root.id)}
+                  onFocus={() => onActiveRootChange(root.id)}
+                  onClick={() =>
+                    onCategorySelect(String(root.filterId ?? root.id))
+                  }
+                  className={`w-full px-3 py-2.5 rounded-xl text-left text-sm font-semibold transition-colors flex items-center justify-between ${
+                    isActive
+                      ? "bg-primary/10 text-primary ring-1 ring-primary/20"
+                      : "text-on-surface hover:bg-surface-container-high"
+                  }`}
+                  aria-pressed={isActive}
+                >
+                  <span>{root.name}</span>
+                  {hasChildren && (
+                    <svg
+                      className={`w-4 h-4 ${isActive ? "text-primary" : "text-on-surface-variant"}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  )}
+                </button>
               );
             })}
           </div>
@@ -74,7 +91,9 @@ export function CategoryMegaMenu({
                   <div key={child.id} className="flex flex-col gap-3">
                     <button
                       type="button"
-                      onClick={() => onCategorySelect(String(child.filterId ?? child.id))}
+                      onClick={() =>
+                        onCategorySelect(String(child.filterId ?? child.id))
+                      }
                       className="text-sm font-semibold text-on-surface hover:text-primary transition-colors text-left flex items-center gap-2"
                     >
                       <span>{child.name}</span>
@@ -85,7 +104,12 @@ export function CategoryMegaMenu({
                           stroke="currentColor"
                           viewBox="0 0 24 24"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
                         </svg>
                       )}
                     </button>
@@ -95,7 +119,11 @@ export function CategoryMegaMenu({
                           <button
                             key={grand.id}
                             type="button"
-                            onClick={() => onCategorySelect(String(grand.filterId ?? grand.id))}
+                            onClick={() =>
+                              onCategorySelect(
+                                String(grand.filterId ?? grand.id),
+                              )
+                            }
                             className="text-xs text-on-surface-variant hover:text-on-surface transition-colors text-left"
                           >
                             {grand.name}
@@ -107,7 +135,9 @@ export function CategoryMegaMenu({
                 ))}
               </div>
             ) : (
-              <div className="text-sm text-on-surface-variant">Kategori belum tersedia.</div>
+              <div className="text-sm text-on-surface-variant">
+                Kategori belum tersedia.
+              </div>
             )}
           </div>
         </div>

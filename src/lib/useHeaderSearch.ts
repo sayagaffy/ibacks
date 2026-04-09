@@ -1,7 +1,11 @@
-import { useEffect, useState } from 'react';
-import type { ReadonlyURLSearchParams } from 'next/navigation';
-import type { CategoryItem, CategoryNode } from '@/lib/types';
-import { addSearchHistory, loadSearchHistory, saveSearchHistory } from '@/lib/search-history';
+import { useEffect, useState } from "react";
+import type { ReadonlyURLSearchParams } from "next/navigation";
+import type { CategoryItem, CategoryNode } from "@/lib/types";
+import {
+  addSearchHistory,
+  loadSearchHistory,
+  saveSearchHistory,
+} from "@/lib/search-history";
 
 interface RouterLike {
   push: (href: string) => void;
@@ -20,9 +24,13 @@ interface SuggestionItem {
   thumbnail?: string | null;
 }
 
-export function useHeaderSearch({ pathname, searchParams, router }: UseHeaderSearchArgs) {
-  const [query, setQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+export function useHeaderSearch({
+  pathname,
+  searchParams,
+  router,
+}: UseHeaderSearchArgs) {
+  const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [categories, setCategories] = useState<CategoryItem[]>([]);
   const [categoryTree, setCategoryTree] = useState<CategoryNode[]>([]);
   const [categoriesLoading, setCategoriesLoading] = useState(true);
@@ -31,22 +39,22 @@ export function useHeaderSearch({ pathname, searchParams, router }: UseHeaderSea
   const [suggestionsLoading, setSuggestionsLoading] = useState(false);
   const [suggestionsOpen, setSuggestionsOpen] = useState(false);
   const [popularItems, setPopularItems] = useState<SuggestionItem[]>([]);
-  const [historyItems, setHistoryItems] = useState<string[]>([]);
+  const [historyItems, setHistoryItems] = useState<string[]>(() =>
+    loadSearchHistory(),
+  );
   const [activeRootId, setActiveRootId] = useState<number | null>(null);
 
   useEffect(() => {
-    setHistoryItems(loadSearchHistory());
-  }, []);
-
-  useEffect(() => {
-    fetch('/api/category-tree')
+    fetch("/api/category-tree")
       .then((res) => res.json())
       .then((data) => {
         setCategoryTree(data.tree || []);
-        setCategories((data.flat || []).map((item: { id: number; name: string }) => ({
-          id: item.id,
-          name: item.name,
-        })));
+        setCategories(
+          (data.flat || []).map((item: { id: number; name: string }) => ({
+            id: item.id,
+            name: item.name,
+          })),
+        );
       })
       .catch(() => {
         setCategoryTree([]);
@@ -55,13 +63,10 @@ export function useHeaderSearch({ pathname, searchParams, router }: UseHeaderSea
       .finally(() => setCategoriesLoading(false));
   }, []);
 
-  useEffect(() => {
-    if (categoryTree.length === 0) return;
-    setActiveRootId((prev) => prev ?? categoryTree[0]?.id ?? null);
-  }, [categoryTree]);
+  const resolvedActiveRootId = activeRootId ?? categoryTree[0]?.id ?? null;
 
   useEffect(() => {
-    fetch('/api/popular-products')
+    fetch("/api/popular-products")
       .then((res) => res.json())
       .then((data) =>
         setPopularItems(
@@ -70,30 +75,36 @@ export function useHeaderSearch({ pathname, searchParams, router }: UseHeaderSea
             name: item.name,
             categoryId: item.categoryId ?? null,
             thumbnail: item.thumbnail ?? null,
-          }))
-        )
+          })),
+        ),
       )
       .catch(() => setPopularItems([]));
   }, []);
 
   useEffect(() => {
-    if (!pathname.startsWith('/search')) return;
-    setQuery(searchParams.get('q') || '');
-    setSelectedCategory(searchParams.get('category') || 'all');
+    if (!pathname.startsWith("/search")) return;
+    const nextQuery = searchParams.get("q") || "";
+    const nextCategory = searchParams.get("category") || "all";
+    queueMicrotask(() => {
+      setQuery(nextQuery);
+      setSelectedCategory(nextCategory);
+    });
   }, [pathname, searchParams]);
 
   useEffect(() => {
     const trimmed = query.trim();
     if (trimmed.length < 2) {
-      setSuggestions([]);
-      setSuggestionsOpen(false);
+      queueMicrotask(() => {
+        setSuggestions([]);
+        setSuggestionsOpen(false);
+      });
       return;
     }
     const timer = setTimeout(() => {
       const params = new URLSearchParams();
-      params.set('q', trimmed);
-      params.set('limit', '6');
-      if (selectedCategory !== 'all') params.set('category', selectedCategory);
+      params.set("q", trimmed);
+      params.set("limit", "6");
+      if (selectedCategory !== "all") params.set("category", selectedCategory);
       setSuggestionsLoading(true);
       fetch(`/api/products?${params.toString()}`)
         .then((res) => res.json())
@@ -104,8 +115,8 @@ export function useHeaderSearch({ pathname, searchParams, router }: UseHeaderSea
               name: item.name,
               categoryId: item.categoryId ?? null,
               thumbnail: item.thumbnail ?? null,
-            }))
-          )
+            })),
+          ),
         )
         .catch(() => setSuggestions([]))
         .finally(() => setSuggestionsLoading(false));
@@ -118,10 +129,10 @@ export function useHeaderSearch({ pathname, searchParams, router }: UseHeaderSea
     const nextQuery = override?.query ?? query;
     const nextCategory = override?.category ?? selectedCategory;
     const trimmed = nextQuery.trim();
-    if (trimmed) params.set('q', trimmed);
-    if (nextCategory !== 'all') params.set('category', nextCategory);
+    if (trimmed) params.set("q", trimmed);
+    if (nextCategory !== "all") params.set("category", nextCategory);
     const queryString = params.toString();
-    router.push(queryString ? `/search?${queryString}` : '/search');
+    router.push(queryString ? `/search?${queryString}` : "/search");
     setCategoryOpen(false);
     setSuggestionsOpen(false);
     if (trimmed) {
@@ -135,8 +146,8 @@ export function useHeaderSearch({ pathname, searchParams, router }: UseHeaderSea
     setSelectedCategory(value);
     setCategoryOpen(false);
     setSuggestionsOpen(false);
-    if (value === 'all') {
-      router.push('/search');
+    if (value === "all") {
+      router.push("/search");
       return;
     }
     router.push(`/kategori/${value}`);
@@ -159,7 +170,7 @@ export function useHeaderSearch({ pathname, searchParams, router }: UseHeaderSea
     setSuggestionsOpen,
     popularItems,
     historyItems,
-    activeRootId,
+    activeRootId: resolvedActiveRootId,
     setActiveRootId,
   };
 }

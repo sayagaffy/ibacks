@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { AddToCartButton, CartVariant } from './AddToCartButton';
+import { useState } from "react";
+import Image from "next/image";
+import { AddToCartButton, CartVariant } from "./AddToCartButton";
 
 interface GalleryImage {
   full: string;
@@ -40,7 +41,7 @@ interface Props {
 export function ProductDetailClient({ item, placeholderImage }: Props) {
   const [selectedVariant, setSelectedVariant] = useState<Variant | null>(null);
   const [activeImage, setActiveImage] = useState<string>(
-    item.images[0]?.full || item.image
+    item.images[0]?.full || item.image,
   );
   const [imgError, setImgError] = useState(false);
   const [quantity, setQuantity] = useState(1);
@@ -48,26 +49,36 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
   const hasMultipleVariants = item.variants.length > 1;
   const hasSingleVariant = item.variants.length === 1;
 
-  const galleryImages = item.images.length > 0 ? item.images : [
-    { full: item.image, thumb: item.image }
-  ];
+  const galleryImages =
+    item.images.length > 0
+      ? item.images
+      : [{ full: item.image, thumb: item.image }];
 
   const displayPrice = selectedVariant ? selectedVariant.price : item.price;
   const mainImg = imgError ? placeholderImage : activeImage;
-  const totalStock = typeof item.totalStock === 'number' ? item.totalStock : null;
-  const selectedStock = selectedVariant?.stock ?? (hasSingleVariant ? item.variants[0]?.stock : null);
+  const totalStock =
+    typeof item.totalStock === "number" ? item.totalStock : null;
+  const selectedStock =
+    selectedVariant?.stock ??
+    (hasSingleVariant ? item.variants[0]?.stock : null);
   const isQuantityLocked = hasMultipleVariants && !selectedVariant;
-  const effectiveStock = isQuantityLocked ? null : selectedStock ?? totalStock;
+  const effectiveStock = isQuantityLocked
+    ? null
+    : (selectedStock ?? totalStock);
   const maxQuantity = isQuantityLocked
     ? 0
-    : typeof effectiveStock === 'number'
-    ? Math.max(0, effectiveStock)
-    : 99;
+    : typeof effectiveStock === "number"
+      ? Math.max(0, effectiveStock)
+      : 99;
   const isSoldOut = isQuantityLocked
-    ? (totalStock != null ? totalStock <= 0 : false)
-    : typeof effectiveStock === 'number'
-    ? effectiveStock <= 0
-    : (totalStock != null ? totalStock <= 0 : false);
+    ? totalStock != null
+      ? totalStock <= 0
+      : false
+    : typeof effectiveStock === "number"
+      ? effectiveStock <= 0
+      : totalStock != null
+        ? totalStock <= 0
+        : false;
 
   const handleVariantClick = (v: Variant) => {
     if (selectedVariant?.id === v.id) {
@@ -86,23 +97,24 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
   };
 
   // For single variant products, auto-select variant for cart but don't show picker
-  const cartVariant: CartVariant | null = hasSingleVariant && item.variants[0]
-    ? {
-        id: item.variants[0].id,
-        name: 'Standar',
-        sku: item.variants[0].sku,
-        price: item.variants[0].price,
-        thumbnail: item.variants[0].thumbnail,
-      }
-    : selectedVariant
-    ? {
-        id: selectedVariant.id,
-        name: selectedVariant.name,
-        sku: selectedVariant.sku,
-        price: selectedVariant.price,
-        thumbnail: selectedVariant.thumbnail,
-      }
-    : null;
+  const cartVariant: CartVariant | null =
+    hasSingleVariant && item.variants[0]
+      ? {
+          id: item.variants[0].id,
+          name: "Standar",
+          sku: item.variants[0].sku,
+          price: item.variants[0].price,
+          thumbnail: item.variants[0].thumbnail,
+        }
+      : selectedVariant
+        ? {
+            id: selectedVariant.id,
+            name: selectedVariant.name,
+            sku: selectedVariant.sku,
+            price: selectedVariant.price,
+            thumbnail: selectedVariant.thumbnail,
+          }
+        : null;
 
   return (
     <>
@@ -110,12 +122,14 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
       <div className="w-full md:w-1/2 flex flex-col gap-4">
         {/* Main Image */}
         <div className="bg-surface-container-low rounded-4xl aspect-4/5 md:aspect-square flex justify-center items-center overflow-hidden ambient-shadow relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             key={mainImg}
             src={mainImg}
             alt={item.name}
-            className="w-full h-full object-cover transition-all duration-500"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-all duration-500"
             onError={() => setImgError(true)}
           />
           {selectedVariant && (
@@ -127,7 +141,10 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
 
         {/* Gallery Thumbnails */}
         {galleryImages.length > 1 && (
-          <div className="flex gap-3 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
+          <div
+            className="flex gap-3 overflow-x-auto pb-2"
+            style={{ scrollbarWidth: "none" }}
+          >
             {galleryImages.map((img, i) => (
               <button
                 key={i}
@@ -137,15 +154,16 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
                 }}
                 className={`flex-none w-16 h-16 rounded-xl overflow-hidden border-2 transition-all ${
                   activeImage === img.full
-                    ? 'border-primary scale-105 shadow-lg shadow-primary/20'
-                    : 'border-surface-variant/30 hover:border-primary/50'
+                    ? "border-primary scale-105 shadow-lg shadow-primary/20"
+                    : "border-surface-variant/30 hover:border-primary/50"
                 }`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={img.thumb}
-                  alt={`Gambar ${i + 1}`}
-                  className="w-full h-full object-cover"
+                  alt={`${item.name} - gambar ${i + 1}`}
+                  width={64}
+                  height={64}
+                  className="object-cover w-full h-full"
                   loading="lazy"
                 />
               </button>
@@ -167,35 +185,39 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
           <div className="flex items-center gap-3 mt-3 flex-wrap">
             <p className="text-2xl md:text-3xl font-bold text-primary">
               {displayPrice > 0
-                ? `Rp ${displayPrice.toLocaleString('id-ID')}`
-                : 'Hubungi Kami'}
+                ? `Rp ${displayPrice.toLocaleString("id-ID")}`
+                : "Hubungi Kami"}
             </p>
-            {item.isPromo && item.originalPrice && item.originalPrice > item.price && (
-              <>
-                <span className="text-base text-on-surface-variant line-through">
-                  Rp {item.originalPrice.toLocaleString('id-ID')}
-                </span>
-                <span className="bg-primary/20 text-primary text-xs font-bold px-2.5 py-1 rounded-full">
-                  -{Math.round((1 - item.price / item.originalPrice) * 100)}%
-                </span>
-              </>
-            )}
+            {item.isPromo &&
+              item.originalPrice &&
+              item.originalPrice > item.price && (
+                <>
+                  <span className="text-base text-on-surface-variant line-through">
+                    Rp {item.originalPrice.toLocaleString("id-ID")}
+                  </span>
+                  <span className="bg-primary/20 text-primary text-xs font-bold px-2.5 py-1 rounded-full">
+                    -{Math.round((1 - item.price / item.originalPrice) * 100)}%
+                  </span>
+                </>
+              )}
           </div>
           <div className="flex items-center gap-2">
             <span
               className={`text-xs md:text-sm font-semibold px-3.5 py-1.5 rounded-full ${
                 isSoldOut
-                  ? 'bg-rose-500/20 text-rose-300'
-                  : 'bg-primary/20 text-primary'
+                  ? "bg-rose-500/20 text-rose-300"
+                  : "bg-primary/20 text-primary"
               }`}
             >
-              {isSoldOut ? 'Stok Habis' : 'Stok Tersedia'}
+              {isSoldOut ? "Stok Habis" : "Stok Tersedia"}
             </span>
-            {!isQuantityLocked && typeof effectiveStock === 'number' && effectiveStock > 0 && (
-              <span className="text-xs text-on-surface-variant">
-                Sisa {effectiveStock}
-              </span>
-            )}
+            {!isQuantityLocked &&
+              typeof effectiveStock === "number" &&
+              effectiveStock > 0 && (
+                <span className="text-xs text-on-surface-variant">
+                  Sisa {effectiveStock}
+                </span>
+              )}
           </div>
         </div>
 
@@ -211,7 +233,9 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
                   {selectedVariant.name} dipilih
                 </span>
               ) : (
-                <span className="text-xs md:text-sm text-on-surface-variant">Pilih varian</span>
+                <span className="text-xs md:text-sm text-on-surface-variant">
+                  Pilih varian
+                </span>
               )}
             </div>
 
@@ -225,28 +249,38 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
                     title={v.name}
                     className={`relative w-16 h-16 rounded-xl overflow-hidden border-2 transition-all duration-200 ${
                       selectedVariant?.id === v.id
-                        ? 'border-primary scale-105 shadow-lg shadow-primary/30 ring-2 ring-primary/30'
-                        : 'border-surface-variant/30 hover:border-primary/50 hover:scale-102'
+                        ? "border-primary scale-105 shadow-lg shadow-primary/30 ring-2 ring-primary/30"
+                        : "border-surface-variant/30 hover:border-primary/50 hover:scale-102"
                     }`}
                   >
                     {v.thumbnail ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                      <Image
                         src={v.thumbnail}
                         alt={v.name}
-                        className="w-full h-full object-cover"
+                        width={64}
+                        height={64}
+                        className="object-cover w-full h-full"
+                        loading="lazy"
                       />
                     ) : (
                       <div className="w-full h-full bg-surface-container-high flex items-center justify-center">
                         <span className="text-[10px] text-on-surface-variant font-medium">
-                          {v.name.replace('Varian ', '')}
+                          {v.name.replace("Varian ", "")}
                         </span>
                       </div>
                     )}
                     {selectedVariant?.id === v.id && (
                       <div className="absolute inset-0 bg-primary/20 flex items-end justify-center pb-1">
-                        <svg className="w-4 h-4 text-white drop-shadow" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        <svg
+                          className="w-4 h-4 text-white drop-shadow"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                       </div>
                     )}
@@ -262,8 +296,8 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
                     onClick={() => handleVariantClick(v)}
                     className={`px-4 py-3 rounded-2xl text-sm md:text-base font-semibold border transition-all text-left leading-snug ${
                       selectedVariant?.id === v.id
-                        ? 'bg-primary text-on-primary border-primary shadow-md shadow-primary/25'
-                        : 'bg-surface-container text-on-surface border-surface-variant/30 hover:border-primary/50'
+                        ? "bg-primary text-on-primary border-primary shadow-md shadow-primary/25"
+                        : "bg-surface-container text-on-surface border-surface-variant/30 hover:border-primary/50"
                     }`}
                   >
                     {v.name}
@@ -277,13 +311,15 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
         {/* Quantity Selector */}
         <div className="flex items-center justify-between bg-surface-container rounded-2xl p-4 border surface-border">
           <div className="flex flex-col">
-            <span className="text-sm font-semibold text-on-surface">Jumlah</span>
+            <span className="text-sm font-semibold text-on-surface">
+              Jumlah
+            </span>
             <span className="text-xs text-on-surface-variant">
               {isQuantityLocked
-                ? 'Pilih varian dulu'
-                : typeof effectiveStock === 'number' && maxQuantity > 0
-                ? `Maks ${maxQuantity}`
-                : 'Atur jumlah pembelian'}
+                ? "Pilih varian dulu"
+                : typeof effectiveStock === "number" && maxQuantity > 0
+                  ? `Maks ${maxQuantity}`
+                  : "Atur jumlah pembelian"}
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -302,9 +338,15 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
             <button
               type="button"
               onClick={() =>
-                setQuantity((q) => (maxQuantity > 0 ? Math.min(maxQuantity, q + 1) : q + 1))
+                setQuantity((q) =>
+                  maxQuantity > 0 ? Math.min(maxQuantity, q + 1) : q + 1,
+                )
               }
-              disabled={isQuantityLocked || isSoldOut || (maxQuantity > 0 && quantity >= maxQuantity)}
+              disabled={
+                isQuantityLocked ||
+                isSoldOut ||
+                (maxQuantity > 0 && quantity >= maxQuantity)
+              }
               className="w-9 h-9 rounded-full bg-surface-container-high text-on-surface disabled:opacity-40 disabled:cursor-not-allowed hover:bg-surface-container-highest transition-colors"
               aria-label="Tambah jumlah"
             >
@@ -317,8 +359,8 @@ export function ProductDetailClient({ item, placeholderImage }: Props) {
         <AddToCartButton
           price={
             displayPrice > 0
-              ? `Rp ${displayPrice.toLocaleString('id-ID')}`
-              : 'Hubungi Kami'
+              ? `Rp ${displayPrice.toLocaleString("id-ID")}`
+              : "Hubungi Kami"
           }
           item={{
             id: String(item.id),

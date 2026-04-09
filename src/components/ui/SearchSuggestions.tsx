@@ -1,3 +1,5 @@
+"use client";
+
 import type { CategoryItem } from '@/lib/types';
 import { getCategoryName, getFilteredHistory } from '@/lib/search-suggestions';
 import { PLACEHOLDER_IMAGE } from '@/lib/constants';

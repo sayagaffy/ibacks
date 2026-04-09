@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import type { PromoHeroSlide } from '@/lib/sanity-client';
-import { resolvePromoSlug } from '@/lib/promo-hero';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import type { PromoHeroSlide } from "@/lib/sanity-client";
+import { resolvePromoSlug } from "@/lib/promo-hero";
 
 export interface PromoHeroCarouselProps {
   slides: PromoHeroSlide[];
@@ -30,7 +31,7 @@ export const PromoHeroCarousel: React.FC<PromoHeroCarouselProps> = ({
     const id = idMatch?.[1];
     if (!id) return null;
     const startMatch = url.match(/[?&]t=(\d+)/);
-    const startSeconds = startMatch?.[1] || '0';
+    const startSeconds = startMatch?.[1] || "0";
     return `https://www.youtube.com/embed/${id}?start=${startSeconds}&autoplay=1&mute=1&controls=0&loop=1&playlist=${id}`;
   };
 
@@ -41,17 +42,22 @@ export const PromoHeroCarousel: React.FC<PromoHeroCarouselProps> = ({
         style={{ transform: `translateX(-${safeIndex * 100}%)` }}
       >
         {slides.map((slide, index) => {
-          const title = slide.title || 'Promo iBacks';
-          const subtitle = slide.subtitle || 'Nikmati promo eksklusif dengan kurasi premium.';
+          const title = slide.title || "Promo iBacks";
           const youtubeEmbed = getYoutubeEmbedUrl(slide.youtubeUrl);
-          const mediaIsVideo = slide.mediaType === 'video' && (slide.videoMp4Url || slide.videoWebmUrl);
-          const imageFallback = slide.imageUrl || slide.posterUrl || '/promo/promo-1.svg';
+          const mediaIsVideo =
+            slide.mediaType === "video" &&
+            (slide.videoMp4Url || slide.videoWebmUrl);
+          const imageFallback =
+            slide.imageUrl || slide.posterUrl || "/promo/promo-1.svg";
 
           const slug = resolvePromoSlug(slide);
           const href = slug ? `/promo/${slug}` : slide.ctaLink;
 
           return (
-            <div key={slide.id || index} className="relative w-full h-full shrink-0">
+            <div
+              key={slide.id || index}
+              className="relative w-full h-full shrink-0"
+            >
               {youtubeEmbed ? (
                 <iframe
                   className="absolute inset-0 w-full h-full"
@@ -69,15 +75,21 @@ export const PromoHeroCarousel: React.FC<PromoHeroCarouselProps> = ({
                   loop
                   playsInline
                 >
-                  {slide.videoWebmUrl && <source src={slide.videoWebmUrl} type="video/webm" />}
-                  {slide.videoMp4Url && <source src={slide.videoMp4Url} type="video/mp4" />}
+                  {slide.videoWebmUrl && (
+                    <source src={slide.videoWebmUrl} type="video/webm" />
+                  )}
+                  {slide.videoMp4Url && (
+                    <source src={slide.videoMp4Url} type="video/mp4" />
+                  )}
                 </video>
               ) : (
-                <img
+                <Image
                   src={imageFallback}
                   alt={title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="object-cover"
                 />
               )}
 
@@ -99,8 +111,18 @@ export const PromoHeroCarousel: React.FC<PromoHeroCarouselProps> = ({
         className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60 transition-colors z-20"
         aria-label="Slide sebelumnya"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
         </svg>
       </button>
       <button
@@ -109,8 +131,18 @@ export const PromoHeroCarousel: React.FC<PromoHeroCarouselProps> = ({
         className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60 transition-colors z-20"
         aria-label="Slide berikutnya"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
         </svg>
       </button>
 
@@ -121,7 +153,7 @@ export const PromoHeroCarousel: React.FC<PromoHeroCarouselProps> = ({
             type="button"
             onClick={() => onChange(idx)}
             className={`h-2.5 rounded-full transition-all ${
-              idx === safeIndex ? 'w-8 bg-white' : 'w-2.5 bg-white/40'
+              idx === safeIndex ? "w-8 bg-white" : "w-2.5 bg-white/40"
             }`}
             aria-label={`Pergi ke slide ${idx + 1}`}
           />

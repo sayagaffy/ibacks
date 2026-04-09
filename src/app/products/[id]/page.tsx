@@ -1,16 +1,79 @@
-import { notFound } from 'next/navigation';
-import { getProductDetailWithDescription, getProducts, isProductInStock } from '@/lib/product-cache';
-import type { GalleryImage } from '@/lib/product-cache';
-import { CATEGORY_NAME_MAP, PLACEHOLDER_IMAGE } from '@/lib/constants';
-import { Header } from '@/components/ui/Header';
-import { Accordion } from '@/components/ui/Accordion';
-import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
-import { ProductDetailClient } from '@/components/ui/ProductDetailClient';
-import { ProductCard } from '@/components/ui/ProductCard';
-import Link from 'next/link';
-import { BackLink } from './BackLink';
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import {
+  getProductDetailWithDescription,
+  getProducts,
+  isProductInStock,
+} from "@/lib/product-cache";
+import type { GalleryImage } from "@/lib/product-cache";
+import { CATEGORY_NAME_MAP, PLACEHOLDER_IMAGE } from "@/lib/constants";
+import { Header } from "@/components/ui/Header";
+import { Accordion } from "@/components/ui/Accordion";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { ProductDetailClient } from "@/components/ui/ProductDetailClient";
+import { ProductCard } from "@/components/ui/ProductCard";
+import { SeoContentBlock } from "@/components/ui/SeoContentBlock";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { buildProductSchema } from "@/lib/seo/product-schema";
+import { buildFaqSchema } from "@/lib/seo/faq-schema";
+import { getProductSeoContent } from "@/lib/seo-content";
+import { ReviewsSnippet } from "@/components/ui/ReviewsSnippet";
+import { SITE_NAME, toAbsoluteUrl } from "@/lib/seo/site";
+import { safeText } from "@/lib/seo/schema-helpers";
+import { getSeoFooterLinks, popularSearches } from "@/lib/seo/mega-footer";
+import { GeoShippingClient } from "./GeoShippingClient";
+import Link from "next/link";
+import { BackLink } from "./BackLink";
+import { getReviewsBundle } from "@/lib/reviews/queries";
 
 export const revalidate = 3600;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+  const itemId = Number(resolvedParams.id);
+  if (Number.isNaN(itemId) || itemId <= 0) {
+    return {
+      title: `Produk | ${SITE_NAME}`,
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const product = await getProductDetailWithDescription(itemId);
+  if (!product) {
+    return {
+      title: `Produk | ${SITE_NAME}`,
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const categoryName = product.categoryId
+    ? CATEGORY_NAME_MAP[product.categoryId] || "Aksesoris"
+    : "Aksesoris";
+  const description = safeText(
+    product.description,
+    `Detail ${product.name} dari ${SITE_NAME}.`,
+  );
+  const image = product.thumbnail || PLACEHOLDER_IMAGE;
+  const canonicalPath = `/products/${product.id}`;
+
+  return {
+    title: product.name,
+    description,
+    alternates: { canonical: canonicalPath },
+    openGraph: {
+      title: product.name,
+      description,
+      url: toAbsoluteUrl(canonicalPath),
+      type: "website",
+      images: [image],
+    },
+    keywords: [product.name, categoryName, SITE_NAME],
+  };
+}
 
 export default async function ProductDetailPage({
   params,
@@ -25,9 +88,10 @@ export default async function ProductDetailPage({
     notFound();
   }
 
-  const [product, productCache] = await Promise.all([
+  const [product, productCache, footerLinks] = await Promise.all([
     getProductDetailWithDescription(itemId),
     getProducts(),
+    getSeoFooterLinks(),
   ]);
 
   // Product not found in cache → proper 404
@@ -36,8 +100,8 @@ export default async function ProductDetailPage({
   }
 
   const categoryName = product.categoryId
-    ? CATEGORY_NAME_MAP[product.categoryId] || 'Aksesoris'
-    : 'Aksesoris';
+    ? CATEGORY_NAME_MAP[product.categoryId] || "Aksesoris"
+    : "Aksesoris";
 
   const fallbackGallery: GalleryImage[] = [];
   const seen = new Set<string>();
@@ -53,9 +117,10 @@ export default async function ProductDetailPage({
     pushImage(PLACEHOLDER_IMAGE);
   }
 
-  const galleryImages = product.galleryImages && product.galleryImages.length > 0
-    ? product.galleryImages
-    : fallbackGallery;
+  const galleryImages =
+    product.galleryImages && product.galleryImages.length > 0
+      ? product.galleryImages
+      : fallbackGallery;
 
   const similarProducts = productCache.products
     .filter((p) => p.id !== product.id && p.categoryId === product.categoryId)
@@ -84,6 +149,26 @@ export default async function ProductDetailPage({
     })),
   };
 
+  const reviewBundle = await getReviewsBundle(product.id);
+  const seoContent = getProductSeoContent(product.name, categoryName);
+  const faqSchema = buildFaqSchema(seoContent.items, `/products/${product.id}`);
+  const productSchema = buildProductSchema({
+    id: product.id,
+    name: product.name,
+    description: displayItem.description,
+    urlPath: `/products/${product.id}`,
+    images: (galleryImages.length > 0
+      ? galleryImages
+      : [{ full: PLACEHOLDER_IMAGE, thumb: PLACEHOLDER_IMAGE }]
+    ).map((img) => img.full),
+    sku: displayItem.variants[0]?.sku || null,
+    category: categoryName,
+    price: displayItem.price,
+    inStock: isProductInStock(product),
+    aggregateRating: reviewBundle.aggregate,
+    reviews: reviewBundle.reviews,
+  });
+
   return (
     <div className="min-h-screen bg-background pb-36 flex flex-col">
       <Header />
@@ -92,10 +177,12 @@ export default async function ProductDetailPage({
         <BackLink />
         <Breadcrumbs
           items={[
-            { label: 'Beranda', href: '/' },
+            { label: "Beranda", href: "/" },
             {
               label: categoryName,
-              href: product.categoryId ? `/search?category=${product.categoryId}` : '/search',
+              href: product.categoryId
+                ? `/search?category=${product.categoryId}`
+                : "/search",
             },
             { label: product.name },
           ]}
@@ -104,8 +191,18 @@ export default async function ProductDetailPage({
 
       <main className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-8 lg:gap-16 p-4 mt-4">
         {/* Client component handles interactivity: image switcher, variant picker, add to cart */}
-        <ProductDetailClient item={displayItem} placeholderImage={PLACEHOLDER_IMAGE} />
+        <ProductDetailClient
+          item={displayItem}
+          placeholderImage={PLACEHOLDER_IMAGE}
+        />
       </main>
+
+      <GeoShippingClient />
+
+      <ReviewsSnippet
+        aggregate={reviewBundle.aggregate}
+        reviews={reviewBundle.reviews}
+      />
 
       {/* Static accordions stay as Server Component */}
       <div className="w-full max-w-5xl mx-auto px-4 pb-4">
@@ -134,15 +231,33 @@ export default async function ProductDetailPage({
               <Link key={p.id} href={`/products/${p.id}`}>
                 <ProductCard
                   name={p.name}
-                  price={p.price > 0 ? `Rp ${p.price.toLocaleString('id-ID')}` : 'Hubungi Kami'}
+                  price={
+                    p.price > 0
+                      ? `Rp ${p.price.toLocaleString("id-ID")}`
+                      : "Hubungi Kami"
+                  }
                   imageSrc={p.thumbnail || PLACEHOLDER_IMAGE}
-                  category={p.categoryId ? CATEGORY_NAME_MAP[p.categoryId] || 'Aksesoris' : 'Aksesoris'}
+                  category={
+                    p.categoryId
+                      ? CATEGORY_NAME_MAP[p.categoryId] || "Aksesoris"
+                      : "Aksesoris"
+                  }
                 />
               </Link>
             ))}
           </div>
         </section>
       )}
+
+      <SeoContentBlock
+        title={seoContent.title}
+        intro={seoContent.intro}
+        items={seoContent.items}
+        linkGroups={footerLinks}
+        popularSearches={popularSearches}
+      />
+      <JsonLd data={productSchema} />
+      <JsonLd data={faqSchema} />
     </div>
   );
 }

@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "vitest run --config vitest.config.mjs",
+    "db:migrate": "tsx scripts/geo-migrate.ts",
+    "db:seed:geo": "tsx scripts/geo-seed.ts",
     "sync:products": "dotenv-cli -e .env -- node scripts/sync-products.js"
   },
   "dependencies": {
@@ -20,18 +23,30 @@
     "zustand": "^5.0.12"
   },
   "devDependencies": {
+    "@rolldown/binding-win32-x64-msvc": "^1.0.0-rc.14",
     "@rollup/rollup-win32-x64-msvc": "^4.60.1",
     "@tailwindcss/oxide-win32-x64-msvc": "^4.2.2",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/bun": "^1.3.11",
     "@types/node": "^20",
+    "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^6.0.1",
+    "drizzle-kit": "^0.31.10",
+    "drizzle-orm": "^0.45.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
+    "jsdom": "^29.0.2",
     "lightningcss-win32-x64-msvc": "^1.32.0",
+    "pg": "^8.20.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.21.0",
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^4.1.3"
   },
   "ignoreScripts": [
     "sharp",

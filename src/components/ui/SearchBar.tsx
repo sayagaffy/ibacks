@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import type { CategoryItem, CategoryNode } from '@/lib/types';
 import { SearchSuggestions } from './SearchSuggestions';

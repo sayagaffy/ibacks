@@ -1,12 +1,17 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { Header } from '@/components/ui/Header';
-import { Footer } from '@/components/ui/Footer';
-import { ProductCard } from '@/components/ui/ProductCard';
-import { getPromoHero, PromoHeroSlide } from '@/lib/sanity-client';
-import { getProducts, isProductInStock } from '@/lib/product-cache';
-import { CATEGORY_NAME_MAP, PLACEHOLDER_IMAGE } from '@/lib/constants';
-import { buildPromoHeroSlides, resolvePromoSlug, slugifyPromo } from '@/lib/promo-hero';
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import { Header } from "@/components/ui/Header";
+import { Footer } from "@/components/ui/Footer";
+import { ProductCard } from "@/components/ui/ProductCard";
+import { getPromoHero, PromoHeroSlide } from "@/lib/sanity-client";
+import { getProducts, isProductInStock } from "@/lib/product-cache";
+import { CATEGORY_NAME_MAP, PLACEHOLDER_IMAGE } from "@/lib/constants";
+import {
+  buildPromoHeroSlides,
+  resolvePromoSlug,
+  slugifyPromo,
+} from "@/lib/promo-hero";
 
 export const revalidate = 3600;
 
@@ -16,7 +21,7 @@ function getYoutubeEmbedUrl(url?: string) {
   const id = idMatch?.[1];
   if (!id) return null;
   const startMatch = url.match(/[?&]t=(\d+)/);
-  const startSeconds = startMatch?.[1] || '0';
+  const startSeconds = startMatch?.[1] || "0";
   return `https://www.youtube.com/embed/${id}?start=${startSeconds}&autoplay=1&mute=1&controls=0&loop=1&playlist=${id}`;
 }
 
@@ -27,27 +32,40 @@ function findSlideBySlug(slides: PromoHeroSlide[], slug: string) {
   return slides.find((slide) => resolvePromoSlug(slide) === normalized);
 }
 
-export default async function PromoDetailPage({ params }: { params: { slug: string } }) {
-  const [promoHero, productCache] = await Promise.all([getPromoHero().catch(() => null), getProducts()]);
+export default async function PromoDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const resolvedParams = await params;
+  const [promoHero, productCache] = await Promise.all([
+    getPromoHero().catch(() => null),
+    getProducts(),
+  ]);
   const allProducts = productCache.products.filter(isProductInStock);
   const slides = buildPromoHeroSlides(promoHero, allProducts);
-  const slide = findSlideBySlug(slides, params.slug);
+  const slide = findSlideBySlug(slides, resolvedParams.slug);
 
   const activeSlide = slide || slides[0];
   if (!activeSlide) notFound();
 
-  const productsById = allProducts.reduce<Record<number, typeof allProducts[number]>>((acc, product) => {
+  const productsById = allProducts.reduce<
+    Record<number, (typeof allProducts)[number]>
+  >((acc, product) => {
     acc[product.id] = product;
     return acc;
   }, {});
 
   const promoProducts = (activeSlide.productIds || [])
     .map((id) => productsById[id])
-    .filter((product): product is typeof allProducts[number] => Boolean(product));
+    .filter((product): product is (typeof allProducts)[number] =>
+      Boolean(product),
+    );
 
   const youtubeEmbed = getYoutubeEmbedUrl(activeSlide.youtubeUrl);
-  const heroTitle = activeSlide.title || 'Promo iBacks';
-  const heroSubtitle = activeSlide.subtitle || 'Kurasi promo iBacks terbaik untukmu.';
+  const heroTitle = activeSlide.title || "Promo iBacks";
+  const heroSubtitle =
+    activeSlide.subtitle || "Kurasi promo iBacks terbaik untukmu.";
   const heroDescription = activeSlide.description;
 
   return (
@@ -66,7 +84,8 @@ export default async function PromoDetailPage({ params }: { params: { slug: stri
                   allow="autoplay; encrypted-media; picture-in-picture"
                   allowFullScreen
                 />
-              ) : activeSlide.mediaType === 'video' && (activeSlide.videoMp4Url || activeSlide.videoWebmUrl) ? (
+              ) : activeSlide.mediaType === "video" &&
+                (activeSlide.videoMp4Url || activeSlide.videoWebmUrl) ? (
                 <video
                   className="absolute inset-0 w-full h-full object-cover"
                   poster={activeSlide.posterUrl || activeSlide.imageUrl}
@@ -75,14 +94,25 @@ export default async function PromoDetailPage({ params }: { params: { slug: stri
                   loop
                   playsInline
                 >
-                  {activeSlide.videoWebmUrl && <source src={activeSlide.videoWebmUrl} type="video/webm" />}
-                  {activeSlide.videoMp4Url && <source src={activeSlide.videoMp4Url} type="video/mp4" />}
+                  {activeSlide.videoWebmUrl && (
+                    <source src={activeSlide.videoWebmUrl} type="video/webm" />
+                  )}
+                  {activeSlide.videoMp4Url && (
+                    <source src={activeSlide.videoMp4Url} type="video/mp4" />
+                  )}
                 </video>
               ) : (
-                <img
-                  src={activeSlide.imageUrl || activeSlide.posterUrl || PLACEHOLDER_IMAGE}
+                <Image
+                  src={
+                    activeSlide.imageUrl ||
+                    activeSlide.posterUrl ||
+                    PLACEHOLDER_IMAGE
+                  }
                   alt={heroTitle}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-cover"
                 />
               )}
             </div>
@@ -151,9 +181,17 @@ export default async function PromoDetailPage({ params }: { params: { slug: stri
               <Link key={product.id} href={`/products/${product.id}`}>
                 <ProductCard
                   name={product.name}
-                  price={product.price > 0 ? `Rp ${product.price.toLocaleString('id-ID')}` : 'Hubungi Kami'}
+                  price={
+                    product.price > 0
+                      ? `Rp ${product.price.toLocaleString("id-ID")}`
+                      : "Hubungi Kami"
+                  }
                   imageSrc={product.thumbnail || PLACEHOLDER_IMAGE}
-                  category={product.categoryId ? CATEGORY_NAME_MAP[product.categoryId] || 'Aksesoris' : 'Aksesoris'}
+                  category={
+                    product.categoryId
+                      ? CATEGORY_NAME_MAP[product.categoryId] || "Aksesoris"
+                      : "Aksesoris"
+                  }
                 />
               </Link>
             ))}

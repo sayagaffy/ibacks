@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React, { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
-import { PromoHeroCarousel } from './PromoHeroCarousel';
-import { ProductCard } from './ProductCard';
-import type { PromoHeroSlide } from '@/lib/sanity-client';
-import { resolvePromoSlug } from '@/lib/promo-hero';
+import React, { useMemo, useState } from "react";
+import Link from "next/link";
+import { PromoHeroCarousel } from "./PromoHeroCarousel";
+import { ProductCard } from "./ProductCard";
+import type { PromoHeroSlide } from "@/lib/sanity-client";
+import { resolvePromoSlug } from "@/lib/promo-hero";
 
 export interface PromoHeroProduct {
   id: number;
@@ -25,27 +25,30 @@ export const PromoHeroSection: React.FC<PromoHeroSectionProps> = ({
   productsById,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (activeIndex >= slides.length) setActiveIndex(0);
-  }, [activeIndex, slides.length]);
+  const safeIndex = slides.length > 0 ? activeIndex % slides.length : 0;
 
   const activeProducts = useMemo(() => {
-    const ids = slides[activeIndex]?.productIds || [];
+    const ids = slides[safeIndex]?.productIds || [];
     return ids
       .map((id) => productsById[id])
       .filter((product): product is PromoHeroProduct => Boolean(product));
-  }, [slides, activeIndex, productsById]);
+  }, [slides, safeIndex, productsById]);
 
-  const activeSlide = slides[activeIndex];
+  const activeSlide = slides[safeIndex];
   const promoSlug = activeSlide ? resolvePromoSlug(activeSlide) : undefined;
-  const promoHref = promoSlug ? `/promo/${promoSlug}` : activeSlide?.ctaLink || '/search';
+  const promoHref = promoSlug
+    ? `/promo/${promoSlug}`
+    : activeSlide?.ctaLink || "/search";
 
   if (!slides || slides.length === 0) return null;
 
   return (
     <div className="w-full flex flex-col gap-6">
-      <PromoHeroCarousel slides={slides} activeIndex={activeIndex} onChange={setActiveIndex} />
+      <PromoHeroCarousel
+        slides={slides}
+        activeIndex={safeIndex}
+        onChange={setActiveIndex}
+      />
 
       {activeSlide && (
         <div className="flex flex-col gap-3 px-1 items-center text-center">
@@ -86,7 +89,7 @@ export const PromoHeroSection: React.FC<PromoHeroSectionProps> = ({
               href={promoHref}
               className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-on-primary text-sm font-semibold shadow-lg shadow-primary/30 hover:bg-primary-container transition-colors"
             >
-              {activeSlide.ctaText || 'Lihat Promo'}
+              {activeSlide.ctaText || "Lihat Promo"}
             </Link>
           </div>
         </div>
@@ -116,10 +119,13 @@ export const PromoHeroSection: React.FC<PromoHeroSectionProps> = ({
 
           <div
             className="relative mt-5 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory"
-            style={{ scrollbarWidth: 'none' }}
+            style={{ scrollbarWidth: "none" }}
           >
             {activeProducts.map((product) => (
-              <div key={product.id} className="min-w-[200px] max-w-[240px] flex-none snap-start">
+              <div
+                key={product.id}
+                className="min-w-[200px] max-w-[240px] flex-none snap-start"
+              >
                 <Link href={`/products/${product.id}`}>
                   <ProductCard
                     name={product.name}
