@@ -46,7 +46,12 @@ export function useHeaderSearch({
 
   useEffect(() => {
     fetch("/api/category-tree")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Category tree request failed: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         setCategoryTree(data.tree || []);
         setCategories(
@@ -67,17 +72,23 @@ export function useHeaderSearch({
 
   useEffect(() => {
     fetch("/api/popular-products")
-      .then((res) => res.json())
-      .then((data) =>
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Popular products request failed: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const items = Array.isArray(data?.items) ? data.items : [];
         setPopularItems(
-          (data.items || []).map((item: SuggestionItem) => ({
+          items.map((item: SuggestionItem) => ({
             id: item.id,
             name: item.name,
             categoryId: item.categoryId ?? null,
             thumbnail: item.thumbnail ?? null,
           })),
-        ),
-      )
+        );
+      })
       .catch(() => setPopularItems([]));
   }, []);
 

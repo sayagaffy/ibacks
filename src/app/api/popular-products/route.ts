@@ -16,6 +16,14 @@ export async function GET() {
     );
   } catch (error) {
     console.error('Popular products API error:', error);
-    return NextResponse.json({ items: [] }, { status: 500 });
+    return NextResponse.json(
+      { items: [] },
+      {
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, max-age=300, stale-while-revalidate=3600',
+        },
+      }
+    );
   }
 }

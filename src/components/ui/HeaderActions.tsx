@@ -12,6 +12,7 @@ interface HeaderActionsProps {
   isAuthenticated: boolean;
   user: HeaderUser | null;
   totalItems: number;
+  onCartClick?: () => void;
 }
 
 export function HeaderActions({
@@ -19,6 +20,7 @@ export function HeaderActions({
   isAuthenticated,
   user,
   totalItems,
+  onCartClick,
 }: HeaderActionsProps) {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     if (typeof window === "undefined") return "dark";
@@ -27,7 +29,6 @@ export function HeaderActions({
   });
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
@@ -42,59 +43,61 @@ export function HeaderActions({
 
   return (
     <div className="flex items-center gap-2 shrink-0">
-      <button
-        type="button"
-        onClick={toggleTheme}
-        className={`relative w-12 h-7 rounded-full border transition-colors ${
-          theme === "dark"
-            ? "bg-surface-container-highest border-white/10"
-            : "bg-surface-container-low border-black/10"
-        }`}
-        aria-label="Toggle Tema"
-        title="Toggle Tema"
-      >
-        <span
-          className={`absolute top-1 left-1 h-5 w-5 rounded-full transition-all ${
+      {mounted && (
+        <button
+          type="button"
+          onClick={toggleTheme}
+          className={`relative w-12 h-7 rounded-full border transition-colors ${
             theme === "dark"
-              ? "translate-x-5 bg-white"
-              : "translate-x-0 bg-white"
-          } shadow-md`}
-        />
-        <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-on-surface-variant">
-          {theme === "dark" ? (
-            <svg
-              className="w-3 h-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
-              />
-            </svg>
-          ) : (
-            <svg
-              className="w-3 h-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.364-7.364l-1.414 1.414M7.05 16.95l-1.414 1.414m0-12.728L7.05 7.05m9.9 9.9l1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"
-              />
-            </svg>
-          )}
-        </span>
-        <span className="sr-only">
-          Tema {theme === "dark" ? "Gelap" : "Terang"}
-        </span>
-      </button>
+              ? "bg-surface-container-highest border-white/10"
+              : "bg-surface-container-low border-black/10"
+          }`}
+          aria-label="Toggle Tema"
+          title="Toggle Tema"
+        >
+          <span
+            className={`absolute top-1 left-1 h-5 w-5 rounded-full transition-all ${
+              theme === "dark"
+                ? "translate-x-5 bg-white"
+                : "translate-x-0 bg-white"
+            } shadow-md`}
+          />
+          <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-on-surface-variant">
+            {theme === "dark" ? (
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.364-7.364l-1.414 1.414M7.05 16.95l-1.414 1.414m0-12.728L7.05 7.05m9.9 9.9l1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"
+                />
+              </svg>
+            )}
+          </span>
+          <span className="sr-only">
+            Tema {theme === "dark" ? "Gelap" : "Terang"}
+          </span>
+        </button>
+      )}
 
       {mounted && (
         <Link
@@ -124,8 +127,9 @@ export function HeaderActions({
         </Link>
       )}
 
-      <Link
-        href="/cart"
+      <button
+        type="button"
+        onClick={onCartClick}
         className="p-2 -mr-2 relative text-on-surface hover:bg-surface-container-low rounded-full transition-colors"
         aria-label="Keranjang"
       >
@@ -147,7 +151,7 @@ export function HeaderActions({
             {totalItems}
           </span>
         )}
-      </Link>
+      </button>
     </div>
   );
 }

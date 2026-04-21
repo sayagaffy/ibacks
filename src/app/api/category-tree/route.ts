@@ -4,6 +4,7 @@ import { getCategories } from '@/lib/category-cache';
 import { fallbackCategoryFlat, fallbackCategoryTree } from '@/lib/fallback-category-tree';
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 export async function GET() {
   try {
@@ -37,6 +38,14 @@ export async function GET() {
     );
   } catch (error) {
     console.error('Category tree API error:', error);
-    return NextResponse.json({ tree: [], flat: [] }, { status: 500 });
+    return NextResponse.json(
+      { tree: fallbackCategoryTree, flat: fallbackCategoryFlat },
+      {
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, max-age=300, stale-while-revalidate=3600',
+        },
+      }
+    );
   }
 }

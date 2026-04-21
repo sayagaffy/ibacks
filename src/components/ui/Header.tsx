@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useCartStore } from "@/store/cartStore";
 import { useAuthStore } from "@/store/authStore";
+import { useCartDrawerStore } from "@/store/cartDrawerStore";
 import Link from "next/link";
 import Image from "next/image";
 import { SearchBar } from "./SearchBar";
@@ -14,7 +15,7 @@ export interface HeaderProps {
   title?: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ title = "ibacks" }) => {
+const HeaderInner: React.FC<HeaderProps> = ({ title = "ibacks" }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -22,6 +23,7 @@ export const Header: React.FC<HeaderProps> = ({ title = "ibacks" }) => {
   // Hydration fix for Zustand
   const [mounted, setMounted] = useState(false);
   const items = useCartStore((state) => state.items);
+  const openDrawer = useCartDrawerStore((state) => state.openDrawer);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const user = useAuthStore((state) => state.user);
 
@@ -159,8 +161,17 @@ export const Header: React.FC<HeaderProps> = ({ title = "ibacks" }) => {
           isAuthenticated={isAuthenticated}
           user={user}
           totalItems={totalItems}
+          onCartClick={openDrawer}
         />
       </div>
     </header>
   );
 };
+
+export const Header: React.FC<HeaderProps> = ({ title = "ibacks" }) => (
+  <Suspense
+    fallback={<div className="sticky top-0 z-50 h-16 bg-surface border-b surface-border" />}
+  >
+    <HeaderInner title={title} />
+  </Suspense>
+);
