@@ -10,7 +10,7 @@
     "test": "vitest run --config vitest.config.mjs",
     "db:migrate": "tsx scripts/geo-migrate.ts",
     "db:seed:geo": "tsx scripts/geo-seed.ts",
-    "sync:products": "dotenv-cli -e .env -- node scripts/sync-products.js"
+    "sync:products": "tsx scripts/sync-products.ts"
   },
   "dependencies": {
     "@portabletext/react": "^6.0.3",
