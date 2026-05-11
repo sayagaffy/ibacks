@@ -8,6 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import { getItemCategories } from '@/lib/jubelio-adapter/categories';
+import { resolveServerCacheDir } from '@/lib/server-cache-path';
 
 export interface CachedCategory {
   id: number;
@@ -20,7 +21,7 @@ export interface CategoryCache {
   syncedAt: string;
 }
 
-const CACHE_DIR = path.join(process.cwd(), 'data');
+const CACHE_DIR = resolveServerCacheDir();
 const CACHE_FILE = path.join(CACHE_DIR, 'categories.json');
 const CACHE_MAX_AGE_MS = 60 * 60 * 1000; // 1 hour
 

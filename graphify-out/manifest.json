@@ -4,8 +4,8 @@
     "hash": "99da5b18fdd7bd36079e82078580f050"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\eslint.config.mjs": {
-    "mtime": 1775526079.5599823,
-    "hash": "6c4307ffa009658f5c97f5629094c0c2"
+    "mtime": 1777866607.7110944,
+    "hash": "1a7f1d68e1f223dca15ff71233c0e166"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\jules_setup.ts": {
     "mtime": 1775526079.5599823,
@@ -52,8 +52,8 @@
     "hash": "a47fe101e149792157f65a39efe0dd5d"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\scripts\\sync-products.ts": {
-    "mtime": 1775555664.5485866,
-    "hash": "b755dfb4b8ec3a02b6d08efeffa6d463"
+    "mtime": 1777866607.7562459,
+    "hash": "26482b01b5ebbed73c984a052a54a398"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\app\\layout.tsx": {
     "mtime": 1775712975.2717912,
@@ -316,8 +316,8 @@
     "hash": "51ae13a361e7f58de82e306e72b80561"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\product-cache.ts": {
-    "mtime": 1775614054.9199495,
-    "hash": "b8b96ef71de178503e175504f244864f"
+    "mtime": 1777866607.8647163,
+    "hash": "06b61b942b088f99c4d9e4f66d588ac2"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\promo-hero.ts": {
     "mtime": 1775626632.7775137,
@@ -378,6 +378,10 @@
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\jubelio-adapter\\items.ts": {
     "mtime": 1775708718.5075028,
     "hash": "745fa70a01839b98b1520b1e07410a4f"
+  },
+  "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\jubelio-adapter\\products.ts": {
+    "mtime": 1777866130.44136,
+    "hash": "658a5d96624f6de33f1c7ab21961edae"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\reviews\\bridge.ts": {
     "mtime": 1775704342.8740084,
@@ -454,6 +458,14 @@
   "D:\\Documents\\Work\\ibacks\\ibacks\\tests\\geo-shipping-client.test.tsx": {
     "mtime": 1775701354.2525084,
     "hash": "e5f50bb0315677122a2ae85dbf11722e"
+  },
+  "D:\\Documents\\Work\\ibacks\\ibacks\\tests\\jubelio-boundary.test.ts": {
+    "mtime": 1777866314.1019897,
+    "hash": "8f27c3fbb2a8ea22c6d5677fd1081b6f"
+  },
+  "D:\\Documents\\Work\\ibacks\\ibacks\\tests\\jubelio-products-adapter.test.ts": {
+    "mtime": 1777866276.5416384,
+    "hash": "dc8adb8bf51f7c1f4ae3216e31b7313c"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\tests\\reviews-bridge.test.ts": {
     "mtime": 1775704431.4943979,

@@ -17,6 +17,7 @@ import {
   type JubelioPromotion,
   type JubelioPromotionDetail,
 } from "@/lib/jubelio-adapter/products";
+import { resolveServerCacheDir } from "@/lib/server-cache-path";
 import fs from "fs";
 import path from "path";
 
@@ -57,8 +58,8 @@ export interface ProductCache {
   syncedAt: string; // ISO timestamp
 }
 
-// Store in data/ directory — persists across builds and hot reloads
-const CACHE_DIR = path.join(process.cwd(), "data");
+// Store in data/ locally, or /tmp on Vercel where the function filesystem is read-only.
+const CACHE_DIR = resolveServerCacheDir();
 const CACHE_FILE = path.join(CACHE_DIR, "products.json");
 const CACHE_MAX_AGE_MS = 60 * 60 * 1000; // 1 hour
 

@@ -9,7 +9,7 @@
       "source_file": "drizzle.config.ts",
       "source_location": "L1",
       "id": "drizzle_config_ts",
-      "community": 30,
+      "community": 32,
       "norm_label": "drizzle.config.ts"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "eslint.config.mjs",
       "source_location": "L1",
       "id": "eslint_config_mjs",
-      "community": 31,
+      "community": 33,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "jules_setup.ts",
       "source_location": "L1",
       "id": "jules_setup_ts",
-      "community": 16,
+      "community": 18,
       "norm_label": "jules_setup.ts"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "jules_setup.ts",
       "source_location": "L3",
       "id": "ibacks_jules_setup_main",
-      "community": 16,
+      "community": 18,
       "norm_label": "main()"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "next.config.ts",
       "source_location": "L1",
       "id": "next_config_ts",
-      "community": 32,
+      "community": 34,
       "norm_label": "next.config.ts"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "postcss.config.mjs",
       "source_location": "L1",
       "id": "postcss_config_mjs",
-      "community": 33,
+      "community": 35,
       "norm_label": "postcss.config.mjs"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "sanity.config.ts",
       "source_location": "L1",
       "id": "sanity_config_ts",
-      "community": 34,
+      "community": 36,
       "norm_label": "sanity.config.ts"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "vitest.config.mjs",
       "source_location": "L1",
       "id": "vitest_config_mjs",
-      "community": 35,
+      "community": 37,
       "norm_label": "vitest.config.mjs"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "vitest.config.ts",
       "source_location": "L1",
       "id": "vitest_config_ts",
-      "community": 36,
+      "community": 38,
       "norm_label": "vitest.config.ts"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "scripts\\geo-migrate.ts",
       "source_location": "L1",
       "id": "scripts_geo_migrate_ts",
-      "community": 15,
+      "community": 16,
       "norm_label": "geo-migrate.ts"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "scripts\\geo-migrate.ts",
       "source_location": "L5",
       "id": "scripts_geo_migrate_loadenv",
-      "community": 15,
+      "community": 16,
       "norm_label": "loadenv()"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "scripts\\geo-migrate.ts",
       "source_location": "L19",
       "id": "scripts_geo_migrate_run",
-      "community": 15,
+      "community": 16,
       "norm_label": "run()"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "scripts\\geo-seed.ts",
       "source_location": "L1",
       "id": "scripts_geo_seed_ts",
-      "community": 12,
+      "community": 13,
       "norm_label": "geo-seed.ts"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "scripts\\geo-seed.ts",
       "source_location": "L19",
       "id": "scripts_geo_seed_loadenv",
-      "community": 12,
+      "community": 13,
       "norm_label": "loadenv()"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "scripts\\geo-seed.ts",
       "source_location": "L84",
       "id": "scripts_geo_seed_upsertwarehouse",
-      "community": 12,
+      "community": 13,
       "norm_label": "upsertwarehouse()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "scripts\\geo-seed.ts",
       "source_location": "L152",
       "id": "scripts_geo_seed_run",
-      "community": 12,
+      "community": 13,
       "norm_label": "run()"
     },
     {
@@ -153,16 +153,16 @@
       "source_file": "scripts\\sync-products.ts",
       "source_location": "L1",
       "id": "scripts_sync_products_ts",
-      "community": 17,
+      "community": 0,
       "norm_label": "sync-products.ts"
     },
     {
       "label": "run()",
       "file_type": "code",
       "source_file": "scripts\\sync-products.ts",
-      "source_location": "L14",
+      "source_location": "L16",
       "id": "scripts_sync_products_run",
-      "community": 17,
+      "community": 0,
       "norm_label": "run()"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "src\\app\\layout.tsx",
       "source_location": "L1",
       "id": "src_app_layout_tsx",
-      "community": 14,
+      "community": 15,
       "norm_label": "layout.tsx"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "src\\app\\layout.tsx",
       "source_location": "L33",
       "id": "app_layout_rootlayout",
-      "community": 14,
+      "community": 15,
       "norm_label": "rootlayout()"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L1",
       "id": "src_app_page_tsx",
-      "community": 2,
+      "community": 1,
       "norm_label": "page.tsx"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "src\\app\\sitemap.ts",
       "source_location": "L1",
       "id": "src_app_sitemap_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "sitemap.ts"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "src\\app\\sitemap.ts",
       "source_location": "L8",
       "id": "app_sitemap_sitemap",
-      "community": 1,
+      "community": 2,
       "norm_label": "sitemap()"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "src\\app\\api\\categories\\route.ts",
       "source_location": "L1",
       "id": "src_app_api_categories_route_ts",
-      "community": 1,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "src\\app\\api\\categories\\route.ts",
       "source_location": "L7",
       "id": "categories_route_get",
-      "community": 1,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "src\\app\\api\\category-tree\\route.ts",
       "source_location": "L1",
       "id": "src_app_api_category_tree_route_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "route.ts"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "src\\app\\api\\category-tree\\route.ts",
       "source_location": "L9",
       "id": "category_tree_route_get",
-      "community": 3,
+      "community": 2,
       "norm_label": "get()"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "src\\app\\api\\checkout\\route.ts",
       "source_location": "L1",
       "id": "src_app_api_checkout_route_ts",
-      "community": 18,
+      "community": 19,
       "norm_label": "route.ts"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "src\\app\\api\\checkout\\route.ts",
       "source_location": "L3",
       "id": "checkout_route_post",
-      "community": 18,
+      "community": 19,
       "norm_label": "post()"
     },
     {
@@ -396,7 +396,7 @@
       "source_file": "src\\app\\api\\popular-products\\route.ts",
       "source_location": "L1",
       "id": "src_app_api_popular_products_route_ts",
-      "community": 13,
+      "community": 14,
       "norm_label": "route.ts"
     },
     {
@@ -405,7 +405,7 @@
       "source_file": "src\\app\\api\\popular-products\\route.ts",
       "source_location": "L6",
       "id": "popular_products_route_get",
-      "community": 13,
+      "community": 14,
       "norm_label": "get()"
     },
     {
@@ -414,7 +414,7 @@
       "source_file": "src\\app\\api\\products\\route.ts",
       "source_location": "L1",
       "id": "src_app_api_products_route_ts",
-      "community": 1,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -423,7 +423,7 @@
       "source_file": "src\\app\\api\\products\\route.ts",
       "source_location": "L6",
       "id": "products_route_get",
-      "community": 1,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -432,7 +432,7 @@
       "source_file": "src\\app\\api\\products\\[id]\\route.ts",
       "source_location": "L1",
       "id": "src_app_api_products_id_route_ts",
-      "community": 1,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -441,7 +441,7 @@
       "source_file": "src\\app\\api\\products\\[id]\\route.ts",
       "source_location": "L6",
       "id": "id_route_get",
-      "community": 1,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -450,7 +450,7 @@
       "source_file": "src\\app\\api\\sync-categories\\route.ts",
       "source_location": "L1",
       "id": "src_app_api_sync_categories_route_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "route.ts"
     },
     {
@@ -459,7 +459,7 @@
       "source_file": "src\\app\\api\\sync-categories\\route.ts",
       "source_location": "L6",
       "id": "sync_categories_route_post",
-      "community": 3,
+      "community": 2,
       "norm_label": "post()"
     },
     {
@@ -468,7 +468,7 @@
       "source_file": "src\\app\\api\\sync-products\\route.ts",
       "source_location": "L1",
       "id": "src_app_api_sync_products_route_ts",
-      "community": 1,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -477,7 +477,7 @@
       "source_file": "src\\app\\api\\sync-products\\route.ts",
       "source_location": "L6",
       "id": "sync_products_route_get",
-      "community": 1,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "src\\app\\dukungan\\page.tsx",
       "source_location": "L1",
       "id": "src_app_dukungan_page_tsx",
-      "community": 19,
+      "community": 20,
       "norm_label": "page.tsx"
     },
     {
@@ -540,7 +540,7 @@
       "source_file": "src\\app\\dukungan\\page.tsx",
       "source_location": "L5",
       "id": "dukungan_page_dukunganpage",
-      "community": 19,
+      "community": 20,
       "norm_label": "dukunganpage()"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "src\\app\\ekosistem\\page.tsx",
       "source_location": "L1",
       "id": "src_app_ekosistem_page_tsx",
-      "community": 20,
+      "community": 21,
       "norm_label": "page.tsx"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "src\\app\\ekosistem\\page.tsx",
       "source_location": "L5",
       "id": "ekosistem_page_ekosistempage",
-      "community": 20,
+      "community": 21,
       "norm_label": "ekosistempage()"
     },
     {
@@ -567,7 +567,7 @@
       "source_file": "src\\app\\kategori\\[id]\\CategoryPageClient.tsx",
       "source_location": "L1",
       "id": "src_app_kategori_id_categorypageclient_tsx",
-      "community": 2,
+      "community": 3,
       "norm_label": "categorypageclient.tsx"
     },
     {
@@ -576,7 +576,7 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L1",
       "id": "src_app_kategori_id_page_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "page.tsx"
     },
     {
@@ -585,7 +585,7 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L19",
       "id": "id_page_resolvecategorydata",
-      "community": 0,
+      "community": 1,
       "norm_label": "resolvecategorydata()"
     },
     {
@@ -594,7 +594,7 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L31",
       "id": "id_page_generatemetadata",
-      "community": 0,
+      "community": 1,
       "norm_label": "generatemetadata()"
     },
     {
@@ -603,7 +603,7 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L67",
       "id": "id_page_categorypage",
-      "community": 0,
+      "community": 1,
       "norm_label": "categorypage()"
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "src\\app\\locations\\[city]\\page.tsx",
       "source_location": "L1",
       "id": "src_app_locations_city_page_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "page.tsx"
     },
     {
@@ -621,7 +621,7 @@
       "source_file": "src\\app\\locations\\[city]\\page.tsx",
       "source_location": "L8",
       "id": "city_page_todisplayname",
-      "community": 0,
+      "community": 1,
       "norm_label": "todisplayname()"
     },
     {
@@ -630,7 +630,7 @@
       "source_file": "src\\app\\locations\\[city]\\page.tsx",
       "source_location": "L79",
       "id": "city_page_generatemetadata",
-      "community": 0,
+      "community": 1,
       "norm_label": "generatemetadata()"
     },
     {
@@ -657,7 +657,7 @@
       "source_file": "src\\app\\products\\[id]\\BackLink.tsx",
       "source_location": "L1",
       "id": "src_app_products_id_backlink_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "backlink.tsx"
     },
     {
@@ -666,7 +666,7 @@
       "source_file": "src\\app\\products\\[id]\\BackLink.tsx",
       "source_location": "L9",
       "id": "id_backlink_backlink",
-      "community": 0,
+      "community": 1,
       "norm_label": "backlink()"
     },
     {
@@ -675,7 +675,7 @@
       "source_file": "src\\app\\products\\[id]\\GeoShippingClient.tsx",
       "source_location": "L1",
       "id": "src_app_products_id_geoshippingclient_tsx",
-      "community": 9,
+      "community": 10,
       "norm_label": "geoshippingclient.tsx"
     },
     {
@@ -684,7 +684,7 @@
       "source_file": "src\\app\\products\\[id]\\GeoShippingClient.tsx",
       "source_location": "L26",
       "id": "id_geoshippingclient_run",
-      "community": 9,
+      "community": 10,
       "norm_label": "run()"
     },
     {
@@ -693,7 +693,7 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L1",
       "id": "src_app_products_id_page_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "page.tsx"
     },
     {
@@ -702,7 +702,7 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L108",
       "id": "id_page_pushimage",
-      "community": 0,
+      "community": 1,
       "norm_label": "pushimage()"
     },
     {
@@ -711,7 +711,7 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L1",
       "id": "src_app_promo_slug_page_tsx",
-      "community": 2,
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
@@ -720,7 +720,7 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L18",
       "id": "slug_page_getyoutubeembedurl",
-      "community": 2,
+      "community": 3,
       "norm_label": "getyoutubeembedurl()"
     },
     {
@@ -729,7 +729,7 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L28",
       "id": "slug_page_findslidebyslug",
-      "community": 2,
+      "community": 3,
       "norm_label": "findslidebyslug()"
     },
     {
@@ -756,7 +756,7 @@
       "source_file": "src\\app\\search\\page.tsx",
       "source_location": "L1",
       "id": "src_app_search_page_tsx",
-      "community": 21,
+      "community": 22,
       "norm_label": "page.tsx"
     },
     {
@@ -765,7 +765,7 @@
       "source_file": "src\\app\\search\\page.tsx",
       "source_location": "L9",
       "id": "search_page_searchroute",
-      "community": 21,
+      "community": 22,
       "norm_label": "searchroute()"
     },
     {
@@ -774,7 +774,7 @@
       "source_file": "src\\app\\studio\\[[...tool]]\\page.tsx",
       "source_location": "L1",
       "id": "src_app_studio_tool_page_tsx",
-      "community": 22,
+      "community": 23,
       "norm_label": "page.tsx"
     },
     {
@@ -783,7 +783,7 @@
       "source_file": "src\\app\\studio\\[[...tool]]\\page.tsx",
       "source_location": "L6",
       "id": "tool_page_studiopage",
-      "community": 22,
+      "community": 23,
       "norm_label": "studiopage()"
     },
     {
@@ -792,7 +792,7 @@
       "source_file": "src\\app\\teknologi\\page.tsx",
       "source_location": "L1",
       "id": "src_app_teknologi_page_tsx",
-      "community": 23,
+      "community": 24,
       "norm_label": "page.tsx"
     },
     {
@@ -801,7 +801,7 @@
       "source_file": "src\\app\\teknologi\\page.tsx",
       "source_location": "L5",
       "id": "teknologi_page_teknologipage",
-      "community": 23,
+      "community": 24,
       "norm_label": "teknologipage()"
     },
     {
@@ -810,7 +810,7 @@
       "source_file": "src\\app\\tentang-kami\\page.tsx",
       "source_location": "L1",
       "id": "src_app_tentang_kami_page_tsx",
-      "community": 24,
+      "community": 25,
       "norm_label": "page.tsx"
     },
     {
@@ -819,7 +819,7 @@
       "source_file": "src\\app\\tentang-kami\\page.tsx",
       "source_location": "L5",
       "id": "tentang_kami_page_tentangkamipage",
-      "community": 24,
+      "community": 25,
       "norm_label": "tentangkamipage()"
     },
     {
@@ -828,7 +828,7 @@
       "source_file": "src\\components\\cart\\CartDrawerClient.tsx",
       "source_location": "L1",
       "id": "src_components_cart_cartdrawerclient_tsx",
-      "community": 14,
+      "community": 15,
       "norm_label": "cartdrawerclient.tsx"
     },
     {
@@ -837,7 +837,7 @@
       "source_file": "src\\components\\cart\\CartDrawerClient.tsx",
       "source_location": "L9",
       "id": "cart_cartdrawerclient_cartdrawerclient",
-      "community": 14,
+      "community": 15,
       "norm_label": "cartdrawerclient()"
     },
     {
@@ -846,7 +846,7 @@
       "source_file": "src\\components\\ui\\Accordion.tsx",
       "source_location": "L1",
       "id": "src_components_ui_accordion_tsx",
-      "community": 37,
+      "community": 39,
       "norm_label": "accordion.tsx"
     },
     {
@@ -891,7 +891,7 @@
       "source_file": "src\\components\\ui\\Breadcrumbs.tsx",
       "source_location": "L1",
       "id": "src_components_ui_breadcrumbs_tsx",
-      "community": 38,
+      "community": 40,
       "norm_label": "breadcrumbs.tsx"
     },
     {
@@ -936,7 +936,7 @@
       "source_file": "src\\components\\ui\\CartDrawerItem.tsx",
       "source_location": "L1",
       "id": "src_components_ui_cartdraweritem_tsx",
-      "community": 39,
+      "community": 41,
       "norm_label": "cartdraweritem.tsx"
     },
     {
@@ -945,7 +945,7 @@
       "source_file": "src\\components\\ui\\cartTypes.ts",
       "source_location": "L1",
       "id": "src_components_ui_carttypes_ts",
-      "community": 40,
+      "community": 42,
       "norm_label": "carttypes.ts"
     },
     {
@@ -954,7 +954,7 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L1",
       "id": "src_components_ui_catalogpage_tsx",
-      "community": 10,
+      "community": 11,
       "norm_label": "catalogpage.tsx"
     },
     {
@@ -963,7 +963,7 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L34",
       "id": "ui_catalogpage_formatprice",
-      "community": 10,
+      "community": 11,
       "norm_label": "formatprice()"
     },
     {
@@ -972,7 +972,7 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L38",
       "id": "ui_catalogpage_productcardskeleton",
-      "community": 10,
+      "community": 11,
       "norm_label": "productcardskeleton()"
     },
     {
@@ -981,7 +981,7 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L51",
       "id": "ui_catalogpage_productcard",
-      "community": 10,
+      "community": 11,
       "norm_label": "productcard()"
     },
     {
@@ -990,7 +990,7 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L263",
       "id": "ui_catalogpage_handlecategorychange",
-      "community": 10,
+      "community": 11,
       "norm_label": "handlecategorychange()"
     },
     {
@@ -999,7 +999,7 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L267",
       "id": "ui_catalogpage_handlepagechange",
-      "community": 10,
+      "community": 11,
       "norm_label": "handlepagechange()"
     },
     {
@@ -1008,7 +1008,7 @@
       "source_file": "src\\components\\ui\\CategoryMegaMenu.tsx",
       "source_location": "L1",
       "id": "src_components_ui_categorymegamenu_tsx",
-      "community": 25,
+      "community": 26,
       "norm_label": "categorymegamenu.tsx"
     },
     {
@@ -1017,7 +1017,7 @@
       "source_file": "src\\components\\ui\\CategoryMegaMenu.tsx",
       "source_location": "L23",
       "id": "ui_categorymegamenu_isallcategory",
-      "community": 25,
+      "community": 26,
       "norm_label": "isallcategory()"
     },
     {
@@ -1026,7 +1026,7 @@
       "source_file": "src\\components\\ui\\Footer.tsx",
       "source_location": "L1",
       "id": "src_components_ui_footer_tsx",
-      "community": 41,
+      "community": 43,
       "norm_label": "footer.tsx"
     },
     {
@@ -1035,7 +1035,7 @@
       "source_file": "src\\components\\ui\\Header.tsx",
       "source_location": "L1",
       "id": "src_components_ui_header_tsx",
-      "community": 8,
+      "community": 9,
       "norm_label": "header.tsx"
     },
     {
@@ -1044,7 +1044,7 @@
       "source_file": "src\\components\\ui\\Header.tsx",
       "source_location": "L62",
       "id": "ui_header_handleclick",
-      "community": 8,
+      "community": 9,
       "norm_label": "handleclick()"
     },
     {
@@ -1053,7 +1053,7 @@
       "source_file": "src\\components\\ui\\HeaderActions.tsx",
       "source_location": "L1",
       "id": "src_components_ui_headeractions_tsx",
-      "community": 26,
+      "community": 27,
       "norm_label": "headeractions.tsx"
     },
     {
@@ -1062,7 +1062,7 @@
       "source_file": "src\\components\\ui\\HeaderActions.tsx",
       "source_location": "L35",
       "id": "ui_headeractions_toggletheme",
-      "community": 26,
+      "community": 27,
       "norm_label": "toggletheme()"
     },
     {
@@ -1071,7 +1071,7 @@
       "source_file": "src\\components\\ui\\HeroBanner.tsx",
       "source_location": "L1",
       "id": "src_components_ui_herobanner_tsx",
-      "community": 42,
+      "community": 44,
       "norm_label": "herobanner.tsx"
     },
     {
@@ -1098,7 +1098,7 @@
       "source_file": "src\\components\\ui\\JsonLd.tsx",
       "source_location": "L1",
       "id": "src_components_ui_jsonld_tsx",
-      "community": 0,
+      "community": 1,
       "norm_label": "jsonld.tsx"
     },
     {
@@ -1107,7 +1107,7 @@
       "source_file": "src\\components\\ui\\JsonLd.tsx",
       "source_location": "L7",
       "id": "ui_jsonld_jsonld",
-      "community": 0,
+      "community": 1,
       "norm_label": "jsonld()"
     },
     {
@@ -1116,7 +1116,7 @@
       "source_file": "src\\components\\ui\\ProductCard.tsx",
       "source_location": "L1",
       "id": "src_components_ui_productcard_tsx",
-      "community": 2,
+      "community": 3,
       "norm_label": "productcard.tsx"
     },
     {
@@ -1125,7 +1125,7 @@
       "source_file": "src\\components\\ui\\ProductCard.tsx",
       "source_location": "L11",
       "id": "ui_productcard_productcard",
-      "community": 2,
+      "community": 3,
       "norm_label": "productcard()"
     },
     {
@@ -1134,7 +1134,7 @@
       "source_file": "src\\components\\ui\\ProductDetailClient.tsx",
       "source_location": "L1",
       "id": "src_components_ui_productdetailclient_tsx",
-      "community": 27,
+      "community": 28,
       "norm_label": "productdetailclient.tsx"
     },
     {
@@ -1143,7 +1143,7 @@
       "source_file": "src\\components\\ui\\ProductDetailClient.tsx",
       "source_location": "L83",
       "id": "ui_productdetailclient_handlevariantclick",
-      "community": 27,
+      "community": 28,
       "norm_label": "handlevariantclick()"
     },
     {
@@ -1152,7 +1152,7 @@
       "source_file": "src\\components\\ui\\PromoHeroCarousel.tsx",
       "source_location": "L1",
       "id": "src_components_ui_promoherocarousel_tsx",
-      "community": 2,
+      "community": 3,
       "norm_label": "promoherocarousel.tsx"
     },
     {
@@ -1161,7 +1161,7 @@
       "source_file": "src\\components\\ui\\PromoHeroCarousel.tsx",
       "source_location": "L25",
       "id": "ui_promoherocarousel_handleprev",
-      "community": 2,
+      "community": 3,
       "norm_label": "handleprev()"
     },
     {
@@ -1170,7 +1170,7 @@
       "source_file": "src\\components\\ui\\PromoHeroCarousel.tsx",
       "source_location": "L26",
       "id": "ui_promoherocarousel_handlenext",
-      "community": 2,
+      "community": 3,
       "norm_label": "handlenext()"
     },
     {
@@ -1179,7 +1179,7 @@
       "source_file": "src\\components\\ui\\PromoHeroCarousel.tsx",
       "source_location": "L28",
       "id": "ui_promoherocarousel_getyoutubeembedurl",
-      "community": 2,
+      "community": 3,
       "norm_label": "getyoutubeembedurl()"
     },
     {
@@ -1188,7 +1188,7 @@
       "source_file": "src\\components\\ui\\PromoHeroSection.tsx",
       "source_location": "L1",
       "id": "src_components_ui_promoherosection_tsx",
-      "community": 2,
+      "community": 3,
       "norm_label": "promoherosection.tsx"
     },
     {
@@ -1197,7 +1197,7 @@
       "source_file": "src\\components\\ui\\PromoSlider.tsx",
       "source_location": "L1",
       "id": "src_components_ui_promoslider_tsx",
-      "community": 2,
+      "community": 3,
       "norm_label": "promoslider.tsx"
     },
     {
@@ -1206,7 +1206,7 @@
       "source_file": "src\\components\\ui\\PromoSlider.tsx",
       "source_location": "L27",
       "id": "ui_promoslider_scroll",
-      "community": 2,
+      "community": 3,
       "norm_label": "scroll()"
     },
     {
@@ -1215,7 +1215,7 @@
       "source_file": "src\\components\\ui\\ReviewsSnippet.tsx",
       "source_location": "L1",
       "id": "src_components_ui_reviewssnippet_tsx",
-      "community": 43,
+      "community": 45,
       "norm_label": "reviewssnippet.tsx"
     },
     {
@@ -1224,7 +1224,7 @@
       "source_file": "src\\components\\ui\\SearchBar.tsx",
       "source_location": "L1",
       "id": "src_components_ui_searchbar_tsx",
-      "community": 8,
+      "community": 9,
       "norm_label": "searchbar.tsx"
     },
     {
@@ -1233,7 +1233,7 @@
       "source_file": "src\\components\\ui\\SearchBar.tsx",
       "source_location": "L30",
       "id": "ui_searchbar_searchbar",
-      "community": 8,
+      "community": 9,
       "norm_label": "searchbar()"
     },
     {
@@ -1251,7 +1251,7 @@
       "source_file": "src\\components\\ui\\SeoContentBlock.tsx",
       "source_location": "L1",
       "id": "src_components_ui_seocontentblock_tsx",
-      "community": 44,
+      "community": 46,
       "norm_label": "seocontentblock.tsx"
     },
     {
@@ -1305,7 +1305,7 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L1",
       "id": "src_lib_category_cache_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "category-cache.ts"
     },
     {
@@ -1314,7 +1314,7 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L27",
       "id": "lib_category_cache_ensurecachedir",
-      "community": 3,
+      "community": 2,
       "norm_label": "ensurecachedir()"
     },
     {
@@ -1323,7 +1323,7 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L33",
       "id": "lib_category_cache_readcategoriesfromdisk",
-      "community": 3,
+      "community": 2,
       "norm_label": "readcategoriesfromdisk()"
     },
     {
@@ -1332,7 +1332,7 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L43",
       "id": "lib_category_cache_iscategorycachefresh",
-      "community": 3,
+      "community": 2,
       "norm_label": "iscategorycachefresh()"
     },
     {
@@ -1341,7 +1341,7 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L49",
       "id": "lib_category_cache_synccategoriesfromjubelio",
-      "community": 3,
+      "community": 2,
       "norm_label": "synccategoriesfromjubelio()"
     },
     {
@@ -1350,7 +1350,7 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L72",
       "id": "lib_category_cache_getcategories",
-      "community": 3,
+      "community": 2,
       "norm_label": "getcategories()"
     },
     {
@@ -1359,7 +1359,7 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L1",
       "id": "src_lib_category_tree_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "category-tree.ts"
     },
     {
@@ -1368,7 +1368,7 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L9",
       "id": "lib_category_tree_sortbyname",
-      "community": 3,
+      "community": 2,
       "norm_label": "sortbyname()"
     },
     {
@@ -1377,7 +1377,7 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L13",
       "id": "lib_category_tree_buildcategorytree",
-      "community": 3,
+      "community": 2,
       "norm_label": "buildcategorytree()"
     },
     {
@@ -1386,7 +1386,7 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L44",
       "id": "lib_category_tree_flattencategorytree",
-      "community": 3,
+      "community": 2,
       "norm_label": "flattencategorytree()"
     },
     {
@@ -1395,7 +1395,7 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L56",
       "id": "lib_category_tree_flattencategorynodes",
-      "community": 1,
+      "community": 2,
       "norm_label": "flattencategorynodes()"
     },
     {
@@ -1404,7 +1404,7 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L70",
       "id": "lib_category_tree_buildcategorypath",
-      "community": 0,
+      "community": 1,
       "norm_label": "buildcategorypath()"
     },
     {
@@ -1413,7 +1413,7 @@
       "source_file": "src\\lib\\constants.ts",
       "source_location": "L1",
       "id": "src_lib_constants_ts",
-      "community": 45,
+      "community": 47,
       "norm_label": "constants.ts"
     },
     {
@@ -1422,7 +1422,7 @@
       "source_file": "src\\lib\\fallback-category-tree.ts",
       "source_location": "L1",
       "id": "src_lib_fallback_category_tree_ts",
-      "community": 28,
+      "community": 29,
       "norm_label": "fallback-category-tree.ts"
     },
     {
@@ -1431,7 +1431,7 @@
       "source_file": "src\\lib\\fallback-category-tree.ts",
       "source_location": "L11",
       "id": "lib_fallback_category_tree_makechild",
-      "community": 28,
+      "community": 29,
       "norm_label": "makechild()"
     },
     {
@@ -1440,7 +1440,7 @@
       "source_file": "src\\lib\\geo-client.ts",
       "source_location": "L1",
       "id": "src_lib_geo_client_ts",
-      "community": 9,
+      "community": 10,
       "norm_label": "geo-client.ts"
     },
     {
@@ -1449,7 +1449,7 @@
       "source_file": "src\\lib\\geo-client.ts",
       "source_location": "L13",
       "id": "lib_geo_client_fetchnearestwarehouse",
-      "community": 9,
+      "community": 10,
       "norm_label": "fetchnearestwarehouse()"
     },
     {
@@ -1458,7 +1458,7 @@
       "source_file": "src\\lib\\geo-client.ts",
       "source_location": "L23",
       "id": "lib_geo_client_fetchipfallbackwarehouse",
-      "community": 9,
+      "community": 10,
       "norm_label": "fetchipfallbackwarehouse()"
     },
     {
@@ -1467,95 +1467,95 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L1",
       "id": "src_lib_product_cache_ts",
-      "community": 1,
+      "community": 0,
       "norm_label": "product-cache.ts"
     },
     {
       "label": "parseNumber()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L55",
+      "source_location": "L65",
       "id": "lib_product_cache_parsenumber",
-      "community": 1,
+      "community": 0,
       "norm_label": "parsenumber()"
     },
     {
       "label": "resolveStockValue()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L63",
+      "source_location": "L77",
       "id": "lib_product_cache_resolvestockvalue",
-      "community": 1,
+      "community": 0,
       "norm_label": "resolvestockvalue()"
     },
     {
       "label": "resolveImageUrl()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L69",
+      "source_location": "L83",
       "id": "lib_product_cache_resolveimageurl",
-      "community": 1,
+      "community": 0,
       "norm_label": "resolveimageurl()"
     },
     {
       "label": "resolveLabelValue()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L75",
+      "source_location": "L89",
       "id": "lib_product_cache_resolvelabelvalue",
-      "community": 1,
+      "community": 0,
       "norm_label": "resolvelabelvalue()"
     },
     {
       "label": "ensureCacheDir()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L91",
+      "source_location": "L105",
       "id": "lib_product_cache_ensurecachedir",
-      "community": 1,
+      "community": 0,
       "norm_label": "ensurecachedir()"
     },
     {
       "label": "readProductsFromDisk()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L97",
+      "source_location": "L111",
       "id": "lib_product_cache_readproductsfromdisk",
-      "community": 1,
+      "community": 0,
       "norm_label": "readproductsfromdisk()"
     },
     {
       "label": "isCacheFresh()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L107",
+      "source_location": "L121",
       "id": "lib_product_cache_iscachefresh",
-      "community": 1,
+      "community": 0,
       "norm_label": "iscachefresh()"
     },
     {
       "label": "syncProductsFromJubelio()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L114",
+      "source_location": "L128",
       "id": "lib_product_cache_syncproductsfromjubelio",
-      "community": 1,
+      "community": 0,
       "norm_label": "syncproductsfromjubelio()"
     },
     {
       "label": "getProducts()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L245",
+      "source_location": "L280",
       "id": "lib_product_cache_getproducts",
-      "community": 1,
+      "community": 0,
       "norm_label": "getproducts()"
     },
     {
       "label": "isProductInStock()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L256",
+      "source_location": "L291",
       "id": "lib_product_cache_isproductinstock",
       "community": 1,
       "norm_label": "isproductinstock()"
@@ -1564,9 +1564,9 @@
       "label": "getProductDetailWithDescription()",
       "file_type": "code",
       "source_file": "src\\lib\\product-cache.ts",
-      "source_location": "L271",
+      "source_location": "L306",
       "id": "lib_product_cache_getproductdetailwithdescription",
-      "community": 1,
+      "community": 0,
       "norm_label": "getproductdetailwithdescription()"
     },
     {
@@ -1575,7 +1575,7 @@
       "source_file": "src\\lib\\promo-hero.ts",
       "source_location": "L1",
       "id": "src_lib_promo_hero_ts",
-      "community": 2,
+      "community": 3,
       "norm_label": "promo-hero.ts"
     },
     {
@@ -1584,7 +1584,7 @@
       "source_file": "src\\lib\\promo-hero.ts",
       "source_location": "L4",
       "id": "lib_promo_hero_slugifypromo",
-      "community": 2,
+      "community": 3,
       "norm_label": "slugifypromo()"
     },
     {
@@ -1593,7 +1593,7 @@
       "source_file": "src\\lib\\promo-hero.ts",
       "source_location": "L13",
       "id": "lib_promo_hero_resolvepromoslug",
-      "community": 2,
+      "community": 3,
       "norm_label": "resolvepromoslug()"
     },
     {
@@ -1602,7 +1602,7 @@
       "source_file": "src\\lib\\promo-hero.ts",
       "source_location": "L19",
       "id": "lib_promo_hero_buildpromoheroslides",
-      "community": 2,
+      "community": 3,
       "norm_label": "buildpromoheroslides()"
     },
     {
@@ -1611,7 +1611,7 @@
       "source_file": "src\\lib\\reviews-placeholder.ts",
       "source_location": "L1",
       "id": "src_lib_reviews_placeholder_ts",
-      "community": 29,
+      "community": 30,
       "norm_label": "reviews-placeholder.ts"
     },
     {
@@ -1620,7 +1620,7 @@
       "source_file": "src\\lib\\reviews-placeholder.ts",
       "source_location": "L8",
       "id": "lib_reviews_placeholder_getplaceholderreviews",
-      "community": 29,
+      "community": 30,
       "norm_label": "getplaceholderreviews()"
     },
     {
@@ -1629,7 +1629,7 @@
       "source_file": "src\\lib\\sanity-client.ts",
       "source_location": "L1",
       "id": "src_lib_sanity_client_ts",
-      "community": 2,
+      "community": 3,
       "norm_label": "sanity-client.ts"
     },
     {
@@ -1638,7 +1638,7 @@
       "source_file": "src\\lib\\sanity-client.ts",
       "source_location": "L33",
       "id": "lib_sanity_client_buildsanityimageurl",
-      "community": 2,
+      "community": 3,
       "norm_label": "buildsanityimageurl()"
     },
     {
@@ -1647,7 +1647,7 @@
       "source_file": "src\\lib\\sanity-client.ts",
       "source_location": "L40",
       "id": "lib_sanity_client_getherobanners",
-      "community": 2,
+      "community": 3,
       "norm_label": "getherobanners()"
     },
     {
@@ -1656,7 +1656,7 @@
       "source_file": "src\\lib\\sanity-client.ts",
       "source_location": "L45",
       "id": "lib_sanity_client_getpromohero",
-      "community": 2,
+      "community": 3,
       "norm_label": "getpromohero()"
     },
     {
@@ -1665,7 +1665,7 @@
       "source_file": "src\\lib\\sanity-client.ts",
       "source_location": "L106",
       "id": "lib_sanity_client_getcustomerbyemail",
-      "community": 2,
+      "community": 3,
       "norm_label": "getcustomerbyemail()"
     },
     {
@@ -1674,7 +1674,7 @@
       "source_file": "src\\lib\\search-history.ts",
       "source_location": "L1",
       "id": "src_lib_search_history_ts",
-      "community": 8,
+      "community": 9,
       "norm_label": "search-history.ts"
     },
     {
@@ -1683,7 +1683,7 @@
       "source_file": "src\\lib\\search-history.ts",
       "source_location": "L3",
       "id": "lib_search_history_loadsearchhistory",
-      "community": 8,
+      "community": 9,
       "norm_label": "loadsearchhistory()"
     },
     {
@@ -1692,7 +1692,7 @@
       "source_file": "src\\lib\\search-history.ts",
       "source_location": "L15",
       "id": "lib_search_history_savesearchhistory",
-      "community": 8,
+      "community": 9,
       "norm_label": "savesearchhistory()"
     },
     {
@@ -1701,7 +1701,7 @@
       "source_file": "src\\lib\\search-history.ts",
       "source_location": "L24",
       "id": "lib_search_history_addsearchhistory",
-      "community": 8,
+      "community": 9,
       "norm_label": "addsearchhistory()"
     },
     {
@@ -1746,7 +1746,7 @@
       "source_file": "src\\lib\\seo-content.ts",
       "source_location": "L1",
       "id": "src_lib_seo_content_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "seo-content.ts"
     },
     {
@@ -1755,7 +1755,7 @@
       "source_file": "src\\lib\\seo-content.ts",
       "source_location": "L9",
       "id": "lib_seo_content_gethomeseocontent",
-      "community": 0,
+      "community": 1,
       "norm_label": "gethomeseocontent()"
     },
     {
@@ -1764,7 +1764,7 @@
       "source_file": "src\\lib\\seo-content.ts",
       "source_location": "L40",
       "id": "lib_seo_content_getcategoryseocontent",
-      "community": 0,
+      "community": 1,
       "norm_label": "getcategoryseocontent()"
     },
     {
@@ -1773,7 +1773,7 @@
       "source_file": "src\\lib\\seo-content.ts",
       "source_location": "L70",
       "id": "lib_seo_content_getproductseocontent",
-      "community": 0,
+      "community": 1,
       "norm_label": "getproductseocontent()"
     },
     {
@@ -1782,7 +1782,7 @@
       "source_file": "src\\lib\\types.ts",
       "source_location": "L1",
       "id": "src_lib_types_ts",
-      "community": 46,
+      "community": 48,
       "norm_label": "types.ts"
     },
     {
@@ -1791,7 +1791,7 @@
       "source_file": "src\\lib\\useHeaderSearch.ts",
       "source_location": "L1",
       "id": "src_lib_useheadersearch_ts",
-      "community": 8,
+      "community": 9,
       "norm_label": "useheadersearch.ts"
     },
     {
@@ -1800,7 +1800,7 @@
       "source_file": "src\\lib\\useHeaderSearch.ts",
       "source_location": "L27",
       "id": "lib_useheadersearch_useheadersearch",
-      "community": 8,
+      "community": 9,
       "norm_label": "useheadersearch()"
     },
     {
@@ -1809,7 +1809,7 @@
       "source_file": "src\\lib\\geo-db\\client.ts",
       "source_location": "L1",
       "id": "src_lib_geo_db_client_ts",
-      "community": 47,
+      "community": 49,
       "norm_label": "client.ts"
     },
     {
@@ -1863,7 +1863,7 @@
       "source_file": "src\\lib\\geo-db\\schema.ts",
       "source_location": "L1",
       "id": "src_lib_geo_db_schema_ts",
-      "community": 48,
+      "community": 50,
       "norm_label": "schema.ts"
     },
     {
@@ -1872,7 +1872,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\categories.ts",
       "source_location": "L1",
       "id": "src_lib_jubelio_adapter_categories_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "categories.ts"
     },
     {
@@ -1881,7 +1881,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\categories.ts",
       "source_location": "L9",
       "id": "jubelio_adapter_categories_getitemcategories",
-      "community": 3,
+      "community": 2,
       "norm_label": "getitemcategories()"
     },
     {
@@ -1890,7 +1890,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L1",
       "id": "src_lib_jubelio_adapter_client_ts",
-      "community": 11,
+      "community": 12,
       "norm_label": "client.ts"
     },
     {
@@ -1899,7 +1899,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L1",
       "id": "jubelio_adapter_client_jubelioclient",
-      "community": 11,
+      "community": 12,
       "norm_label": "jubelioclient"
     },
     {
@@ -1908,7 +1908,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L6",
       "id": "jubelio_adapter_client_jubelioclient_constructor",
-      "community": 11,
+      "community": 12,
       "norm_label": ".constructor()"
     },
     {
@@ -1917,7 +1917,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L8",
       "id": "jubelio_adapter_client_jubelioclient_getinstance",
-      "community": 11,
+      "community": 12,
       "norm_label": ".getinstance()"
     },
     {
@@ -1926,7 +1926,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L15",
       "id": "jubelio_adapter_client_jubelioclient_authenticate",
-      "community": 11,
+      "community": 12,
       "norm_label": ".authenticate()"
     },
     {
@@ -1935,7 +1935,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L54",
       "id": "jubelio_adapter_client_jubelioclient_get",
-      "community": 11,
+      "community": 12,
       "norm_label": ".get()"
     },
     {
@@ -1944,7 +1944,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\favourites.ts",
       "source_location": "L1",
       "id": "src_lib_jubelio_adapter_favourites_ts",
-      "community": 13,
+      "community": 14,
       "norm_label": "favourites.ts"
     },
     {
@@ -1953,7 +1953,7 @@
       "source_file": "src\\lib\\jubelio-adapter\\favourites.ts",
       "source_location": "L11",
       "id": "jubelio_adapter_favourites_getfavouriteitems",
-      "community": 13,
+      "community": 14,
       "norm_label": "getfavouriteitems()"
     },
     {
@@ -1973,6 +1973,51 @@
       "id": "jubelio_adapter_items_getinventoryitem",
       "community": 6,
       "norm_label": "getinventoryitem()"
+    },
+    {
+      "label": "products.ts",
+      "file_type": "code",
+      "source_file": "src\\lib\\jubelio-adapter\\products.ts",
+      "source_location": "L1",
+      "id": "src_lib_jubelio_adapter_products_ts",
+      "community": 0,
+      "norm_label": "products.ts"
+    },
+    {
+      "label": "getInventoryItems()",
+      "file_type": "code",
+      "source_file": "src\\lib\\jubelio-adapter\\products.ts",
+      "source_location": "L64",
+      "id": "jubelio_adapter_products_getinventoryitems",
+      "community": 0,
+      "norm_label": "getinventoryitems()"
+    },
+    {
+      "label": "getInventoryPromotions()",
+      "file_type": "code",
+      "source_file": "src\\lib\\jubelio-adapter\\products.ts",
+      "source_location": "L68",
+      "id": "jubelio_adapter_products_getinventorypromotions",
+      "community": 0,
+      "norm_label": "getinventorypromotions()"
+    },
+    {
+      "label": "getInventoryItemGroup()",
+      "file_type": "code",
+      "source_file": "src\\lib\\jubelio-adapter\\products.ts",
+      "source_location": "L74",
+      "id": "jubelio_adapter_products_getinventoryitemgroup",
+      "community": 0,
+      "norm_label": "getinventoryitemgroup()"
+    },
+    {
+      "label": "getInventoryItemDescription()",
+      "file_type": "code",
+      "source_file": "src\\lib\\jubelio-adapter\\products.ts",
+      "source_location": "L82",
+      "id": "jubelio_adapter_products_getinventoryitemdescription",
+      "community": 0,
+      "norm_label": "getinventoryitemdescription()"
     },
     {
       "label": "bridge.ts",
@@ -2007,7 +2052,7 @@
       "source_file": "src\\lib\\reviews\\queries.ts",
       "source_location": "L1",
       "id": "src_lib_reviews_queries_ts",
-      "community": 0,
+      "community": 17,
       "norm_label": "queries.ts"
     },
     {
@@ -2016,7 +2061,7 @@
       "source_file": "src\\lib\\reviews\\queries.ts",
       "source_location": "L8",
       "id": "reviews_queries_tonumber",
-      "community": 0,
+      "community": 17,
       "norm_label": "tonumber()"
     },
     {
@@ -2025,7 +2070,7 @@
       "source_file": "src\\lib\\reviews\\queries.ts",
       "source_location": "L13",
       "id": "reviews_queries_getreviewsbundle",
-      "community": 0,
+      "community": 17,
       "norm_label": "getreviewsbundle()"
     },
     {
@@ -2070,7 +2115,7 @@
       "source_file": "src\\lib\\seo\\faq-schema.ts",
       "source_location": "L1",
       "id": "src_lib_seo_faq_schema_ts",
-      "community": 0,
+      "community": 8,
       "norm_label": "faq-schema.ts"
     },
     {
@@ -2079,7 +2124,7 @@
       "source_file": "src\\lib\\seo\\faq-schema.ts",
       "source_location": "L8",
       "id": "seo_faq_schema_buildfaqschema",
-      "community": 0,
+      "community": 1,
       "norm_label": "buildfaqschema()"
     },
     {
@@ -2088,7 +2133,7 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L1",
       "id": "src_lib_seo_mega_footer_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "mega-footer.ts"
     },
     {
@@ -2097,7 +2142,7 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L37",
       "id": "seo_mega_footer_isallcategory",
-      "community": 3,
+      "community": 2,
       "norm_label": "isallcategory()"
     },
     {
@@ -2106,7 +2151,7 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L40",
       "id": "seo_mega_footer_tocategoryhref",
-      "community": 3,
+      "community": 2,
       "norm_label": "tocategoryhref()"
     },
     {
@@ -2115,7 +2160,7 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L43",
       "id": "seo_mega_footer_collectlinks",
-      "community": 3,
+      "community": 2,
       "norm_label": "collectlinks()"
     },
     {
@@ -2124,7 +2169,7 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L61",
       "id": "seo_mega_footer_buildseogroupsfromtree",
-      "community": 3,
+      "community": 2,
       "norm_label": "buildseogroupsfromtree()"
     },
     {
@@ -2133,7 +2178,7 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L73",
       "id": "seo_mega_footer_getseofooterlinks",
-      "community": 3,
+      "community": 1,
       "norm_label": "getseofooterlinks()"
     },
     {
@@ -2142,7 +2187,7 @@
       "source_file": "src\\lib\\seo\\product-schema.ts",
       "source_location": "L1",
       "id": "src_lib_seo_product_schema_ts",
-      "community": 0,
+      "community": 8,
       "norm_label": "product-schema.ts"
     },
     {
@@ -2151,7 +2196,7 @@
       "source_file": "src\\lib\\seo\\product-schema.ts",
       "source_location": "L26",
       "id": "seo_product_schema_buildproductschema",
-      "community": 0,
+      "community": 8,
       "norm_label": "buildproductschema()"
     },
     {
@@ -2160,7 +2205,7 @@
       "source_file": "src\\lib\\seo\\rating-schema.ts",
       "source_location": "L1",
       "id": "src_lib_seo_rating_schema_ts",
-      "community": 0,
+      "community": 8,
       "norm_label": "rating-schema.ts"
     },
     {
@@ -2169,7 +2214,7 @@
       "source_file": "src\\lib\\seo\\rating-schema.ts",
       "source_location": "L17",
       "id": "seo_rating_schema_buildaggregateratingschema",
-      "community": 0,
+      "community": 8,
       "norm_label": "buildaggregateratingschema()"
     },
     {
@@ -2178,7 +2223,7 @@
       "source_file": "src\\lib\\seo\\rating-schema.ts",
       "source_location": "L30",
       "id": "seo_rating_schema_buildreviewschemas",
-      "community": 0,
+      "community": 8,
       "norm_label": "buildreviewschemas()"
     },
     {
@@ -2187,7 +2232,7 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L1",
       "id": "src_lib_seo_schema_helpers_ts",
-      "community": 0,
+      "community": 8,
       "norm_label": "schema-helpers.ts"
     },
     {
@@ -2196,7 +2241,7 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L3",
       "id": "seo_schema_helpers_striphtml",
-      "community": 0,
+      "community": 8,
       "norm_label": "striphtml()"
     },
     {
@@ -2205,7 +2250,7 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L11",
       "id": "seo_schema_helpers_safetext",
-      "community": 0,
+      "community": 8,
       "norm_label": "safetext()"
     },
     {
@@ -2214,7 +2259,7 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L16",
       "id": "seo_schema_helpers_normalizeurl",
-      "community": 0,
+      "community": 8,
       "norm_label": "normalizeurl()"
     },
     {
@@ -2223,7 +2268,7 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L20",
       "id": "seo_schema_helpers_ensurearray",
-      "community": 0,
+      "community": 8,
       "norm_label": "ensurearray()"
     },
     {
@@ -2232,7 +2277,7 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L25",
       "id": "seo_schema_helpers_clamprating",
-      "community": 0,
+      "community": 8,
       "norm_label": "clamprating()"
     },
     {
@@ -2241,7 +2286,7 @@
       "source_file": "src\\lib\\seo\\site.ts",
       "source_location": "L1",
       "id": "src_lib_seo_site_ts",
-      "community": 0,
+      "community": 1,
       "norm_label": "site.ts"
     },
     {
@@ -2250,7 +2295,7 @@
       "source_file": "src\\lib\\seo\\site.ts",
       "source_location": "L5",
       "id": "seo_site_toabsoluteurl",
-      "community": 0,
+      "community": 1,
       "norm_label": "toabsoluteurl()"
     },
     {
@@ -2259,7 +2304,7 @@
       "source_file": "src\\sanity\\schemaTypes\\customerType.ts",
       "source_location": "L1",
       "id": "src_sanity_schematypes_customertype_ts",
-      "community": 49,
+      "community": 51,
       "norm_label": "customertype.ts"
     },
     {
@@ -2268,7 +2313,7 @@
       "source_file": "src\\sanity\\schemaTypes\\heroBannerType.ts",
       "source_location": "L1",
       "id": "src_sanity_schematypes_herobannertype_ts",
-      "community": 50,
+      "community": 52,
       "norm_label": "herobannertype.ts"
     },
     {
@@ -2277,7 +2322,7 @@
       "source_file": "src\\sanity\\schemaTypes\\index.ts",
       "source_location": "L1",
       "id": "src_sanity_schematypes_index_ts",
-      "community": 51,
+      "community": 53,
       "norm_label": "index.ts"
     },
     {
@@ -2286,7 +2331,7 @@
       "source_file": "src\\sanity\\schemaTypes\\promoHeroType.ts",
       "source_location": "L1",
       "id": "src_sanity_schematypes_promoherotype_ts",
-      "community": 52,
+      "community": 54,
       "norm_label": "promoherotype.ts"
     },
     {
@@ -2295,7 +2340,7 @@
       "source_file": "src\\store\\authStore.ts",
       "source_location": "L1",
       "id": "src_store_authstore_ts",
-      "community": 53,
+      "community": 55,
       "norm_label": "authstore.ts"
     },
     {
@@ -2304,7 +2349,7 @@
       "source_file": "src\\store\\cartDrawerStore.ts",
       "source_location": "L1",
       "id": "src_store_cartdrawerstore_ts",
-      "community": 54,
+      "community": 56,
       "norm_label": "cartdrawerstore.ts"
     },
     {
@@ -2313,7 +2358,7 @@
       "source_file": "src\\store\\cartStore.ts",
       "source_location": "L1",
       "id": "src_store_cartstore_ts",
-      "community": 55,
+      "community": 57,
       "norm_label": "cartstore.ts"
     },
     {
@@ -2340,7 +2385,7 @@
       "source_file": "tests\\geo-shipping-client.test.tsx",
       "source_location": "L1",
       "id": "tests_geo_shipping_client_test_tsx",
-      "community": 9,
+      "community": 10,
       "norm_label": "geo-shipping-client.test.tsx"
     },
     {
@@ -2349,7 +2394,7 @@
       "source_file": "tests\\geo-shipping-client.test.tsx",
       "source_location": "L15",
       "id": "tests_geo_shipping_client_test_mockgeolocationsuccess",
-      "community": 9,
+      "community": 10,
       "norm_label": "mockgeolocationsuccess()"
     },
     {
@@ -2358,8 +2403,35 @@
       "source_file": "tests\\geo-shipping-client.test.tsx",
       "source_location": "L31",
       "id": "tests_geo_shipping_client_test_makewarehouse",
-      "community": 9,
+      "community": 10,
       "norm_label": "makewarehouse()"
+    },
+    {
+      "label": "jubelio-boundary.test.ts",
+      "file_type": "code",
+      "source_file": "tests\\jubelio-boundary.test.ts",
+      "source_location": "L1",
+      "id": "tests_jubelio_boundary_test_ts",
+      "community": 31,
+      "norm_label": "jubelio-boundary.test.ts"
+    },
+    {
+      "label": "listFiles()",
+      "file_type": "code",
+      "source_file": "tests\\jubelio-boundary.test.ts",
+      "source_location": "L14",
+      "id": "tests_jubelio_boundary_test_listfiles",
+      "community": 31,
+      "norm_label": "listfiles()"
+    },
+    {
+      "label": "jubelio-products-adapter.test.ts",
+      "file_type": "code",
+      "source_file": "tests\\jubelio-products-adapter.test.ts",
+      "source_location": "L1",
+      "id": "tests_jubelio_products_adapter_test_ts",
+      "community": 0,
+      "norm_label": "jubelio-products-adapter.test.ts"
     },
     {
       "label": "reviews-bridge.test.ts",
@@ -2376,7 +2448,7 @@
       "source_file": "tests\\sanity.test.ts",
       "source_location": "L1",
       "id": "tests_sanity_test_ts",
-      "community": 56,
+      "community": 58,
       "norm_label": "sanity.test.ts"
     },
     {
@@ -2385,7 +2457,7 @@
       "source_file": "tests\\setup.ts",
       "source_location": "L1",
       "id": "tests_setup_ts",
-      "community": 57,
+      "community": 59,
       "norm_label": "setup.ts"
     },
     {
@@ -2394,7 +2466,7 @@
       "source_file": "tests\\setup.tsx",
       "source_location": "L1",
       "id": "tests_setup_tsx",
-      "community": 58,
+      "community": 60,
       "norm_label": "setup.tsx"
     },
     {
@@ -2403,7 +2475,7 @@
       "source_file": "tests\\vitest.d.ts",
       "source_location": "L1",
       "id": "tests_vitest_d_ts",
-      "community": 59,
+      "community": 61,
       "norm_label": "vitest.d.ts"
     }
   ],
@@ -2414,9 +2486,9 @@
       "source_file": "jules_setup.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jules_setup_ts",
-      "target": "ibacks_jules_setup_main",
-      "confidence_score": 1.0
+      "target": "ibacks_jules_setup_main"
     },
     {
       "relation": "contains",
@@ -2424,9 +2496,9 @@
       "source_file": "scripts\\geo-migrate.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_geo_migrate_ts",
-      "target": "scripts_geo_migrate_loadenv",
-      "confidence_score": 1.0
+      "target": "scripts_geo_migrate_loadenv"
     },
     {
       "relation": "contains",
@@ -2434,9 +2506,9 @@
       "source_file": "scripts\\geo-migrate.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_geo_migrate_ts",
-      "target": "scripts_geo_migrate_run",
-      "confidence_score": 1.0
+      "target": "scripts_geo_migrate_run"
     },
     {
       "relation": "calls",
@@ -2445,9 +2517,9 @@
       "source_file": "scripts\\geo-migrate.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_geo_migrate_run",
-      "target": "scripts_geo_migrate_loadenv",
-      "confidence_score": 1.0
+      "target": "scripts_geo_migrate_loadenv"
     },
     {
       "relation": "contains",
@@ -2455,9 +2527,9 @@
       "source_file": "scripts\\geo-seed.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_geo_seed_ts",
-      "target": "scripts_geo_seed_loadenv",
-      "confidence_score": 1.0
+      "target": "scripts_geo_seed_loadenv"
     },
     {
       "relation": "contains",
@@ -2465,9 +2537,9 @@
       "source_file": "scripts\\geo-seed.ts",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_geo_seed_ts",
-      "target": "scripts_geo_seed_upsertwarehouse",
-      "confidence_score": 1.0
+      "target": "scripts_geo_seed_upsertwarehouse"
     },
     {
       "relation": "contains",
@@ -2475,9 +2547,9 @@
       "source_file": "scripts\\geo-seed.ts",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_geo_seed_ts",
-      "target": "scripts_geo_seed_run",
-      "confidence_score": 1.0
+      "target": "scripts_geo_seed_run"
     },
     {
       "relation": "calls",
@@ -2486,9 +2558,9 @@
       "source_file": "scripts\\geo-seed.ts",
       "source_location": "L153",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_geo_seed_run",
-      "target": "scripts_geo_seed_loadenv",
-      "confidence_score": 1.0
+      "target": "scripts_geo_seed_loadenv"
     },
     {
       "relation": "calls",
@@ -2497,8 +2569,19 @@
       "source_file": "scripts\\geo-seed.ts",
       "source_location": "L163",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_geo_seed_run",
-      "target": "scripts_geo_seed_upsertwarehouse",
+      "target": "scripts_geo_seed_upsertwarehouse"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts\\sync-products.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "scripts_sync_products_ts",
+      "target": "lib_product_cache_syncproductsfromjubelio",
       "confidence_score": 1.0
     },
     {
@@ -2507,9 +2590,20 @@
       "source_file": "scripts\\sync-products.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_sync_products_ts",
-      "target": "scripts_sync_products_run",
-      "confidence_score": 1.0
+      "target": "scripts_sync_products_run"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "scripts\\sync-products.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "scripts_sync_products_run",
+      "target": "lib_product_cache_syncproductsfromjubelio"
     },
     {
       "relation": "imports",
@@ -2518,9 +2612,9 @@
       "source_file": "src\\app\\layout.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_layout_tsx",
-      "target": "cart_cartdrawerclient_cartdrawerclient",
-      "confidence_score": 1.0
+      "target": "cart_cartdrawerclient_cartdrawerclient"
     },
     {
       "relation": "contains",
@@ -2528,9 +2622,9 @@
       "source_file": "src\\app\\layout.tsx",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_layout_tsx",
-      "target": "app_layout_rootlayout",
-      "confidence_score": 1.0
+      "target": "app_layout_rootlayout"
     },
     {
       "relation": "imports",
@@ -2539,9 +2633,9 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "ui_productcard_productcard",
-      "confidence_score": 1.0
+      "target": "ui_productcard_productcard"
     },
     {
       "relation": "imports",
@@ -2550,9 +2644,9 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "lib_sanity_client_getpromohero",
-      "confidence_score": 1.0
+      "target": "lib_sanity_client_getpromohero"
     },
     {
       "relation": "imports",
@@ -2561,9 +2655,9 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
     },
     {
       "relation": "imports",
@@ -2572,9 +2666,9 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "lib_product_cache_isproductinstock",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_isproductinstock"
     },
     {
       "relation": "imports",
@@ -2583,9 +2677,9 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "lib_promo_hero_buildpromoheroslides",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_buildpromoheroslides"
     },
     {
       "relation": "imports",
@@ -2594,9 +2688,9 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "lib_seo_content_gethomeseocontent",
-      "confidence_score": 1.0
+      "target": "lib_seo_content_gethomeseocontent"
     },
     {
       "relation": "imports",
@@ -2605,9 +2699,9 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "seo_faq_schema_buildfaqschema",
-      "confidence_score": 1.0
+      "target": "seo_faq_schema_buildfaqschema"
     },
     {
       "relation": "imports",
@@ -2616,9 +2710,9 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "ui_jsonld_jsonld",
-      "confidence_score": 1.0
+      "target": "ui_jsonld_jsonld"
     },
     {
       "relation": "imports",
@@ -2627,9 +2721,9 @@
       "source_file": "src\\app\\page.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "seo_mega_footer_getseofooterlinks",
-      "confidence_score": 1.0
+      "target": "seo_mega_footer_getseofooterlinks"
     },
     {
       "relation": "imports",
@@ -2638,9 +2732,9 @@
       "source_file": "src\\app\\sitemap.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_sitemap_ts",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
     },
     {
       "relation": "imports",
@@ -2649,9 +2743,9 @@
       "source_file": "src\\app\\sitemap.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_sitemap_ts",
-      "target": "lib_category_cache_getcategories",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_getcategories"
     },
     {
       "relation": "imports",
@@ -2660,9 +2754,9 @@
       "source_file": "src\\app\\sitemap.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_sitemap_ts",
-      "target": "lib_category_tree_flattencategorynodes",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_flattencategorynodes"
     },
     {
       "relation": "contains",
@@ -2670,9 +2764,9 @@
       "source_file": "src\\app\\sitemap.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_sitemap_ts",
-      "target": "app_sitemap_sitemap",
-      "confidence_score": 1.0
+      "target": "app_sitemap_sitemap"
     },
     {
       "relation": "calls",
@@ -2714,9 +2808,9 @@
       "source_file": "src\\app\\account\\page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_account_page_tsx",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "contains",
@@ -2724,9 +2818,9 @@
       "source_file": "src\\app\\account\\page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_account_page_tsx",
-      "target": "account_page_accountpage",
-      "confidence_score": 1.0
+      "target": "account_page_accountpage"
     },
     {
       "relation": "imports",
@@ -2735,9 +2829,9 @@
       "source_file": "src\\app\\api\\categories\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_categories_route_ts",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
     },
     {
       "relation": "imports",
@@ -2746,9 +2840,9 @@
       "source_file": "src\\app\\api\\categories\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_categories_route_ts",
-      "target": "lib_product_cache_isproductinstock",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_isproductinstock"
     },
     {
       "relation": "contains",
@@ -2756,9 +2850,9 @@
       "source_file": "src\\app\\api\\categories\\route.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_categories_route_ts",
-      "target": "categories_route_get",
-      "confidence_score": 1.0
+      "target": "categories_route_get"
     },
     {
       "relation": "calls",
@@ -2778,9 +2872,9 @@
       "source_file": "src\\app\\api\\category-tree\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_category_tree_route_ts",
-      "target": "lib_category_tree_buildcategorytree",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_buildcategorytree"
     },
     {
       "relation": "imports",
@@ -2789,9 +2883,9 @@
       "source_file": "src\\app\\api\\category-tree\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_category_tree_route_ts",
-      "target": "lib_category_tree_flattencategorytree",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_flattencategorytree"
     },
     {
       "relation": "imports",
@@ -2800,9 +2894,9 @@
       "source_file": "src\\app\\api\\category-tree\\route.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_category_tree_route_ts",
-      "target": "lib_category_cache_getcategories",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_getcategories"
     },
     {
       "relation": "contains",
@@ -2810,9 +2904,9 @@
       "source_file": "src\\app\\api\\category-tree\\route.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_category_tree_route_ts",
-      "target": "category_tree_route_get",
-      "confidence_score": 1.0
+      "target": "category_tree_route_get"
     },
     {
       "relation": "calls",
@@ -2853,9 +2947,9 @@
       "source_file": "src\\app\\api\\checkout\\route.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_checkout_route_ts",
-      "target": "checkout_route_post",
-      "confidence_score": 1.0
+      "target": "checkout_route_post"
     },
     {
       "relation": "imports",
@@ -2864,9 +2958,9 @@
       "source_file": "src\\app\\api\\cron\\fetch-reviews\\route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_cron_fetch_reviews_route_ts",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
     },
     {
       "relation": "imports",
@@ -2875,9 +2969,9 @@
       "source_file": "src\\app\\api\\cron\\fetch-reviews\\route.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_cron_fetch_reviews_route_ts",
-      "target": "reviews_shopee_fetchshopeereviews",
-      "confidence_score": 1.0
+      "target": "reviews_shopee_fetchshopeereviews"
     },
     {
       "relation": "imports",
@@ -2886,9 +2980,9 @@
       "source_file": "src\\app\\api\\cron\\fetch-reviews\\route.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_cron_fetch_reviews_route_ts",
-      "target": "reviews_bridge_getshopeechannelitemid",
-      "confidence_score": 1.0
+      "target": "reviews_bridge_getshopeechannelitemid"
     },
     {
       "relation": "contains",
@@ -2896,9 +2990,9 @@
       "source_file": "src\\app\\api\\cron\\fetch-reviews\\route.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_cron_fetch_reviews_route_ts",
-      "target": "fetch_reviews_route_parselimit",
-      "confidence_score": 1.0
+      "target": "fetch_reviews_route_parselimit"
     },
     {
       "relation": "contains",
@@ -2906,9 +3000,9 @@
       "source_file": "src\\app\\api\\cron\\fetch-reviews\\route.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_cron_fetch_reviews_route_ts",
-      "target": "fetch_reviews_route_resolveitemid",
-      "confidence_score": 1.0
+      "target": "fetch_reviews_route_resolveitemid"
     },
     {
       "relation": "contains",
@@ -2916,9 +3010,9 @@
       "source_file": "src\\app\\api\\cron\\fetch-reviews\\route.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_cron_fetch_reviews_route_ts",
-      "target": "fetch_reviews_route_get",
-      "confidence_score": 1.0
+      "target": "fetch_reviews_route_get"
     },
     {
       "relation": "calls",
@@ -2927,9 +3021,9 @@
       "source_file": "src\\app\\api\\cron\\fetch-reviews\\route.ts",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fetch_reviews_route_get",
-      "target": "fetch_reviews_route_parselimit",
-      "confidence_score": 1.0
+      "target": "fetch_reviews_route_parselimit"
     },
     {
       "relation": "calls",
@@ -2938,9 +3032,9 @@
       "source_file": "src\\app\\api\\cron\\fetch-reviews\\route.ts",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fetch_reviews_route_get",
-      "target": "fetch_reviews_route_resolveitemid",
-      "confidence_score": 1.0
+      "target": "fetch_reviews_route_resolveitemid"
     },
     {
       "relation": "calls",
@@ -2982,9 +3076,9 @@
       "source_file": "src\\app\\api\\geo\\nearest\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_geo_nearest_route_ts",
-      "target": "geo_db_queries_getnearestwarehouse",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_getnearestwarehouse"
     },
     {
       "relation": "contains",
@@ -2992,9 +3086,9 @@
       "source_file": "src\\app\\api\\geo\\nearest\\route.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_geo_nearest_route_ts",
-      "target": "nearest_route_get",
-      "confidence_score": 1.0
+      "target": "nearest_route_get"
     },
     {
       "relation": "imports",
@@ -3003,9 +3097,9 @@
       "source_file": "tests\\geo-routes.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_geo_routes_test_ts",
-      "target": "nearest_route_get",
-      "confidence_score": 1.0
+      "target": "nearest_route_get"
     },
     {
       "relation": "calls",
@@ -3024,9 +3118,9 @@
       "source_file": "src\\app\\api\\geo\\resolve-ip\\route.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_geo_resolve_ip_route_ts",
-      "target": "resolve_ip_route_parsefloatvalue",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_parsefloatvalue"
     },
     {
       "relation": "contains",
@@ -3034,9 +3128,9 @@
       "source_file": "src\\app\\api\\geo\\resolve-ip\\route.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_geo_resolve_ip_route_ts",
-      "target": "resolve_ip_route_getheaderip",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_getheaderip"
     },
     {
       "relation": "contains",
@@ -3044,9 +3138,9 @@
       "source_file": "src\\app\\api\\geo\\resolve-ip\\route.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_geo_resolve_ip_route_ts",
-      "target": "resolve_ip_route_isprivateip",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_isprivateip"
     },
     {
       "relation": "contains",
@@ -3054,9 +3148,9 @@
       "source_file": "src\\app\\api\\geo\\resolve-ip\\route.ts",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_geo_resolve_ip_route_ts",
-      "target": "resolve_ip_route_fetchipapi",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_fetchipapi"
     },
     {
       "relation": "contains",
@@ -3064,9 +3158,9 @@
       "source_file": "src\\app\\api\\geo\\resolve-ip\\route.ts",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_geo_resolve_ip_route_ts",
-      "target": "resolve_ip_route_get",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_get"
     },
     {
       "relation": "calls",
@@ -3075,9 +3169,9 @@
       "source_file": "src\\app\\api\\geo\\resolve-ip\\route.ts",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "resolve_ip_route_get",
-      "target": "resolve_ip_route_parsefloatvalue",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_parsefloatvalue"
     },
     {
       "relation": "calls",
@@ -3086,9 +3180,9 @@
       "source_file": "src\\app\\api\\geo\\resolve-ip\\route.ts",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "resolve_ip_route_get",
-      "target": "resolve_ip_route_getheaderip",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_getheaderip"
     },
     {
       "relation": "calls",
@@ -3097,9 +3191,9 @@
       "source_file": "src\\app\\api\\geo\\resolve-ip\\route.ts",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "resolve_ip_route_get",
-      "target": "resolve_ip_route_isprivateip",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_isprivateip"
     },
     {
       "relation": "calls",
@@ -3108,9 +3202,9 @@
       "source_file": "src\\app\\api\\geo\\resolve-ip\\route.ts",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "resolve_ip_route_get",
-      "target": "resolve_ip_route_fetchipapi",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_fetchipapi"
     },
     {
       "relation": "imports",
@@ -3119,9 +3213,9 @@
       "source_file": "tests\\geo-routes.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_geo_routes_test_ts",
-      "target": "resolve_ip_route_get",
-      "confidence_score": 1.0
+      "target": "resolve_ip_route_get"
     },
     {
       "relation": "imports",
@@ -3130,9 +3224,9 @@
       "source_file": "src\\app\\api\\popular-products\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_popular_products_route_ts",
-      "target": "jubelio_adapter_favourites_getfavouriteitems",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_favourites_getfavouriteitems"
     },
     {
       "relation": "contains",
@@ -3140,9 +3234,9 @@
       "source_file": "src\\app\\api\\popular-products\\route.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_popular_products_route_ts",
-      "target": "popular_products_route_get",
-      "confidence_score": 1.0
+      "target": "popular_products_route_get"
     },
     {
       "relation": "calls",
@@ -3162,9 +3256,9 @@
       "source_file": "src\\app\\api\\products\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_products_route_ts",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
     },
     {
       "relation": "imports",
@@ -3173,9 +3267,9 @@
       "source_file": "src\\app\\api\\products\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_products_route_ts",
-      "target": "lib_product_cache_isproductinstock",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_isproductinstock"
     },
     {
       "relation": "contains",
@@ -3183,9 +3277,9 @@
       "source_file": "src\\app\\api\\products\\route.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_products_route_ts",
-      "target": "products_route_get",
-      "confidence_score": 1.0
+      "target": "products_route_get"
     },
     {
       "relation": "calls",
@@ -3205,9 +3299,9 @@
       "source_file": "src\\app\\api\\products\\[id]\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_products_id_route_ts",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
     },
     {
       "relation": "contains",
@@ -3215,9 +3309,9 @@
       "source_file": "src\\app\\api\\products\\[id]\\route.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_products_id_route_ts",
-      "target": "id_route_get",
-      "confidence_score": 1.0
+      "target": "id_route_get"
     },
     {
       "relation": "calls",
@@ -3237,9 +3331,9 @@
       "source_file": "src\\app\\api\\sync-categories\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_sync_categories_route_ts",
-      "target": "lib_category_cache_synccategoriesfromjubelio",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_synccategoriesfromjubelio"
     },
     {
       "relation": "contains",
@@ -3247,9 +3341,9 @@
       "source_file": "src\\app\\api\\sync-categories\\route.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_sync_categories_route_ts",
-      "target": "sync_categories_route_post",
-      "confidence_score": 1.0
+      "target": "sync_categories_route_post"
     },
     {
       "relation": "calls",
@@ -3269,9 +3363,9 @@
       "source_file": "src\\app\\api\\sync-products\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_sync_products_route_ts",
-      "target": "lib_product_cache_syncproductsfromjubelio",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_syncproductsfromjubelio"
     },
     {
       "relation": "imports",
@@ -3280,9 +3374,9 @@
       "source_file": "src\\app\\api\\sync-products\\route.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_sync_products_route_ts",
-      "target": "lib_product_cache_readproductsfromdisk",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_readproductsfromdisk"
     },
     {
       "relation": "contains",
@@ -3290,9 +3384,9 @@
       "source_file": "src\\app\\api\\sync-products\\route.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_api_sync_products_route_ts",
-      "target": "sync_products_route_get",
-      "confidence_score": 1.0
+      "target": "sync_products_route_get"
     },
     {
       "relation": "calls",
@@ -3323,9 +3417,9 @@
       "source_file": "src\\app\\cart\\page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_cart_page_tsx",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports",
@@ -3334,9 +3428,9 @@
       "source_file": "src\\app\\checkout\\page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_checkout_page_tsx",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "contains",
@@ -3344,9 +3438,9 @@
       "source_file": "src\\app\\checkout\\page.tsx",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_checkout_page_tsx",
-      "target": "checkout_page_validatecheckout",
-      "confidence_score": 1.0
+      "target": "checkout_page_validatecheckout"
     },
     {
       "relation": "contains",
@@ -3354,9 +3448,9 @@
       "source_file": "src\\app\\checkout\\page.tsx",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_checkout_page_tsx",
-      "target": "checkout_page_marktouched",
-      "confidence_score": 1.0
+      "target": "checkout_page_marktouched"
     },
     {
       "relation": "contains",
@@ -3364,9 +3458,9 @@
       "source_file": "src\\app\\checkout\\page.tsx",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_checkout_page_tsx",
-      "target": "checkout_page_handlesubmit",
-      "confidence_score": 1.0
+      "target": "checkout_page_handlesubmit"
     },
     {
       "relation": "calls",
@@ -3375,9 +3469,9 @@
       "source_file": "src\\app\\checkout\\page.tsx",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "checkout_page_handlesubmit",
-      "target": "checkout_page_validatecheckout",
-      "confidence_score": 1.0
+      "target": "checkout_page_validatecheckout"
     },
     {
       "relation": "contains",
@@ -3385,9 +3479,9 @@
       "source_file": "src\\app\\dukungan\\page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_dukungan_page_tsx",
-      "target": "dukungan_page_dukunganpage",
-      "confidence_score": 1.0
+      "target": "dukungan_page_dukunganpage"
     },
     {
       "relation": "contains",
@@ -3395,9 +3489,9 @@
       "source_file": "src\\app\\ekosistem\\page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_ekosistem_page_tsx",
-      "target": "ekosistem_page_ekosistempage",
-      "confidence_score": 1.0
+      "target": "ekosistem_page_ekosistempage"
     },
     {
       "relation": "imports",
@@ -3406,9 +3500,9 @@
       "source_file": "src\\app\\kategori\\[id]\\CategoryPageClient.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_categorypageclient_tsx",
-      "target": "ui_productcard_productcard",
-      "confidence_score": 1.0
+      "target": "ui_productcard_productcard"
     },
     {
       "relation": "imports",
@@ -3417,9 +3511,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "lib_category_cache_getcategories",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_getcategories"
     },
     {
       "relation": "imports",
@@ -3428,9 +3522,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "lib_category_tree_buildcategorypath",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_buildcategorypath"
     },
     {
       "relation": "imports",
@@ -3439,9 +3533,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "lib_category_tree_flattencategorynodes",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_flattencategorynodes"
     },
     {
       "relation": "imports",
@@ -3450,9 +3544,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "lib_seo_content_getcategoryseocontent",
-      "confidence_score": 1.0
+      "target": "lib_seo_content_getcategoryseocontent"
     },
     {
       "relation": "imports",
@@ -3461,9 +3555,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "seo_faq_schema_buildfaqschema",
-      "confidence_score": 1.0
+      "target": "seo_faq_schema_buildfaqschema"
     },
     {
       "relation": "imports",
@@ -3472,9 +3566,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "ui_jsonld_jsonld",
-      "confidence_score": 1.0
+      "target": "ui_jsonld_jsonld"
     },
     {
       "relation": "imports",
@@ -3483,9 +3577,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "seo_site_toabsoluteurl",
-      "confidence_score": 1.0
+      "target": "seo_site_toabsoluteurl"
     },
     {
       "relation": "imports",
@@ -3494,9 +3588,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "seo_mega_footer_getseofooterlinks",
-      "confidence_score": 1.0
+      "target": "seo_mega_footer_getseofooterlinks"
     },
     {
       "relation": "contains",
@@ -3504,9 +3598,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "id_page_resolvecategorydata",
-      "confidence_score": 1.0
+      "target": "id_page_resolvecategorydata"
     },
     {
       "relation": "contains",
@@ -3514,9 +3608,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "id_page_generatemetadata",
-      "confidence_score": 1.0
+      "target": "id_page_generatemetadata"
     },
     {
       "relation": "contains",
@@ -3524,9 +3618,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_kategori_id_page_tsx",
-      "target": "id_page_categorypage",
-      "confidence_score": 1.0
+      "target": "id_page_categorypage"
     },
     {
       "relation": "calls",
@@ -3535,9 +3629,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "id_page_generatemetadata",
-      "target": "id_page_resolvecategorydata",
-      "confidence_score": 1.0
+      "target": "id_page_resolvecategorydata"
     },
     {
       "relation": "calls",
@@ -3546,9 +3640,9 @@
       "source_file": "src\\app\\kategori\\[id]\\page.tsx",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "id_page_categorypage",
-      "target": "id_page_resolvecategorydata",
-      "confidence_score": 1.0
+      "target": "id_page_resolvecategorydata"
     },
     {
       "relation": "calls",
@@ -3589,9 +3683,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "id_page_generatemetadata",
-      "confidence_score": 1.0
+      "target": "id_page_generatemetadata"
     },
     {
       "relation": "calls",
@@ -3666,9 +3760,9 @@
       "source_file": "src\\app\\locations\\[city]\\page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_locations_city_page_tsx",
-      "target": "ui_jsonld_jsonld",
-      "confidence_score": 1.0
+      "target": "ui_jsonld_jsonld"
     },
     {
       "relation": "imports",
@@ -3677,9 +3771,9 @@
       "source_file": "src\\app\\locations\\[city]\\page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_locations_city_page_tsx",
-      "target": "seo_site_toabsoluteurl",
-      "confidence_score": 1.0
+      "target": "seo_site_toabsoluteurl"
     },
     {
       "relation": "imports",
@@ -3688,9 +3782,9 @@
       "source_file": "src\\app\\locations\\[city]\\page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_locations_city_page_tsx",
-      "target": "geo_db_queries_getwarehousesbycity",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_getwarehousesbycity"
     },
     {
       "relation": "contains",
@@ -3698,9 +3792,9 @@
       "source_file": "src\\app\\locations\\[city]\\page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_locations_city_page_tsx",
-      "target": "city_page_todisplayname",
-      "confidence_score": 1.0
+      "target": "city_page_todisplayname"
     },
     {
       "relation": "contains",
@@ -3708,9 +3802,9 @@
       "source_file": "src\\app\\locations\\[city]\\page.tsx",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_locations_city_page_tsx",
-      "target": "city_page_generatemetadata",
-      "confidence_score": 1.0
+      "target": "city_page_generatemetadata"
     },
     {
       "relation": "calls",
@@ -3719,9 +3813,9 @@
       "source_file": "src\\app\\locations\\[city]\\page.tsx",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "city_page_generatemetadata",
-      "target": "city_page_todisplayname",
-      "confidence_score": 1.0
+      "target": "city_page_todisplayname"
     },
     {
       "relation": "calls",
@@ -3741,9 +3835,9 @@
       "source_file": "src\\app\\login\\page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_login_page_tsx",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "contains",
@@ -3751,9 +3845,9 @@
       "source_file": "src\\app\\login\\page.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_login_page_tsx",
-      "target": "login_page_handlesubmit",
-      "confidence_score": 1.0
+      "target": "login_page_handlesubmit"
     },
     {
       "relation": "contains",
@@ -3761,9 +3855,9 @@
       "source_file": "src\\app\\products\\[id]\\BackLink.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_backlink_tsx",
-      "target": "id_backlink_backlink",
-      "confidence_score": 1.0
+      "target": "id_backlink_backlink"
     },
     {
       "relation": "imports",
@@ -3772,9 +3866,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "id_backlink_backlink",
-      "confidence_score": 1.0
+      "target": "id_backlink_backlink"
     },
     {
       "relation": "imports",
@@ -3783,9 +3877,9 @@
       "source_file": "src\\app\\products\\[id]\\GeoShippingClient.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_geoshippingclient_tsx",
-      "target": "lib_geo_client_fetchipfallbackwarehouse",
-      "confidence_score": 1.0
+      "target": "lib_geo_client_fetchipfallbackwarehouse"
     },
     {
       "relation": "imports",
@@ -3794,9 +3888,9 @@
       "source_file": "src\\app\\products\\[id]\\GeoShippingClient.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_geoshippingclient_tsx",
-      "target": "lib_geo_client_fetchnearestwarehouse",
-      "confidence_score": 1.0
+      "target": "lib_geo_client_fetchnearestwarehouse"
     },
     {
       "relation": "contains",
@@ -3804,9 +3898,9 @@
       "source_file": "src\\app\\products\\[id]\\GeoShippingClient.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_geoshippingclient_tsx",
-      "target": "id_geoshippingclient_run",
-      "confidence_score": 1.0
+      "target": "id_geoshippingclient_run"
     },
     {
       "relation": "calls",
@@ -3837,9 +3931,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "lib_product_cache_getproductdetailwithdescription",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproductdetailwithdescription"
     },
     {
       "relation": "imports",
@@ -3848,9 +3942,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
     },
     {
       "relation": "imports",
@@ -3859,9 +3953,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "lib_product_cache_isproductinstock",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_isproductinstock"
     },
     {
       "relation": "imports",
@@ -3870,9 +3964,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "ui_productcard_productcard",
-      "confidence_score": 1.0
+      "target": "ui_productcard_productcard"
     },
     {
       "relation": "imports",
@@ -3881,9 +3975,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "ui_jsonld_jsonld",
-      "confidence_score": 1.0
+      "target": "ui_jsonld_jsonld"
     },
     {
       "relation": "imports",
@@ -3892,9 +3986,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "seo_product_schema_buildproductschema",
-      "confidence_score": 1.0
+      "target": "seo_product_schema_buildproductschema"
     },
     {
       "relation": "imports",
@@ -3903,9 +3997,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "seo_faq_schema_buildfaqschema",
-      "confidence_score": 1.0
+      "target": "seo_faq_schema_buildfaqschema"
     },
     {
       "relation": "imports",
@@ -3914,9 +4008,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "lib_seo_content_getproductseocontent",
-      "confidence_score": 1.0
+      "target": "lib_seo_content_getproductseocontent"
     },
     {
       "relation": "imports",
@@ -3925,9 +4019,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "seo_site_toabsoluteurl",
-      "confidence_score": 1.0
+      "target": "seo_site_toabsoluteurl"
     },
     {
       "relation": "imports",
@@ -3936,9 +4030,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "seo_schema_helpers_safetext",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_safetext"
     },
     {
       "relation": "imports",
@@ -3947,9 +4041,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "seo_mega_footer_getseofooterlinks",
-      "confidence_score": 1.0
+      "target": "seo_mega_footer_getseofooterlinks"
     },
     {
       "relation": "imports",
@@ -3958,9 +4052,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "reviews_queries_getreviewsbundle",
-      "confidence_score": 1.0
+      "target": "reviews_queries_getreviewsbundle"
     },
     {
       "relation": "contains",
@@ -3968,9 +4062,9 @@
       "source_file": "src\\app\\products\\[id]\\page.tsx",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_products_id_page_tsx",
-      "target": "id_page_pushimage",
-      "confidence_score": 1.0
+      "target": "id_page_pushimage"
     },
     {
       "relation": "imports",
@@ -3979,9 +4073,9 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_promo_slug_page_tsx",
-      "target": "ui_productcard_productcard",
-      "confidence_score": 1.0
+      "target": "ui_productcard_productcard"
     },
     {
       "relation": "imports",
@@ -3990,9 +4084,9 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_promo_slug_page_tsx",
-      "target": "lib_sanity_client_getpromohero",
-      "confidence_score": 1.0
+      "target": "lib_sanity_client_getpromohero"
     },
     {
       "relation": "imports",
@@ -4001,9 +4095,9 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_promo_slug_page_tsx",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
     },
     {
       "relation": "imports",
@@ -4012,9 +4106,9 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_promo_slug_page_tsx",
-      "target": "lib_product_cache_isproductinstock",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_isproductinstock"
     },
     {
       "relation": "imports",
@@ -4023,9 +4117,9 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_promo_slug_page_tsx",
-      "target": "lib_promo_hero_buildpromoheroslides",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_buildpromoheroslides"
     },
     {
       "relation": "imports",
@@ -4034,9 +4128,9 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_promo_slug_page_tsx",
-      "target": "lib_promo_hero_resolvepromoslug",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_resolvepromoslug"
     },
     {
       "relation": "imports",
@@ -4045,9 +4139,9 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_promo_slug_page_tsx",
-      "target": "lib_promo_hero_slugifypromo",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_slugifypromo"
     },
     {
       "relation": "contains",
@@ -4055,9 +4149,9 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_promo_slug_page_tsx",
-      "target": "slug_page_getyoutubeembedurl",
-      "confidence_score": 1.0
+      "target": "slug_page_getyoutubeembedurl"
     },
     {
       "relation": "contains",
@@ -4065,9 +4159,9 @@
       "source_file": "src\\app\\promo\\[slug]\\page.tsx",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_promo_slug_page_tsx",
-      "target": "slug_page_findslidebyslug",
-      "confidence_score": 1.0
+      "target": "slug_page_findslidebyslug"
     },
     {
       "relation": "calls",
@@ -4087,9 +4181,9 @@
       "source_file": "src\\app\\register\\page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_register_page_tsx",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "contains",
@@ -4097,9 +4191,9 @@
       "source_file": "src\\app\\register\\page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_register_page_tsx",
-      "target": "register_page_registerpage",
-      "confidence_score": 1.0
+      "target": "register_page_registerpage"
     },
     {
       "relation": "contains",
@@ -4107,9 +4201,9 @@
       "source_file": "src\\app\\search\\page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_search_page_tsx",
-      "target": "search_page_searchroute",
-      "confidence_score": 1.0
+      "target": "search_page_searchroute"
     },
     {
       "relation": "contains",
@@ -4117,9 +4211,9 @@
       "source_file": "src\\app\\studio\\[[...tool]]\\page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_studio_tool_page_tsx",
-      "target": "tool_page_studiopage",
-      "confidence_score": 1.0
+      "target": "tool_page_studiopage"
     },
     {
       "relation": "contains",
@@ -4127,9 +4221,9 @@
       "source_file": "src\\app\\teknologi\\page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_teknologi_page_tsx",
-      "target": "teknologi_page_teknologipage",
-      "confidence_score": 1.0
+      "target": "teknologi_page_teknologipage"
     },
     {
       "relation": "contains",
@@ -4137,9 +4231,9 @@
       "source_file": "src\\app\\tentang-kami\\page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_tentang_kami_page_tsx",
-      "target": "tentang_kami_page_tentangkamipage",
-      "confidence_score": 1.0
+      "target": "tentang_kami_page_tentangkamipage"
     },
     {
       "relation": "contains",
@@ -4147,9 +4241,9 @@
       "source_file": "src\\components\\cart\\CartDrawerClient.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_cart_cartdrawerclient_tsx",
-      "target": "cart_cartdrawerclient_cartdrawerclient",
-      "confidence_score": 1.0
+      "target": "cart_cartdrawerclient_cartdrawerclient"
     },
     {
       "relation": "imports",
@@ -4158,9 +4252,9 @@
       "source_file": "src\\components\\ui\\AddToCartButton.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_addtocartbutton_tsx",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "contains",
@@ -4168,9 +4262,9 @@
       "source_file": "src\\components\\ui\\AddToCartButton.tsx",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_addtocartbutton_tsx",
-      "target": "ui_addtocartbutton_handleaddtocart",
-      "confidence_score": 1.0
+      "target": "ui_addtocartbutton_handleaddtocart"
     },
     {
       "relation": "contains",
@@ -4178,9 +4272,9 @@
       "source_file": "src\\components\\ui\\AddToCartButton.tsx",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_addtocartbutton_tsx",
-      "target": "ui_addtocartbutton_handlecontinueshopping",
-      "confidence_score": 1.0
+      "target": "ui_addtocartbutton_handlecontinueshopping"
     },
     {
       "relation": "contains",
@@ -4188,9 +4282,9 @@
       "source_file": "src\\components\\ui\\AddToCartButton.tsx",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_addtocartbutton_tsx",
-      "target": "ui_addtocartbutton_handlecheckout",
-      "confidence_score": 1.0
+      "target": "ui_addtocartbutton_handlecheckout"
     },
     {
       "relation": "contains",
@@ -4198,9 +4292,9 @@
       "source_file": "src\\components\\ui\\Button.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_button_tsx",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports",
@@ -4209,9 +4303,9 @@
       "source_file": "src\\components\\ui\\CartDrawer.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_cartdrawer_tsx",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "imports",
@@ -4220,9 +4314,9 @@
       "source_file": "src\\components\\ui\\CartDrawerEmpty.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_cartdrawerempty_tsx",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "contains",
@@ -4230,9 +4324,9 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_catalogpage_tsx",
-      "target": "ui_catalogpage_formatprice",
-      "confidence_score": 1.0
+      "target": "ui_catalogpage_formatprice"
     },
     {
       "relation": "contains",
@@ -4240,9 +4334,9 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_catalogpage_tsx",
-      "target": "ui_catalogpage_productcardskeleton",
-      "confidence_score": 1.0
+      "target": "ui_catalogpage_productcardskeleton"
     },
     {
       "relation": "contains",
@@ -4250,9 +4344,9 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_catalogpage_tsx",
-      "target": "ui_catalogpage_productcard",
-      "confidence_score": 1.0
+      "target": "ui_catalogpage_productcard"
     },
     {
       "relation": "contains",
@@ -4260,9 +4354,9 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L263",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_catalogpage_tsx",
-      "target": "ui_catalogpage_handlecategorychange",
-      "confidence_score": 1.0
+      "target": "ui_catalogpage_handlecategorychange"
     },
     {
       "relation": "contains",
@@ -4270,9 +4364,9 @@
       "source_file": "src\\components\\ui\\CatalogPage.tsx",
       "source_location": "L267",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_catalogpage_tsx",
-      "target": "ui_catalogpage_handlepagechange",
-      "confidence_score": 1.0
+      "target": "ui_catalogpage_handlepagechange"
     },
     {
       "relation": "contains",
@@ -4280,9 +4374,9 @@
       "source_file": "src\\components\\ui\\CategoryMegaMenu.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_categorymegamenu_tsx",
-      "target": "ui_categorymegamenu_isallcategory",
-      "confidence_score": 1.0
+      "target": "ui_categorymegamenu_isallcategory"
     },
     {
       "relation": "imports",
@@ -4291,9 +4385,9 @@
       "source_file": "src\\components\\ui\\Header.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_header_tsx",
-      "target": "ui_searchbar_searchbar",
-      "confidence_score": 1.0
+      "target": "ui_searchbar_searchbar"
     },
     {
       "relation": "imports",
@@ -4302,9 +4396,9 @@
       "source_file": "src\\components\\ui\\Header.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_header_tsx",
-      "target": "lib_useheadersearch_useheadersearch",
-      "confidence_score": 1.0
+      "target": "lib_useheadersearch_useheadersearch"
     },
     {
       "relation": "contains",
@@ -4312,9 +4406,9 @@
       "source_file": "src\\components\\ui\\Header.tsx",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_header_tsx",
-      "target": "ui_header_handleclick",
-      "confidence_score": 1.0
+      "target": "ui_header_handleclick"
     },
     {
       "relation": "contains",
@@ -4322,9 +4416,9 @@
       "source_file": "src\\components\\ui\\HeaderActions.tsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_headeractions_tsx",
-      "target": "ui_headeractions_toggletheme",
-      "confidence_score": 1.0
+      "target": "ui_headeractions_toggletheme"
     },
     {
       "relation": "imports",
@@ -4333,9 +4427,9 @@
       "source_file": "src\\components\\ui\\HighlightedText.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_highlightedtext_tsx",
-      "target": "lib_search_suggestions_splithighlight",
-      "confidence_score": 1.0
+      "target": "lib_search_suggestions_splithighlight"
     },
     {
       "relation": "contains",
@@ -4343,9 +4437,9 @@
       "source_file": "src\\components\\ui\\HighlightedText.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_highlightedtext_tsx",
-      "target": "ui_highlightedtext_highlightedtext",
-      "confidence_score": 1.0
+      "target": "ui_highlightedtext_highlightedtext"
     },
     {
       "relation": "imports",
@@ -4354,9 +4448,9 @@
       "source_file": "src\\components\\ui\\SuggestionRow.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_suggestionrow_tsx",
-      "target": "ui_highlightedtext_highlightedtext",
-      "confidence_score": 1.0
+      "target": "ui_highlightedtext_highlightedtext"
     },
     {
       "relation": "calls",
@@ -4375,9 +4469,9 @@
       "source_file": "src\\components\\ui\\JsonLd.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_jsonld_tsx",
-      "target": "ui_jsonld_jsonld",
-      "confidence_score": 1.0
+      "target": "ui_jsonld_jsonld"
     },
     {
       "relation": "contains",
@@ -4385,9 +4479,9 @@
       "source_file": "src\\components\\ui\\ProductCard.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_productcard_tsx",
-      "target": "ui_productcard_productcard",
-      "confidence_score": 1.0
+      "target": "ui_productcard_productcard"
     },
     {
       "relation": "imports",
@@ -4396,9 +4490,9 @@
       "source_file": "src\\components\\ui\\PromoHeroSection.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_promoherosection_tsx",
-      "target": "ui_productcard_productcard",
-      "confidence_score": 1.0
+      "target": "ui_productcard_productcard"
     },
     {
       "relation": "imports",
@@ -4407,9 +4501,9 @@
       "source_file": "src\\components\\ui\\PromoSlider.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_promoslider_tsx",
-      "target": "ui_productcard_productcard",
-      "confidence_score": 1.0
+      "target": "ui_productcard_productcard"
     },
     {
       "relation": "contains",
@@ -4417,9 +4511,9 @@
       "source_file": "src\\components\\ui\\ProductDetailClient.tsx",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_productdetailclient_tsx",
-      "target": "ui_productdetailclient_handlevariantclick",
-      "confidence_score": 1.0
+      "target": "ui_productdetailclient_handlevariantclick"
     },
     {
       "relation": "imports",
@@ -4428,9 +4522,9 @@
       "source_file": "src\\components\\ui\\PromoHeroCarousel.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_promoherocarousel_tsx",
-      "target": "lib_promo_hero_resolvepromoslug",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_resolvepromoslug"
     },
     {
       "relation": "contains",
@@ -4438,9 +4532,9 @@
       "source_file": "src\\components\\ui\\PromoHeroCarousel.tsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_promoherocarousel_tsx",
-      "target": "ui_promoherocarousel_handleprev",
-      "confidence_score": 1.0
+      "target": "ui_promoherocarousel_handleprev"
     },
     {
       "relation": "contains",
@@ -4448,9 +4542,9 @@
       "source_file": "src\\components\\ui\\PromoHeroCarousel.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_promoherocarousel_tsx",
-      "target": "ui_promoherocarousel_handlenext",
-      "confidence_score": 1.0
+      "target": "ui_promoherocarousel_handlenext"
     },
     {
       "relation": "contains",
@@ -4458,9 +4552,9 @@
       "source_file": "src\\components\\ui\\PromoHeroCarousel.tsx",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_promoherocarousel_tsx",
-      "target": "ui_promoherocarousel_getyoutubeembedurl",
-      "confidence_score": 1.0
+      "target": "ui_promoherocarousel_getyoutubeembedurl"
     },
     {
       "relation": "imports",
@@ -4469,9 +4563,9 @@
       "source_file": "src\\components\\ui\\PromoHeroSection.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_promoherosection_tsx",
-      "target": "lib_promo_hero_resolvepromoslug",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_resolvepromoslug"
     },
     {
       "relation": "contains",
@@ -4479,9 +4573,9 @@
       "source_file": "src\\components\\ui\\PromoSlider.tsx",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_promoslider_tsx",
-      "target": "ui_promoslider_scroll",
-      "confidence_score": 1.0
+      "target": "ui_promoslider_scroll"
     },
     {
       "relation": "contains",
@@ -4489,9 +4583,9 @@
       "source_file": "src\\components\\ui\\SearchBar.tsx",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_searchbar_tsx",
-      "target": "ui_searchbar_searchbar",
-      "confidence_score": 1.0
+      "target": "ui_searchbar_searchbar"
     },
     {
       "relation": "imports",
@@ -4500,9 +4594,9 @@
       "source_file": "src\\components\\ui\\SearchSuggestions.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_searchsuggestions_tsx",
-      "target": "lib_search_suggestions_getcategoryname",
-      "confidence_score": 1.0
+      "target": "lib_search_suggestions_getcategoryname"
     },
     {
       "relation": "imports",
@@ -4511,9 +4605,9 @@
       "source_file": "src\\components\\ui\\SearchSuggestions.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_searchsuggestions_tsx",
-      "target": "lib_search_suggestions_getfilteredhistory",
-      "confidence_score": 1.0
+      "target": "lib_search_suggestions_getfilteredhistory"
     },
     {
       "relation": "imports",
@@ -4522,9 +4616,9 @@
       "source_file": "src\\components\\ui\\SearchSuggestions.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_searchsuggestions_tsx",
-      "target": "ui_suggestionicons_historyicon",
-      "confidence_score": 1.0
+      "target": "ui_suggestionicons_historyicon"
     },
     {
       "relation": "imports",
@@ -4533,9 +4627,9 @@
       "source_file": "src\\components\\ui\\SearchSuggestions.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_searchsuggestions_tsx",
-      "target": "ui_suggestionicons_searchicon",
-      "confidence_score": 1.0
+      "target": "ui_suggestionicons_searchicon"
     },
     {
       "relation": "imports",
@@ -4544,9 +4638,9 @@
       "source_file": "src\\components\\ui\\SearchSuggestions.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_searchsuggestions_tsx",
-      "target": "ui_suggestionicons_staricon",
-      "confidence_score": 1.0
+      "target": "ui_suggestionicons_staricon"
     },
     {
       "relation": "contains",
@@ -4554,9 +4648,9 @@
       "source_file": "src\\components\\ui\\SuggestionIcons.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_suggestionicons_tsx",
-      "target": "ui_suggestionicons_searchicon",
-      "confidence_score": 1.0
+      "target": "ui_suggestionicons_searchicon"
     },
     {
       "relation": "contains",
@@ -4564,9 +4658,9 @@
       "source_file": "src\\components\\ui\\SuggestionIcons.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_suggestionicons_tsx",
-      "target": "ui_suggestionicons_historyicon",
-      "confidence_score": 1.0
+      "target": "ui_suggestionicons_historyicon"
     },
     {
       "relation": "contains",
@@ -4574,9 +4668,9 @@
       "source_file": "src\\components\\ui\\SuggestionIcons.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_ui_suggestionicons_tsx",
-      "target": "ui_suggestionicons_staricon",
-      "confidence_score": 1.0
+      "target": "ui_suggestionicons_staricon"
     },
     {
       "relation": "imports",
@@ -4585,9 +4679,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_cache_ts",
-      "target": "jubelio_adapter_categories_getitemcategories",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_categories_getitemcategories"
     },
     {
       "relation": "contains",
@@ -4595,9 +4689,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_cache_ts",
-      "target": "lib_category_cache_ensurecachedir",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_ensurecachedir"
     },
     {
       "relation": "contains",
@@ -4605,9 +4699,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_cache_ts",
-      "target": "lib_category_cache_readcategoriesfromdisk",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_readcategoriesfromdisk"
     },
     {
       "relation": "contains",
@@ -4615,9 +4709,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_cache_ts",
-      "target": "lib_category_cache_iscategorycachefresh",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_iscategorycachefresh"
     },
     {
       "relation": "contains",
@@ -4625,9 +4719,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_cache_ts",
-      "target": "lib_category_cache_synccategoriesfromjubelio",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_synccategoriesfromjubelio"
     },
     {
       "relation": "contains",
@@ -4635,9 +4729,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_cache_ts",
-      "target": "lib_category_cache_getcategories",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_getcategories"
     },
     {
       "relation": "calls",
@@ -4646,9 +4740,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_category_cache_synccategoriesfromjubelio",
-      "target": "lib_category_cache_ensurecachedir",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_ensurecachedir"
     },
     {
       "relation": "calls",
@@ -4657,9 +4751,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_category_cache_synccategoriesfromjubelio",
-      "target": "lib_category_cache_readcategoriesfromdisk",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_readcategoriesfromdisk"
     },
     {
       "relation": "calls",
@@ -4668,9 +4762,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_category_cache_getcategories",
-      "target": "lib_category_cache_readcategoriesfromdisk",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_readcategoriesfromdisk"
     },
     {
       "relation": "calls",
@@ -4679,9 +4773,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_category_cache_getcategories",
-      "target": "lib_category_cache_iscategorycachefresh",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_iscategorycachefresh"
     },
     {
       "relation": "calls",
@@ -4690,9 +4784,9 @@
       "source_file": "src\\lib\\category-cache.ts",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_category_cache_getcategories",
-      "target": "lib_category_cache_synccategoriesfromjubelio",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_synccategoriesfromjubelio"
     },
     {
       "relation": "calls",
@@ -4712,9 +4806,9 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_mega_footer_ts",
-      "target": "lib_category_cache_getcategories",
-      "confidence_score": 1.0
+      "target": "lib_category_cache_getcategories"
     },
     {
       "relation": "calls",
@@ -4733,9 +4827,9 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_tree_ts",
-      "target": "lib_category_tree_sortbyname",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_sortbyname"
     },
     {
       "relation": "contains",
@@ -4743,9 +4837,9 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_tree_ts",
-      "target": "lib_category_tree_buildcategorytree",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_buildcategorytree"
     },
     {
       "relation": "contains",
@@ -4753,9 +4847,9 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_tree_ts",
-      "target": "lib_category_tree_flattencategorytree",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_flattencategorytree"
     },
     {
       "relation": "contains",
@@ -4763,9 +4857,9 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_tree_ts",
-      "target": "lib_category_tree_flattencategorynodes",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_flattencategorynodes"
     },
     {
       "relation": "contains",
@@ -4773,9 +4867,9 @@
       "source_file": "src\\lib\\category-tree.ts",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_category_tree_ts",
-      "target": "lib_category_tree_buildcategorypath",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_buildcategorypath"
     },
     {
       "relation": "imports",
@@ -4784,9 +4878,9 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_mega_footer_ts",
-      "target": "lib_category_tree_buildcategorytree",
-      "confidence_score": 1.0
+      "target": "lib_category_tree_buildcategorytree"
     },
     {
       "relation": "calls",
@@ -4805,9 +4899,9 @@
       "source_file": "src\\lib\\fallback-category-tree.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_fallback_category_tree_ts",
-      "target": "lib_fallback_category_tree_makechild",
-      "confidence_score": 1.0
+      "target": "lib_fallback_category_tree_makechild"
     },
     {
       "relation": "contains",
@@ -4815,9 +4909,9 @@
       "source_file": "src\\lib\\geo-client.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_geo_client_ts",
-      "target": "lib_geo_client_fetchnearestwarehouse",
-      "confidence_score": 1.0
+      "target": "lib_geo_client_fetchnearestwarehouse"
     },
     {
       "relation": "contains",
@@ -4825,9 +4919,9 @@
       "source_file": "src\\lib\\geo-client.ts",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_geo_client_ts",
-      "target": "lib_geo_client_fetchipfallbackwarehouse",
-      "confidence_score": 1.0
+      "target": "lib_geo_client_fetchipfallbackwarehouse"
     },
     {
       "relation": "calls",
@@ -4836,9 +4930,9 @@
       "source_file": "src\\lib\\geo-client.ts",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_geo_client_fetchipfallbackwarehouse",
-      "target": "lib_geo_client_fetchnearestwarehouse",
-      "confidence_score": 1.0
+      "target": "lib_geo_client_fetchnearestwarehouse"
     },
     {
       "relation": "imports",
@@ -4847,9 +4941,9 @@
       "source_file": "tests\\geo-shipping-client.test.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_geo_shipping_client_test_tsx",
-      "target": "lib_geo_client_fetchnearestwarehouse",
-      "confidence_score": 1.0
+      "target": "lib_geo_client_fetchnearestwarehouse"
     },
     {
       "relation": "imports",
@@ -4858,8 +4952,52 @@
       "source_file": "tests\\geo-shipping-client.test.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_geo_shipping_client_test_tsx",
-      "target": "lib_geo_client_fetchipfallbackwarehouse",
+      "target": "lib_geo_client_fetchipfallbackwarehouse"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\product-cache.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_lib_product_cache_ts",
+      "target": "jubelio_adapter_products_getinventoryitemdescription",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\product-cache.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_lib_product_cache_ts",
+      "target": "jubelio_adapter_products_getinventoryitemgroup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\product-cache.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_lib_product_cache_ts",
+      "target": "jubelio_adapter_products_getinventoryitems",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\product-cache.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_lib_product_cache_ts",
+      "target": "jubelio_adapter_products_getinventorypromotions",
       "confidence_score": 1.0
     },
     {
@@ -4868,9 +5006,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_parsenumber",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_parsenumber"
     },
     {
       "relation": "contains",
@@ -4878,9 +5016,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_resolvestockvalue",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_resolvestockvalue"
     },
     {
       "relation": "contains",
@@ -4888,9 +5026,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_resolveimageurl",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_resolveimageurl"
     },
     {
       "relation": "contains",
@@ -4898,9 +5036,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_resolvelabelvalue",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_resolvelabelvalue"
     },
     {
       "relation": "contains",
@@ -4908,9 +5046,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_ensurecachedir",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_ensurecachedir"
     },
     {
       "relation": "contains",
@@ -4918,9 +5056,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_readproductsfromdisk",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_readproductsfromdisk"
     },
     {
       "relation": "contains",
@@ -4928,9 +5066,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_iscachefresh",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_iscachefresh"
     },
     {
       "relation": "contains",
@@ -4938,9 +5076,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_syncproductsfromjubelio",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_syncproductsfromjubelio"
     },
     {
       "relation": "contains",
@@ -4948,9 +5086,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L245",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
     },
     {
       "relation": "contains",
@@ -4958,9 +5096,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L256",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_isproductinstock",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_isproductinstock"
     },
     {
       "relation": "contains",
@@ -4968,9 +5106,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L271",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_product_cache_ts",
-      "target": "lib_product_cache_getproductdetailwithdescription",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproductdetailwithdescription"
     },
     {
       "relation": "calls",
@@ -4979,9 +5117,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_product_cache_resolvestockvalue",
-      "target": "lib_product_cache_parsenumber",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_parsenumber"
     },
     {
       "relation": "calls",
@@ -4990,9 +5128,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L297",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_product_cache_getproductdetailwithdescription",
-      "target": "lib_product_cache_resolveimageurl",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_resolveimageurl"
     },
     {
       "relation": "calls",
@@ -5001,9 +5139,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L223",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_product_cache_syncproductsfromjubelio",
-      "target": "lib_product_cache_ensurecachedir",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_ensurecachedir"
     },
     {
       "relation": "calls",
@@ -5012,9 +5150,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_product_cache_syncproductsfromjubelio",
-      "target": "lib_product_cache_readproductsfromdisk",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_readproductsfromdisk"
     },
     {
       "relation": "calls",
@@ -5023,9 +5161,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L246",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_product_cache_getproducts",
-      "target": "lib_product_cache_readproductsfromdisk",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_readproductsfromdisk"
     },
     {
       "relation": "calls",
@@ -5034,9 +5172,9 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L248",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_product_cache_getproducts",
-      "target": "lib_product_cache_iscachefresh",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_iscachefresh"
     },
     {
       "relation": "calls",
@@ -5045,9 +5183,31 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L253",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_product_cache_getproducts",
-      "target": "lib_product_cache_syncproductsfromjubelio",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_syncproductsfromjubelio"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\lib\\product-cache.ts",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "lib_product_cache_syncproductsfromjubelio",
+      "target": "jubelio_adapter_products_getinventoryitems"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\lib\\product-cache.ts",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "lib_product_cache_syncproductsfromjubelio",
+      "target": "jubelio_adapter_products_getinventorypromotions"
     },
     {
       "relation": "calls",
@@ -5056,9 +5216,31 @@
       "source_file": "src\\lib\\product-cache.ts",
       "source_location": "L273",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_product_cache_getproductdetailwithdescription",
-      "target": "lib_product_cache_getproducts",
-      "confidence_score": 1.0
+      "target": "lib_product_cache_getproducts"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\lib\\product-cache.ts",
+      "source_location": "L331",
+      "weight": 1.0,
+      "source": "lib_product_cache_getproductdetailwithdescription",
+      "target": "jubelio_adapter_products_getinventoryitemgroup"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\lib\\product-cache.ts",
+      "source_location": "L452",
+      "weight": 1.0,
+      "source": "lib_product_cache_getproductdetailwithdescription",
+      "target": "jubelio_adapter_products_getinventoryitemdescription"
     },
     {
       "relation": "contains",
@@ -5066,9 +5248,9 @@
       "source_file": "src\\lib\\promo-hero.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_promo_hero_ts",
-      "target": "lib_promo_hero_slugifypromo",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_slugifypromo"
     },
     {
       "relation": "contains",
@@ -5076,9 +5258,9 @@
       "source_file": "src\\lib\\promo-hero.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_promo_hero_ts",
-      "target": "lib_promo_hero_resolvepromoslug",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_resolvepromoslug"
     },
     {
       "relation": "contains",
@@ -5086,9 +5268,9 @@
       "source_file": "src\\lib\\promo-hero.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_promo_hero_ts",
-      "target": "lib_promo_hero_buildpromoheroslides",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_buildpromoheroslides"
     },
     {
       "relation": "calls",
@@ -5097,9 +5279,9 @@
       "source_file": "src\\lib\\promo-hero.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_promo_hero_resolvepromoslug",
-      "target": "lib_promo_hero_slugifypromo",
-      "confidence_score": 1.0
+      "target": "lib_promo_hero_slugifypromo"
     },
     {
       "relation": "contains",
@@ -5107,9 +5289,9 @@
       "source_file": "src\\lib\\reviews-placeholder.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_reviews_placeholder_ts",
-      "target": "lib_reviews_placeholder_getplaceholderreviews",
-      "confidence_score": 1.0
+      "target": "lib_reviews_placeholder_getplaceholderreviews"
     },
     {
       "relation": "contains",
@@ -5117,9 +5299,9 @@
       "source_file": "src\\lib\\sanity-client.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_sanity_client_ts",
-      "target": "lib_sanity_client_buildsanityimageurl",
-      "confidence_score": 1.0
+      "target": "lib_sanity_client_buildsanityimageurl"
     },
     {
       "relation": "contains",
@@ -5127,9 +5309,9 @@
       "source_file": "src\\lib\\sanity-client.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_sanity_client_ts",
-      "target": "lib_sanity_client_getherobanners",
-      "confidence_score": 1.0
+      "target": "lib_sanity_client_getherobanners"
     },
     {
       "relation": "contains",
@@ -5137,9 +5319,9 @@
       "source_file": "src\\lib\\sanity-client.ts",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_sanity_client_ts",
-      "target": "lib_sanity_client_getpromohero",
-      "confidence_score": 1.0
+      "target": "lib_sanity_client_getpromohero"
     },
     {
       "relation": "contains",
@@ -5147,9 +5329,9 @@
       "source_file": "src\\lib\\sanity-client.ts",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_sanity_client_ts",
-      "target": "lib_sanity_client_getcustomerbyemail",
-      "confidence_score": 1.0
+      "target": "lib_sanity_client_getcustomerbyemail"
     },
     {
       "relation": "contains",
@@ -5157,9 +5339,9 @@
       "source_file": "src\\lib\\search-history.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_search_history_ts",
-      "target": "lib_search_history_loadsearchhistory",
-      "confidence_score": 1.0
+      "target": "lib_search_history_loadsearchhistory"
     },
     {
       "relation": "contains",
@@ -5167,9 +5349,9 @@
       "source_file": "src\\lib\\search-history.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_search_history_ts",
-      "target": "lib_search_history_savesearchhistory",
-      "confidence_score": 1.0
+      "target": "lib_search_history_savesearchhistory"
     },
     {
       "relation": "contains",
@@ -5177,9 +5359,9 @@
       "source_file": "src\\lib\\search-history.ts",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_search_history_ts",
-      "target": "lib_search_history_addsearchhistory",
-      "confidence_score": 1.0
+      "target": "lib_search_history_addsearchhistory"
     },
     {
       "relation": "imports",
@@ -5188,9 +5370,9 @@
       "source_file": "src\\lib\\useHeaderSearch.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_useheadersearch_ts",
-      "target": "lib_search_history_loadsearchhistory",
-      "confidence_score": 1.0
+      "target": "lib_search_history_loadsearchhistory"
     },
     {
       "relation": "imports",
@@ -5199,9 +5381,9 @@
       "source_file": "src\\lib\\useHeaderSearch.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_useheadersearch_ts",
-      "target": "lib_search_history_savesearchhistory",
-      "confidence_score": 1.0
+      "target": "lib_search_history_savesearchhistory"
     },
     {
       "relation": "imports",
@@ -5210,9 +5392,9 @@
       "source_file": "src\\lib\\useHeaderSearch.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_useheadersearch_ts",
-      "target": "lib_search_history_addsearchhistory",
-      "confidence_score": 1.0
+      "target": "lib_search_history_addsearchhistory"
     },
     {
       "relation": "contains",
@@ -5220,9 +5402,9 @@
       "source_file": "src\\lib\\search-suggestions.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_search_suggestions_ts",
-      "target": "lib_search_suggestions_splithighlight",
-      "confidence_score": 1.0
+      "target": "lib_search_suggestions_splithighlight"
     },
     {
       "relation": "contains",
@@ -5230,9 +5412,9 @@
       "source_file": "src\\lib\\search-suggestions.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_search_suggestions_ts",
-      "target": "lib_search_suggestions_getcategoryname",
-      "confidence_score": 1.0
+      "target": "lib_search_suggestions_getcategoryname"
     },
     {
       "relation": "contains",
@@ -5240,9 +5422,9 @@
       "source_file": "src\\lib\\search-suggestions.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_search_suggestions_ts",
-      "target": "lib_search_suggestions_getfilteredhistory",
-      "confidence_score": 1.0
+      "target": "lib_search_suggestions_getfilteredhistory"
     },
     {
       "relation": "contains",
@@ -5250,9 +5432,9 @@
       "source_file": "src\\lib\\seo-content.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_content_ts",
-      "target": "lib_seo_content_gethomeseocontent",
-      "confidence_score": 1.0
+      "target": "lib_seo_content_gethomeseocontent"
     },
     {
       "relation": "contains",
@@ -5260,9 +5442,9 @@
       "source_file": "src\\lib\\seo-content.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_content_ts",
-      "target": "lib_seo_content_getcategoryseocontent",
-      "confidence_score": 1.0
+      "target": "lib_seo_content_getcategoryseocontent"
     },
     {
       "relation": "contains",
@@ -5270,9 +5452,9 @@
       "source_file": "src\\lib\\seo-content.ts",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_content_ts",
-      "target": "lib_seo_content_getproductseocontent",
-      "confidence_score": 1.0
+      "target": "lib_seo_content_getproductseocontent"
     },
     {
       "relation": "contains",
@@ -5280,9 +5462,9 @@
       "source_file": "src\\lib\\useHeaderSearch.ts",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_useheadersearch_ts",
-      "target": "lib_useheadersearch_useheadersearch",
-      "confidence_score": 1.0
+      "target": "lib_useheadersearch_useheadersearch"
     },
     {
       "relation": "contains",
@@ -5290,9 +5472,9 @@
       "source_file": "src\\lib\\geo-db\\queries.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_geo_db_queries_ts",
-      "target": "geo_db_queries_isvalidpoint",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_isvalidpoint"
     },
     {
       "relation": "contains",
@@ -5300,9 +5482,9 @@
       "source_file": "src\\lib\\geo-db\\queries.ts",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_geo_db_queries_ts",
-      "target": "geo_db_queries_tonumber",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_tonumber"
     },
     {
       "relation": "contains",
@@ -5310,9 +5492,9 @@
       "source_file": "src\\lib\\geo-db\\queries.ts",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_geo_db_queries_ts",
-      "target": "geo_db_queries_getnearestwarehouse",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_getnearestwarehouse"
     },
     {
       "relation": "contains",
@@ -5320,9 +5502,9 @@
       "source_file": "src\\lib\\geo-db\\queries.ts",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_geo_db_queries_ts",
-      "target": "geo_db_queries_getwarehousesbycity",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_getwarehousesbycity"
     },
     {
       "relation": "calls",
@@ -5331,9 +5513,9 @@
       "source_file": "src\\lib\\geo-db\\queries.ts",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "geo_db_queries_getnearestwarehouse",
-      "target": "geo_db_queries_isvalidpoint",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_isvalidpoint"
     },
     {
       "relation": "imports",
@@ -5342,9 +5524,9 @@
       "source_file": "tests\\geo-queries.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_geo_queries_test_ts",
-      "target": "geo_db_queries_isvalidpoint",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_isvalidpoint"
     },
     {
       "relation": "calls",
@@ -5353,9 +5535,9 @@
       "source_file": "src\\lib\\geo-db\\queries.ts",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "geo_db_queries_getnearestwarehouse",
-      "target": "geo_db_queries_tonumber",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_tonumber"
     },
     {
       "relation": "imports",
@@ -5364,9 +5546,9 @@
       "source_file": "tests\\geo-queries.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_geo_queries_test_ts",
-      "target": "geo_db_queries_tonumber",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_tonumber"
     },
     {
       "relation": "imports",
@@ -5375,9 +5557,9 @@
       "source_file": "tests\\geo-routes.test.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_geo_routes_test_ts",
-      "target": "geo_db_queries_getnearestwarehouse",
-      "confidence_score": 1.0
+      "target": "geo_db_queries_getnearestwarehouse"
     },
     {
       "relation": "contains",
@@ -5385,9 +5567,9 @@
       "source_file": "src\\lib\\jubelio-adapter\\categories.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_jubelio_adapter_categories_ts",
-      "target": "jubelio_adapter_categories_getitemcategories",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_categories_getitemcategories"
     },
     {
       "relation": "contains",
@@ -5395,9 +5577,9 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_jubelio_adapter_client_ts",
-      "target": "jubelio_adapter_client_jubelioclient",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_client_jubelioclient"
     },
     {
       "relation": "method",
@@ -5405,9 +5587,9 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jubelio_adapter_client_jubelioclient",
-      "target": "jubelio_adapter_client_jubelioclient_constructor",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_client_jubelioclient_constructor"
     },
     {
       "relation": "method",
@@ -5415,9 +5597,9 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jubelio_adapter_client_jubelioclient",
-      "target": "jubelio_adapter_client_jubelioclient_getinstance",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_client_jubelioclient_getinstance"
     },
     {
       "relation": "method",
@@ -5425,9 +5607,9 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jubelio_adapter_client_jubelioclient",
-      "target": "jubelio_adapter_client_jubelioclient_authenticate",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_client_jubelioclient_authenticate"
     },
     {
       "relation": "method",
@@ -5435,9 +5617,9 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jubelio_adapter_client_jubelioclient",
-      "target": "jubelio_adapter_client_jubelioclient_get",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_client_jubelioclient_get"
     },
     {
       "relation": "calls",
@@ -5446,9 +5628,9 @@
       "source_file": "src\\lib\\jubelio-adapter\\client.ts",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jubelio_adapter_client_jubelioclient_get",
-      "target": "jubelio_adapter_client_jubelioclient_authenticate",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_client_jubelioclient_authenticate"
     },
     {
       "relation": "contains",
@@ -5456,9 +5638,9 @@
       "source_file": "src\\lib\\jubelio-adapter\\favourites.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_jubelio_adapter_favourites_ts",
-      "target": "jubelio_adapter_favourites_getfavouriteitems",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_favourites_getfavouriteitems"
     },
     {
       "relation": "contains",
@@ -5466,9 +5648,9 @@
       "source_file": "src\\lib\\jubelio-adapter\\items.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_jubelio_adapter_items_ts",
-      "target": "jubelio_adapter_items_getinventoryitem",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_items_getinventoryitem"
     },
     {
       "relation": "imports",
@@ -5477,9 +5659,9 @@
       "source_file": "src\\lib\\reviews\\bridge.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_reviews_bridge_ts",
-      "target": "jubelio_adapter_items_getinventoryitem",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_items_getinventoryitem"
     },
     {
       "relation": "imports",
@@ -5488,9 +5670,9 @@
       "source_file": "tests\\reviews-bridge.test.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_reviews_bridge_test_ts",
-      "target": "jubelio_adapter_items_getinventoryitem",
-      "confidence_score": 1.0
+      "target": "jubelio_adapter_items_getinventoryitem"
     },
     {
       "relation": "calls",
@@ -5506,12 +5688,96 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\jubelio-adapter\\products.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "src_lib_jubelio_adapter_products_ts",
+      "target": "jubelio_adapter_products_getinventoryitems",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\jubelio-adapter\\products.ts",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "src_lib_jubelio_adapter_products_ts",
+      "target": "jubelio_adapter_products_getinventorypromotions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\jubelio-adapter\\products.ts",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "src_lib_jubelio_adapter_products_ts",
+      "target": "jubelio_adapter_products_getinventoryitemgroup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\lib\\jubelio-adapter\\products.ts",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "src_lib_jubelio_adapter_products_ts",
+      "target": "jubelio_adapter_products_getinventoryitemdescription",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\jubelio-products-adapter.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_jubelio_products_adapter_test_ts",
+      "target": "jubelio_adapter_products_getinventoryitems",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\jubelio-products-adapter.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_jubelio_products_adapter_test_ts",
+      "target": "jubelio_adapter_products_getinventorypromotions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\jubelio-products-adapter.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_jubelio_products_adapter_test_ts",
+      "target": "jubelio_adapter_products_getinventoryitemgroup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\jubelio-products-adapter.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_jubelio_products_adapter_test_ts",
+      "target": "jubelio_adapter_products_getinventoryitemdescription",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src\\lib\\reviews\\bridge.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_reviews_bridge_ts",
-      "target": "reviews_bridge_extractshopeechannelitemid",
-      "confidence_score": 1.0
+      "target": "reviews_bridge_extractshopeechannelitemid"
     },
     {
       "relation": "contains",
@@ -5519,9 +5785,9 @@
       "source_file": "src\\lib\\reviews\\bridge.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_reviews_bridge_ts",
-      "target": "reviews_bridge_getshopeechannelitemid",
-      "confidence_score": 1.0
+      "target": "reviews_bridge_getshopeechannelitemid"
     },
     {
       "relation": "calls",
@@ -5530,9 +5796,9 @@
       "source_file": "src\\lib\\reviews\\bridge.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "reviews_bridge_getshopeechannelitemid",
-      "target": "reviews_bridge_extractshopeechannelitemid",
-      "confidence_score": 1.0
+      "target": "reviews_bridge_extractshopeechannelitemid"
     },
     {
       "relation": "imports",
@@ -5541,9 +5807,9 @@
       "source_file": "tests\\reviews-bridge.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_reviews_bridge_test_ts",
-      "target": "reviews_bridge_extractshopeechannelitemid",
-      "confidence_score": 1.0
+      "target": "reviews_bridge_extractshopeechannelitemid"
     },
     {
       "relation": "imports",
@@ -5552,9 +5818,9 @@
       "source_file": "tests\\reviews-bridge.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_reviews_bridge_test_ts",
-      "target": "reviews_bridge_getshopeechannelitemid",
-      "confidence_score": 1.0
+      "target": "reviews_bridge_getshopeechannelitemid"
     },
     {
       "relation": "contains",
@@ -5562,9 +5828,9 @@
       "source_file": "src\\lib\\reviews\\queries.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_reviews_queries_ts",
-      "target": "reviews_queries_tonumber",
-      "confidence_score": 1.0
+      "target": "reviews_queries_tonumber"
     },
     {
       "relation": "contains",
@@ -5572,9 +5838,9 @@
       "source_file": "src\\lib\\reviews\\queries.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_reviews_queries_ts",
-      "target": "reviews_queries_getreviewsbundle",
-      "confidence_score": 1.0
+      "target": "reviews_queries_getreviewsbundle"
     },
     {
       "relation": "calls",
@@ -5583,9 +5849,9 @@
       "source_file": "src\\lib\\reviews\\queries.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "reviews_queries_getreviewsbundle",
-      "target": "reviews_queries_tonumber",
-      "confidence_score": 1.0
+      "target": "reviews_queries_tonumber"
     },
     {
       "relation": "contains",
@@ -5593,9 +5859,9 @@
       "source_file": "src\\lib\\reviews\\shopee.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_reviews_shopee_ts",
-      "target": "reviews_shopee_clamprating",
-      "confidence_score": 1.0
+      "target": "reviews_shopee_clamprating"
     },
     {
       "relation": "contains",
@@ -5603,9 +5869,9 @@
       "source_file": "src\\lib\\reviews\\shopee.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_reviews_shopee_ts",
-      "target": "reviews_shopee_hashstring",
-      "confidence_score": 1.0
+      "target": "reviews_shopee_hashstring"
     },
     {
       "relation": "contains",
@@ -5613,9 +5879,9 @@
       "source_file": "src\\lib\\reviews\\shopee.ts",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_reviews_shopee_ts",
-      "target": "reviews_shopee_fetchshopeereviews",
-      "confidence_score": 1.0
+      "target": "reviews_shopee_fetchshopeereviews"
     },
     {
       "relation": "calls",
@@ -5624,9 +5890,9 @@
       "source_file": "src\\lib\\reviews\\shopee.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "reviews_shopee_fetchshopeereviews",
-      "target": "reviews_shopee_clamprating",
-      "confidence_score": 1.0
+      "target": "reviews_shopee_clamprating"
     },
     {
       "relation": "calls",
@@ -5635,9 +5901,9 @@
       "source_file": "src\\lib\\reviews\\shopee.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "reviews_shopee_fetchshopeereviews",
-      "target": "reviews_shopee_hashstring",
-      "confidence_score": 1.0
+      "target": "reviews_shopee_hashstring"
     },
     {
       "relation": "imports",
@@ -5646,9 +5912,9 @@
       "source_file": "src\\lib\\seo\\faq-schema.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_faq_schema_ts",
-      "target": "seo_schema_helpers_normalizeurl",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_normalizeurl"
     },
     {
       "relation": "imports",
@@ -5657,9 +5923,9 @@
       "source_file": "src\\lib\\seo\\faq-schema.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_faq_schema_ts",
-      "target": "seo_schema_helpers_safetext",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_safetext"
     },
     {
       "relation": "contains",
@@ -5667,9 +5933,9 @@
       "source_file": "src\\lib\\seo\\faq-schema.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_faq_schema_ts",
-      "target": "seo_faq_schema_buildfaqschema",
-      "confidence_score": 1.0
+      "target": "seo_faq_schema_buildfaqschema"
     },
     {
       "relation": "calls",
@@ -5688,9 +5954,9 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_mega_footer_ts",
-      "target": "seo_mega_footer_isallcategory",
-      "confidence_score": 1.0
+      "target": "seo_mega_footer_isallcategory"
     },
     {
       "relation": "contains",
@@ -5698,9 +5964,9 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_mega_footer_ts",
-      "target": "seo_mega_footer_tocategoryhref",
-      "confidence_score": 1.0
+      "target": "seo_mega_footer_tocategoryhref"
     },
     {
       "relation": "contains",
@@ -5708,9 +5974,9 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_mega_footer_ts",
-      "target": "seo_mega_footer_collectlinks",
-      "confidence_score": 1.0
+      "target": "seo_mega_footer_collectlinks"
     },
     {
       "relation": "contains",
@@ -5718,9 +5984,9 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_mega_footer_ts",
-      "target": "seo_mega_footer_buildseogroupsfromtree",
-      "confidence_score": 1.0
+      "target": "seo_mega_footer_buildseogroupsfromtree"
     },
     {
       "relation": "contains",
@@ -5728,9 +5994,9 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_mega_footer_ts",
-      "target": "seo_mega_footer_getseofooterlinks",
-      "confidence_score": 1.0
+      "target": "seo_mega_footer_getseofooterlinks"
     },
     {
       "relation": "calls",
@@ -5739,9 +6005,9 @@
       "source_file": "src\\lib\\seo\\mega-footer.ts",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seo_mega_footer_getseofooterlinks",
-      "target": "seo_mega_footer_buildseogroupsfromtree",
-      "confidence_score": 1.0
+      "target": "seo_mega_footer_buildseogroupsfromtree"
     },
     {
       "relation": "imports",
@@ -5750,9 +6016,9 @@
       "source_file": "src\\lib\\seo\\product-schema.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_product_schema_ts",
-      "target": "seo_schema_helpers_normalizeurl",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_normalizeurl"
     },
     {
       "relation": "imports",
@@ -5761,9 +6027,9 @@
       "source_file": "src\\lib\\seo\\product-schema.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_product_schema_ts",
-      "target": "seo_schema_helpers_safetext",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_safetext"
     },
     {
       "relation": "imports",
@@ -5772,9 +6038,9 @@
       "source_file": "src\\lib\\seo\\product-schema.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_product_schema_ts",
-      "target": "seo_rating_schema_buildaggregateratingschema",
-      "confidence_score": 1.0
+      "target": "seo_rating_schema_buildaggregateratingschema"
     },
     {
       "relation": "imports",
@@ -5783,9 +6049,9 @@
       "source_file": "src\\lib\\seo\\product-schema.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_product_schema_ts",
-      "target": "seo_rating_schema_buildreviewschemas",
-      "confidence_score": 1.0
+      "target": "seo_rating_schema_buildreviewschemas"
     },
     {
       "relation": "contains",
@@ -5793,9 +6059,9 @@
       "source_file": "src\\lib\\seo\\product-schema.ts",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_product_schema_ts",
-      "target": "seo_product_schema_buildproductschema",
-      "confidence_score": 1.0
+      "target": "seo_product_schema_buildproductschema"
     },
     {
       "relation": "calls",
@@ -5848,9 +6114,9 @@
       "source_file": "src\\lib\\seo\\rating-schema.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_rating_schema_ts",
-      "target": "seo_schema_helpers_clamprating",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_clamprating"
     },
     {
       "relation": "imports",
@@ -5859,9 +6125,9 @@
       "source_file": "src\\lib\\seo\\rating-schema.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_rating_schema_ts",
-      "target": "seo_schema_helpers_safetext",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_safetext"
     },
     {
       "relation": "contains",
@@ -5869,9 +6135,9 @@
       "source_file": "src\\lib\\seo\\rating-schema.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_rating_schema_ts",
-      "target": "seo_rating_schema_buildaggregateratingschema",
-      "confidence_score": 1.0
+      "target": "seo_rating_schema_buildaggregateratingschema"
     },
     {
       "relation": "contains",
@@ -5879,9 +6145,9 @@
       "source_file": "src\\lib\\seo\\rating-schema.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_rating_schema_ts",
-      "target": "seo_rating_schema_buildreviewschemas",
-      "confidence_score": 1.0
+      "target": "seo_rating_schema_buildreviewschemas"
     },
     {
       "relation": "imports",
@@ -5890,9 +6156,9 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_schema_helpers_ts",
-      "target": "seo_site_toabsoluteurl",
-      "confidence_score": 1.0
+      "target": "seo_site_toabsoluteurl"
     },
     {
       "relation": "contains",
@@ -5900,9 +6166,9 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_schema_helpers_ts",
-      "target": "seo_schema_helpers_striphtml",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_striphtml"
     },
     {
       "relation": "contains",
@@ -5910,9 +6176,9 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_schema_helpers_ts",
-      "target": "seo_schema_helpers_safetext",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_safetext"
     },
     {
       "relation": "contains",
@@ -5920,9 +6186,9 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_schema_helpers_ts",
-      "target": "seo_schema_helpers_normalizeurl",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_normalizeurl"
     },
     {
       "relation": "contains",
@@ -5930,9 +6196,9 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_schema_helpers_ts",
-      "target": "seo_schema_helpers_ensurearray",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_ensurearray"
     },
     {
       "relation": "contains",
@@ -5940,9 +6206,9 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_schema_helpers_ts",
-      "target": "seo_schema_helpers_clamprating",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_clamprating"
     },
     {
       "relation": "calls",
@@ -5951,9 +6217,9 @@
       "source_file": "src\\lib\\seo\\schema-helpers.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seo_schema_helpers_safetext",
-      "target": "seo_schema_helpers_striphtml",
-      "confidence_score": 1.0
+      "target": "seo_schema_helpers_striphtml"
     },
     {
       "relation": "calls",
@@ -5972,9 +6238,9 @@
       "source_file": "src\\lib\\seo\\site.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_seo_site_ts",
-      "target": "seo_site_toabsoluteurl",
-      "confidence_score": 1.0
+      "target": "seo_site_toabsoluteurl"
     },
     {
       "relation": "contains",
@@ -5982,9 +6248,9 @@
       "source_file": "tests\\geo-shipping-client.test.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_geo_shipping_client_test_tsx",
-      "target": "tests_geo_shipping_client_test_mockgeolocationsuccess",
-      "confidence_score": 1.0
+      "target": "tests_geo_shipping_client_test_mockgeolocationsuccess"
     },
     {
       "relation": "contains",
@@ -5992,8 +6258,18 @@
       "source_file": "tests\\geo-shipping-client.test.tsx",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_geo_shipping_client_test_tsx",
-      "target": "tests_geo_shipping_client_test_makewarehouse",
+      "target": "tests_geo_shipping_client_test_makewarehouse"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\jubelio-boundary.test.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "tests_jubelio_boundary_test_ts",
+      "target": "tests_jubelio_boundary_test_listfiles",
       "confidence_score": 1.0
     }
   ],
