@@ -296,8 +296,8 @@
     "hash": "5534bb898f454f415c62d3837ae1f5ed"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\category-cache.ts": {
-    "mtime": 1775617838.9418259,
-    "hash": "6ccb0f55caf3be81771c0cd5f81d850b"
+    "mtime": 1778518744.5983548,
+    "hash": "0b1d4b5a2633efc131516f3e5283ea45"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\category-tree.ts": {
     "mtime": 1775620597.5412564,
@@ -316,8 +316,8 @@
     "hash": "51ae13a361e7f58de82e306e72b80561"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\product-cache.ts": {
-    "mtime": 1777866607.8647163,
-    "hash": "06b61b942b088f99c4d9e4f66d588ac2"
+    "mtime": 1778518740.929316,
+    "hash": "77f5ba112e948390de86e3a1714665d1"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\promo-hero.ts": {
     "mtime": 1775626632.7775137,
@@ -342,6 +342,10 @@
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\seo-content.ts": {
     "mtime": 1775664318.1832037,
     "hash": "7e21190ea511977af211fa254420c2db"
+  },
+  "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\server-cache-path.ts": {
+    "mtime": 1778518880.7495863,
+    "hash": "d2ea0d20d140a94a0bb9f7bfbf8e603d"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\src\\lib\\types.ts": {
     "mtime": 1775618729.6245265,
@@ -474,6 +478,10 @@
   "D:\\Documents\\Work\\ibacks\\ibacks\\tests\\sanity.test.ts": {
     "mtime": 1775672489.672163,
     "hash": "1d904ac1554302998a771eff62bf8d94"
+  },
+  "D:\\Documents\\Work\\ibacks\\ibacks\\tests\\server-cache-path.test.ts": {
+    "mtime": 1778518708.805775,
+    "hash": "e12cc67daa66b337daebc7ff3eab6f37"
   },
   "D:\\Documents\\Work\\ibacks\\ibacks\\tests\\setup.ts": {
     "mtime": 1775665299.6460142,

@@ -1,11 +1,11 @@
-# Graph Report - ibacks  (2026-05-11)
+# Graph Report - ibacks  (2026-05-12)
 
 ## Corpus Check
-- 122 files · ~28,766 words
+- 124 files · ~28,895 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 275 nodes · 359 edges · 17 communities detected
+- 278 nodes · 363 edges · 15 communities detected
 - Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -20,13 +20,11 @@
 - [[_COMMUNITY_Community 7|Community 7]]
 - [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 9|Community 9]]
-- [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 11|Community 11]]
 - [[_COMMUNITY_Community 12|Community 12]]
 - [[_COMMUNITY_Community 13|Community 13]]
 - [[_COMMUNITY_Community 14|Community 14]]
 - [[_COMMUNITY_Community 15|Community 15]]
-- [[_COMMUNITY_Community 16|Community 16]]
-- [[_COMMUNITY_Community 17|Community 17]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `getProducts()` - 18 edges
@@ -43,8 +41,8 @@
 ## Surprising Connections (you probably didn't know these)
 - `run()` --calls--> `syncProductsFromJubelio()`  [INFERRED]
   scripts\sync-products.ts → src\lib\product-cache.ts
-- `sitemap()` --calls--> `getProducts()`  [INFERRED]
-  src\app\sitemap.ts → src\lib\product-cache.ts
+- `sitemap()` --calls--> `getCategories()`  [INFERRED]
+  src\app\sitemap.ts → src\lib\category-cache.ts
 - `GET()` --calls--> `getProducts()`  [INFERRED]
   src\app\api\categories\route.ts → src\lib\product-cache.ts
 - `GET()` --calls--> `getProducts()`  [INFERRED]
@@ -55,16 +53,16 @@
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.15
-Nodes (18): GET(), GET(), getInventoryItemDescription(), getInventoryItemGroup(), getInventoryItems(), getInventoryPromotions(), ensureCacheDir(), getProductDetailWithDescription() (+10 more)
+Cohesion: 0.1
+Nodes (22): generateMetadata(), toDisplayName(), BackLink(), CategoryPage(), generateMetadata(), resolveCategoryData(), buildCategoryPath(), getCategorySeoContent() (+14 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.15
-Nodes (15): generateMetadata(), toDisplayName(), BackLink(), CategoryPage(), generateMetadata(), resolveCategoryData(), buildCategoryPath(), isProductInStock() (+7 more)
+Cohesion: 0.13
+Nodes (21): sitemap(), GET(), GET(), getInventoryItemDescription(), getInventoryItemGroup(), getInventoryItems(), getInventoryPromotions(), flattenCategoryNodes() (+13 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.14
-Nodes (13): sitemap(), GET(), getItemCategories(), ensureCacheDir(), getCategories(), isCategoryCacheFresh(), readCategoriesFromDisk(), syncCategoriesFromJubelio() (+5 more)
+Cohesion: 0.13
+Nodes (13): GET(), getItemCategories(), ensureCacheDir(), getCategories(), isCategoryCacheFresh(), readCategoriesFromDisk(), syncCategoriesFromJubelio(), buildCategoryTree() (+5 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.11
@@ -87,62 +85,52 @@ Cohesion: 0.23
 Nodes (7): getCategoryName(), getFilteredHistory(), splitHighlight(), HighlightedText(), HistoryIcon(), SearchIcon(), StarIcon()
 
 ### Community 8 - "Community 8"
-Cohesion: 0.32
-Nodes (7): buildProductSchema(), buildAggregateRatingSchema(), buildReviewSchemas(), clampRating(), normalizeUrl(), safeText(), stripHtml()
-
-### Community 9 - "Community 9"
 Cohesion: 0.24
 Nodes (5): addSearchHistory(), loadSearchHistory(), saveSearchHistory(), useHeaderSearch(), SearchBar()
 
-### Community 10 - "Community 10"
+### Community 9 - "Community 9"
 Cohesion: 0.43
 Nodes (3): run(), fetchIpFallbackWarehouse(), fetchNearestWarehouse()
 
-### Community 12 - "Community 12"
+### Community 11 - "Community 11"
 Cohesion: 0.4
 Nodes (1): JubelioClient
 
-### Community 13 - "Community 13"
+### Community 12 - "Community 12"
 Cohesion: 0.83
 Nodes (3): loadEnv(), run(), upsertWarehouse()
+
+### Community 13 - "Community 13"
+Cohesion: 0.5
+Nodes (1): CartDrawerClient()
 
 ### Community 14 - "Community 14"
 Cohesion: 0.67
 Nodes (2): getFavouriteItems(), GET()
 
 ### Community 15 - "Community 15"
-Cohesion: 0.5
-Nodes (1): CartDrawerClient()
-
-### Community 16 - "Community 16"
 Cohesion: 1.0
 Nodes (2): loadEnv(), run()
 
-### Community 17 - "Community 17"
-Cohesion: 1.0
-Nodes (2): getReviewsBundle(), toNumber()
-
 ## Knowledge Gaps
-- **Thin community `Community 12`** (6 nodes): `JubelioClient`, `.authenticate()`, `.constructor()`, `.get()`, `.getInstance()`, `client.ts`
+- **Thin community `Community 11`** (6 nodes): `JubelioClient`, `.authenticate()`, `.constructor()`, `.get()`, `.getInstance()`, `client.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 13`** (4 nodes): `RootLayout()`, `CartDrawerClient()`, `layout.tsx`, `CartDrawerClient.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 14`** (4 nodes): `getFavouriteItems()`, `GET()`, `route.ts`, `favourites.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 15`** (4 nodes): `RootLayout()`, `CartDrawerClient()`, `layout.tsx`, `CartDrawerClient.tsx`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 16`** (3 nodes): `loadEnv()`, `run()`, `geo-migrate.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 17`** (3 nodes): `getReviewsBundle()`, `toNumber()`, `queries.ts`
+- **Thin community `Community 15`** (3 nodes): `loadEnv()`, `run()`, `geo-migrate.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `getProducts()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 6`?**
-  _High betweenness centrality (0.108) - this node is a cross-community bridge._
-- **Why does `getWarehousesByCity()` connect `Community 5` to `Community 1`?**
+- **Why does `getProducts()` connect `Community 1` to `Community 0`, `Community 3`, `Community 6`?**
+  _High betweenness centrality (0.105) - this node is a cross-community bridge._
+- **Why does `getWarehousesByCity()` connect `Community 5` to `Community 0`?**
   _High betweenness centrality (0.047) - this node is a cross-community bridge._
-- **Why does `getCategories()` connect `Community 2` to `Community 1`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
+- **Why does `getCategories()` connect `Community 2` to `Community 0`, `Community 1`?**
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **Are the 5 inferred relationships involving `getProducts()` (e.g. with `sitemap()` and `GET()`) actually correct?**
   _`getProducts()` has 5 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 4 inferred relationships involving `getCategories()` (e.g. with `sitemap()` and `GET()`) actually correct?**
