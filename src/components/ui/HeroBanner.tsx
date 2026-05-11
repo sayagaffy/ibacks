@@ -1,5 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export interface HeroBannerProps {
   title: string;
@@ -7,6 +8,7 @@ export interface HeroBannerProps {
   imageUrl: string;
   ctaText?: string;
   ctaLink?: string;
+  priority?: boolean;
 }
 
 export const HeroBanner: React.FC<HeroBannerProps> = ({
@@ -15,16 +17,20 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   imageUrl,
   ctaText,
   ctaLink,
+  priority = true,
 }) => {
   return (
     <div className="relative w-full h-[60vh] min-h-[400px] flex items-end justify-start rounded-[24px] overflow-hidden group">
       {/* Background Image */}
-      <img 
-        src={imageUrl} 
-        alt={title} 
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+      <Image
+        src={imageUrl}
+        alt={title}
+        fill
+        priority={priority}
+        sizes="100vw"
+        className="object-cover transition-transform duration-[2s] group-hover:scale-105"
       />
-      
+
       {/* Dark Vignette Overlay for Text Readability */}
       <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
 
@@ -36,9 +42,9 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
         <p className="text-lg md:text-xl text-zinc-300 font-medium max-w-lg leading-relaxed">
           {subtitle}
         </p>
-        
+
         {ctaText && ctaLink && (
-          <Link 
+          <Link
             href={ctaLink}
             className="mt-4 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-zinc-200 transition-colors shadow-xl"
           >

@@ -1,14 +1,41 @@
 /**
  * Product Cache Layer
- * 
+ *
  * Stores all Jubelio products in a local JSON file to avoid
  * fetching 1200+ items on every request. Cache is refreshed
  * max once per hour, or on demand via /api/sync-products.
  */
 
-import { jubelio } from '@/lib/jubelio-adapter/client';
-import fs from 'fs';
-import path from 'path';
+import {
+  getInventoryItemDescription,
+  getInventoryItemGroup,
+  getInventoryItems,
+  getInventoryPromotions,
+  type JubelioInventoryProduct,
+  type JubelioProductSku,
+  type JubelioProductVariant,
+  type JubelioPromotion,
+  type JubelioPromotionDetail,
+} from "@/lib/jubelio-adapter/products";
+import { resolveServerCacheDir } from "@/lib/server-cache-path";
+import fs from "fs";
+import path from "path";
+
+export interface GalleryImage {
+  full: string;
+  thumb: string;
+}
+
+export interface CachedVariant {
+  id: number;
+  name: string;
+  price: number;
+  sku: string;
+  thumbnail: string | null;
+  stock?: number | null;
+  images?: GalleryImage[];
+  description?: string | null;
+}
 
 export interface CachedProduct {
   id: number;
@@ -19,14 +46,10 @@ export interface CachedProduct {
   thumbnail: string | null;
   categoryId: number | null;
   description?: string | null; // Storing description here to avoid extra API call on PDP
-  variants: Array<{
-    id: number;
-    name: string;
-    price: number;
-    sku: string;
-    thumbnail: string | null;
-    description?: string | null;
-  }>;
+  totalStock?: number | null;
+  inStock?: boolean;
+  galleryImages?: GalleryImage[];
+  variants: CachedVariant[];
 }
 
 export interface ProductCache {
@@ -35,10 +58,50 @@ export interface ProductCache {
   syncedAt: string; // ISO timestamp
 }
 
-// Store in data/ directory — persists across builds and hot reloads
-const CACHE_DIR = path.join(process.cwd(), 'data');
-const CACHE_FILE = path.join(CACHE_DIR, 'products.json');
+// Store in data/ locally, or /tmp on Vercel where the function filesystem is read-only.
+const CACHE_DIR = resolveServerCacheDir();
+const CACHE_FILE = path.join(CACHE_DIR, "products.json");
 const CACHE_MAX_AGE_MS = 60 * 60 * 1000; // 1 hour
+
+function parseNumber(value: unknown): number | null {
+  if (typeof value === "number" && !Number.isNaN(value)) return value;
+  if (
+    typeof value === "string" &&
+    value.trim() !== "" &&
+    !Number.isNaN(Number(value))
+  ) {
+    return Number(value);
+  }
+  return null;
+}
+
+function resolveStockValue(value: unknown, fallback: unknown): number | null {
+  const primary = parseNumber(value);
+  if (primary != null) return primary;
+  return parseNumber(fallback);
+}
+
+function resolveImageUrl(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed ? trimmed : null;
+}
+
+function resolveLabelValue(value: unknown): string | null {
+  if (typeof value === "string") return value.trim() || null;
+  if (typeof value === "number") return String(value);
+  if (value && typeof value === "object") {
+    const record = value as Record<string, unknown>;
+    return (
+      resolveLabelValue(record.value) ||
+      resolveLabelValue(record.variation_value) ||
+      resolveLabelValue(record.name) ||
+      resolveLabelValue(record.label) ||
+      null
+    );
+  }
+  return null;
+}
 
 function ensureCacheDir() {
   if (!fs.existsSync(CACHE_DIR)) {
@@ -49,7 +112,7 @@ function ensureCacheDir() {
 export function readProductsFromDisk(): ProductCache | null {
   try {
     if (!fs.existsSync(CACHE_FILE)) return null;
-    const raw = fs.readFileSync(CACHE_FILE, 'utf-8');
+    const raw = fs.readFileSync(CACHE_FILE, "utf-8");
     return JSON.parse(raw) as ProductCache;
   } catch {
     return null;
@@ -57,58 +120,158 @@ export function readProductsFromDisk(): ProductCache | null {
 }
 
 export function isCacheFresh(cache: ProductCache | null): boolean {
-  if (!cache) return false;
+  // Also treat a cache with 0 products as stale — it means a previous sync failed silently.
+  if (!cache || cache.products.length === 0) return false;
   const syncedAt = new Date(cache.syncedAt).getTime();
   return Date.now() - syncedAt < CACHE_MAX_AGE_MS;
 }
 
 export async function syncProductsFromJubelio(): Promise<ProductCache> {
-  console.log('[ProductCache] Fetching all products from Jubelio API...');
+  console.log("[ProductCache] Fetching all products from Jubelio API...");
   const startTime = Date.now();
 
-  const response = await jubelio.get<{ data: any[]; totalCount: number }>('/inventory/items/');
-  const rawProducts = response?.data || [];
+  // Keep the old cache just in case Jubelio is down
+  const staleCache = readProductsFromDisk();
 
-  // Note: we'll fetch full descriptions lazily when PDP is accessed, OR we could fetch them here
-  // but fetching 1200+ descriptions one-by-one would be too slow. We'll leave `description` undefined
-  // in the bulk cache and fetch it on-demand in a separate function.
+  try {
+    const [itemsResponse, promosResponse] = await Promise.all([
+      getInventoryItems(),
+      getInventoryPromotions().catch((e) => {
+        // Promotions might fail independently, we can still show products
+        console.warn(
+          "[ProductCache] Failed to fetch promotions, continuing without promos.",
+          e.message,
+        );
+        return { data: [] };
+      }),
+    ]);
 
-  const products: CachedProduct[] = rawProducts.map((p: any) => {
-    const basePrice = parseFloat(p.sell_price) || 0;
-    const variants = (p.variants || []).map((v: any) => ({
-      id: v.item_id,
-      name: v.item_name,
-      price: v.sell_price || basePrice,
-      sku: v.item_code || '',
-      thumbnail: v.thumbnail || null,
-    }));
+    const rawProducts = itemsResponse?.data || [];
+    const rawPromos = promosResponse?.data || [];
 
-    const price = basePrice || variants[0]?.price || 0;
-    const thumbnail = p.thumbnail || variants.find((v: any) => v.thumbnail)?.thumbnail || null;
+    if (rawProducts.length === 0) {
+      console.warn(
+        "[ProductCache] Jubelio returned 0 products. Aborting sync.",
+      );
+      if (staleCache) {
+        console.log("[ProductCache] Falling back to stale cache.");
+        return staleCache;
+      }
+    }
 
-    return {
-      id: p.item_group_id,
-      name: p.item_name,
-      price,
-      thumbnail,
-      categoryId: p.item_category_id || null,
-      variants,
+    const now = new Date();
+
+    // Create a map of active promotion variant IDs to their promo prices
+    const activePromosMap = new Map<number, number>();
+
+    rawPromos.forEach((promo: JubelioPromotion) => {
+      // Check if promo is active based on dates
+      const startDate = new Date(promo.start_date as string);
+      const endDate = new Date(promo.end_date as string);
+
+      if (now >= startDate && now <= endDate && Array.isArray(promo.details)) {
+        promo.details.forEach((detail: JubelioPromotionDetail) => {
+          if (typeof detail.item_id === "number" && detail.promotion_price) {
+            activePromosMap.set(
+              detail.item_id,
+              parseFloat(detail.promotion_price as string),
+            );
+          }
+        });
+      }
+    });
+
+    // Note: we'll fetch full descriptions lazily when PDP is accessed, OR we could fetch them here
+    // but fetching 1200+ descriptions one-by-one would be too slow. We'll leave `description` undefined
+    // in the bulk cache and fetch it on-demand in a separate function.
+
+    const products: CachedProduct[] = rawProducts.map(
+      (p: JubelioInventoryProduct) => {
+        const basePrice = parseFloat(p.sell_price as string) || 0;
+        let isPromo = false;
+        let promoPrice = 0;
+
+        const variants = (p.variants || []).map((v: JubelioProductVariant) => {
+          let vPrice = parseFloat(v.sell_price as string) || basePrice;
+          const vStock = resolveStockValue(v.available_qty, v.end_qty);
+
+          // Check if this variant is on promotion
+          if (typeof v.item_id === "number" && activePromosMap.has(v.item_id)) {
+            isPromo = true;
+            vPrice = activePromosMap.get(v.item_id)!;
+            // Keep the lowest promo price for the base product if there are multiple variants on promo
+            if (promoPrice === 0 || vPrice < promoPrice) {
+              promoPrice = vPrice;
+            }
+          }
+
+          return {
+            id: v.item_id as number,
+            name: v.item_name as string,
+            price: vPrice,
+            sku: (v.item_code as string) || "",
+            thumbnail: (v.thumbnail as string) || null,
+            stock: vStock,
+          };
+        });
+
+        const regularPrice = basePrice || variants[0]?.price || 0;
+        const price = isPromo ? promoPrice : regularPrice;
+        const thumbnail =
+          p.thumbnail || variants.find((v) => v.thumbnail)?.thumbnail || null;
+        const baseStock = resolveStockValue(p.available_qty, p.end_qty);
+        const hasUnknownStock = variants.some((v) => v.stock == null);
+        const totalStock =
+          variants.length > 0
+            ? hasUnknownStock
+              ? null
+              : variants.reduce((sum, v) => sum + (v.stock || 0), 0)
+            : baseStock;
+        const inStock = totalStock == null ? true : totalStock > 0;
+
+        return {
+          id: p.item_group_id as number,
+          name: p.item_name as string,
+          price,
+          ...(isPromo ? { isPromo: true, originalPrice: regularPrice } : {}),
+          thumbnail: thumbnail as string | null,
+          categoryId: (p.item_category_id as number) || null,
+          totalStock,
+          inStock,
+          variants,
+        };
+      },
+    );
+
+    const cache: ProductCache = {
+      products,
+      totalCount: products.length,
+      syncedAt: new Date().toISOString(),
     };
-  });
 
-  const cache: ProductCache = {
-    products,
-    totalCount: products.length,
-    syncedAt: new Date().toISOString(),
-  };
+    ensureCacheDir();
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), "utf-8");
 
-  ensureCacheDir();
-  fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), 'utf-8');
+    const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+    console.log(
+      `[ProductCache] Synced ${products.length} products in ${elapsed}s → written to disk`,
+    );
 
-  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
-  console.log(`[ProductCache] Synced ${products.length} products in ${elapsed}s → written to disk`);
-
-  return cache;
+    return cache;
+  } catch (error) {
+    console.error(
+      "[ProductCache] Failed to sync products from Jubelio:",
+      error instanceof Error ? error.message : String(error),
+    );
+    if (staleCache) {
+      console.log(
+        "[ProductCache] Falling back to stale cache due to sync failure.",
+      );
+      return staleCache;
+    }
+    // If we have no cache and sync failed, return empty to prevent hard crashing
+    return { products: [], totalCount: 0, syncedAt: new Date().toISOString() };
+  }
 }
 
 /**
@@ -126,36 +289,178 @@ export async function getProducts(): Promise<ProductCache> {
   return syncProductsFromJubelio();
 }
 
+export function isProductInStock(product: CachedProduct): boolean {
+  if (typeof product.inStock === "boolean") return product.inStock;
+  if (typeof product.totalStock === "number") return product.totalStock > 0;
+  const hasUnknown = product.variants.some((v) => v.stock == null);
+  if (hasUnknown) return true;
+  return product.variants.some((v) => (v.stock || 0) > 0);
+}
+
 /**
- * Fetches product detail from Jubelio and returns a merged CachedProduct
- * with the full description populated. It first tries to find it in the cache,
- * then fetches the specific `/inventory/items/{id}` endpoint.
- * Note: `id` should be the variant `item_id` (e.g., 6074) for best description results.
+ * Returns a full product detail by searching the cache first (instant),
+ * then enriching with a live description fetch from Jubelio.
+ *
+ * `itemId` is the `item_group_id` used in the URL (e.g., `/products/12345`).
+ * Jubelio group detail accepts this ID and returns SKU-level gallery data.
  */
-export async function getProductDetailWithDescription(itemId: number): Promise<CachedProduct | null> {
-  // We don't cache this on disk yet, it's fetched per PDP load (handled by Next.js Data Cache)
+export async function getProductDetailWithDescription(
+  itemId: number,
+): Promise<CachedProduct | null> {
+  // Step 1: Get the product from the cache (fast — disk read or already synced)
+  const cache = await getProducts();
+
+  // Search by group ID first (this is what the URL uses)
+  let baseProduct = cache.products.find((p) => p.id === itemId);
+
+  // Fallback: search by variant item_id (in case URL ever uses variant id)
+  if (!baseProduct) {
+    baseProduct = cache.products.find((p) =>
+      p.variants.some((v) => v.id === itemId),
+    );
+  }
+
+  // If not found in cache at all, the product doesn't exist
+  if (!baseProduct) {
+    console.warn(`[ProductCache] Product ${itemId} not found in cache.`);
+    return null;
+  }
+
+  let enrichedProduct: CachedProduct = { ...baseProduct };
+
   try {
-    const itemData = await jubelio.get<any>(`/inventory/items/${itemId}`);
+    const groupData = await getInventoryItemGroup(itemId);
 
-    // We try to find the base product from cache
-    const cache = await getProducts();
-    // Since itemId here is likely the variant id (item_id), we search through variants
-    let baseProduct = cache.products.find(p => p.variants.some(v => v.id === itemId));
+    const groupThumb =
+      resolveImageUrl((groupData as Record<string, unknown>)?.thumbnail) ||
+      resolveImageUrl((groupData as Record<string, unknown>)?.image) ||
+      baseProduct.thumbnail ||
+      null;
 
-    // If we can't find it by variant ID, it might be the group ID
-    if (!baseProduct) {
-        baseProduct = cache.products.find(p => p.id === itemId);
-    }
+    const skuDetails = new Map<
+      number,
+      {
+        images: GalleryImage[];
+        stock: number | null;
+        label: string | null;
+        thumbnail: string | null;
+      }
+    >();
+    (groupData?.product_skus || []).forEach((sku: JubelioProductSku) => {
+      const skuId = parseNumber(sku.item_id);
+      if (skuId == null) return;
 
-    if (!baseProduct) return null;
+      const skuStock = resolveStockValue(sku.available_qty, sku.end_qty);
+      const variationValues = Array.isArray(sku.variation_values)
+        ? sku.variation_values
+        : [];
+      const labelParts = variationValues
+        .map((value) => resolveLabelValue(value))
+        .filter((value): value is string => Boolean(value));
+      const skuLabel =
+        labelParts.length > 0
+          ? labelParts.join(" - ")
+          : resolveLabelValue(sku.item_code);
 
-    // Create a new object to avoid mutating the cache
-    return {
+      const rawImages = Array.isArray(sku.images) ? sku.images : [];
+      const images = rawImages
+        .map((img) => {
+          const cloudKey = resolveImageUrl(
+            (img as Record<string, unknown>).cloud_key,
+          );
+          const url = resolveImageUrl((img as Record<string, unknown>).url);
+          const thumb = resolveImageUrl(
+            (img as Record<string, unknown>).thumbnail,
+          );
+          const full =
+            (cloudKey && cloudKey.startsWith("http") ? cloudKey : null) ||
+            url ||
+            cloudKey ||
+            thumb;
+          const finalThumb = thumb || full;
+          if (!full || !finalThumb) return null;
+          return { full, thumb: finalThumb };
+        })
+        .filter((img): img is GalleryImage => Boolean(img));
+
+      let skuThumbnail = resolveImageUrl(sku.thumbnail);
+      if (images.length > 0) {
+        skuThumbnail = images[0]?.thumb || images[0]?.full || skuThumbnail;
+      }
+
+      if (images.length === 0) {
+        const fallback = skuThumbnail || groupThumb;
+        if (fallback) images.push({ full: fallback, thumb: fallback });
+      }
+
+      skuDetails.set(skuId, {
+        images,
+        stock: skuStock,
+        label: skuLabel || null,
+        thumbnail: skuThumbnail || groupThumb,
+      });
+    });
+
+    const mergedVariants: CachedVariant[] = baseProduct.variants.map((v) => {
+      const detail = skuDetails.get(v.id);
+      return {
+        ...v,
+        name: detail?.label || v.name,
+        stock: detail?.stock ?? v.stock ?? null,
+        images: detail?.images?.length ? detail.images : v.images,
+        thumbnail: detail?.thumbnail || v.thumbnail,
+      };
+    });
+
+    const seen = new Set<string>();
+    const galleryImages: GalleryImage[] = [];
+    mergedVariants.forEach((v) => {
+      (v.images || []).forEach((img) => {
+        if (!seen.has(img.full)) {
+          seen.add(img.full);
+          galleryImages.push(img);
+        }
+      });
+    });
+
+    const hasUnknownStock = mergedVariants.some((v) => v.stock == null);
+    const totalStock =
+      mergedVariants.length > 0
+        ? hasUnknownStock
+          ? null
+          : mergedVariants.reduce((sum, v) => sum + (v.stock || 0), 0)
+        : baseProduct.totalStock;
+
+    enrichedProduct = {
       ...baseProduct,
-      description: itemData.description || null,
+      variants: mergedVariants,
+      totalStock,
+      inStock:
+        totalStock == null ? (baseProduct.inStock ?? true) : totalStock > 0,
+      galleryImages,
     };
   } catch (error) {
-    console.error(`[ProductCache] Error fetching detail for ${itemId}:`, error);
-    return null;
+    console.warn(
+      `[ProductCache] Could not fetch group details for product ${itemId}, showing without gallery.`,
+      error instanceof Error ? error.message : String(error),
+    );
+  }
+
+  // Step 2: Fetch the live description from Jubelio (light call, just for rich text)
+  // We use the first variant's item_id for the description lookup, which Jubelio supports
+  const variantIdForDesc = enrichedProduct.variants[0]?.id ?? itemId;
+  try {
+    const itemData = await getInventoryItemDescription(variantIdForDesc);
+    return {
+      ...enrichedProduct,
+      description: itemData?.description || null,
+    };
+  } catch (error) {
+    console.warn(
+      `[ProductCache] Could not fetch description for product ${itemId}, showing without it.`,
+      error instanceof Error ? error.message : String(error),
+    );
+    // Return the product from cache without description - better than showing 404
+    return { ...enrichedProduct, description: null };
   }
 }
